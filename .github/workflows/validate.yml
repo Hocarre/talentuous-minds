@@ -84,9 +84,8 @@ jobs:
             # Liens dans l'en-tête
             header=$(sed -n '/<nav class="nav"/,/<\/nav>/p' "$page" | grep -c 'class="nav__link"' || true)
             # Liens dans le bloc Navigation du pied de page
-            # (on cible les data-i18n des liens, pas le titre du bloc)
-            footer=$(awk '/footer.nav.title/,/<\/ul>/' "$page" \
-                     | grep -c 'data-i18n="nav\.\(home\|about\|programs\|events\|services\|team\|contact\)"' || true)
+            # On compte les <li> du bloc, sans dépendre des clés de traduction
+            footer=$(awk '/footer.nav.title/,/<\/ul>/' "$page" | grep -c '<li><a href=' || true)
 
             if [[ "$header" -ne "$EXPECTED" ]]; then
               echo "::error file=$page::En-tête : $header liens trouvés, $EXPECTED attendus"
