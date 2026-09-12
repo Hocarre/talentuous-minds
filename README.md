@@ -18,7 +18,9 @@ talentuous-minds/
 ├── events.html         # Événements : fiches détaillées + structure d'archive
 ├── services.html       # Services : data & analyse (6 services + démarche)
 ├── team.html           # Équipe : coordination, formateurs, bénévoles
-├── contact.html        # Contact : formulaire mailto + coordonnées + candidature externe
+├── apply.html          # Candidature : formulaire multi-étapes (5 étapes)
+├── contact.html        # Contact : formulaire mailto + coordonnées
+├── legal.html          # Mentions légales, confidentialité, cookies
 ├── 404.html            # Page d'erreur personnalisée
 ├── robots.txt          # Directives d'indexation
 ├── sitemap.xml         # Plan du site

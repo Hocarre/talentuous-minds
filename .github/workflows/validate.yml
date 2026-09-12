@@ -47,10 +47,13 @@ jobs:
             events.html
             services.html
             team.html
+            apply.html
             contact.html
+            legal.html
             404.html
             robots.txt
             sitemap.xml
+            serve.py
             assets/css/style.css
             assets/js/i18n.js
             assets/img/favicon.svg
@@ -73,8 +76,8 @@ jobs:
       - name: Vérifier les liens de navigation
         run: |
           set -e
-          PAGES=(index.html about.html programs.html events.html services.html team.html contact.html)
-          EXPECTED=7
+          PAGES=(index.html about.html programs.html events.html services.html team.html apply.html contact.html legal.html)
+          EXPECTED=8
           FAIL=0
 
           for page in "${PAGES[@]}"; do

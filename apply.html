@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-title-fr="Candidater — Talentuous Minds Fellowship"
+         data-title-en="Apply — Talentuous Minds Fellowship">
+    Candidater — Talentuous Minds Fellowship
+  </title>
+  <meta name="description"
+        data-desc-fr="Formulaire de candidature aux programmes de Talentuous Minds Fellowship : formations, accompagnement, mentorat."
+        data-desc-en="Application form for Talentuous Minds Fellowship programs: training, support, mentoring."
+        content="Formulaire de candidature aux programmes de Talentuous Minds Fellowship : formations, accompagnement, mentorat.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/">
+        <span class="brand__mark" aria-hidden="true">TM</span>
+        <span class="brand__text">
+          <span class="brand__name">Talentuous Minds</span>
+          <span class="brand__tag" data-i18n="brand.tag">Fellowship</span>
+        </span>
+      </a>
+
+      <nav class="nav" data-nav aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="/" data-i18n="nav.home">Accueil</a></li>
+          <li><a class="nav__link" href="/about" data-i18n="nav.about">À propos</a></li>
+          <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programmes</a></li>
+          <li><a class="nav__link" href="/events" data-i18n="nav.events">Événements</a></li>
+          <li><a class="nav__link" href="/services" data-i18n="nav.services">Services</a></li>
+          <li><a class="nav__link" href="/team" data-i18n="nav.team">Équipe</a></li>
+          <li><a class="nav__link" href="/apply" data-i18n="nav.apply">Candidater</a></li>
+          <li><a class="nav__link" href="/contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <div class="lang-switch" role="group" aria-label="Langue / Language">
+          <button type="button" data-lang-btn="fr" aria-pressed="true">FR</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+
+      <button class="nav-toggle" type="button" data-nav-toggle
+              aria-expanded="false" aria-label="Ouvrir le menu" data-i18n-aria="nav.toggle">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero" style="padding-block: 4.5rem;">
+      <div class="container">
+        <span class="eyebrow" data-i18n="apply.hero.eyebrow">Candidature</span>
+        <h1 data-i18n="apply.hero.title">Candidater à un programme</h1>
+        <p class="hero__lead" data-i18n="apply.hero.lead">
+          Remplissez ce formulaire pour postuler à nos formations, notre accompagnement
+          ou notre programme de mentorat. Nous reviendrons vers vous.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 860px;">
+
+        <!-- ============================================================
+             Indicateur de progression
+             ============================================================ -->
+        <ol class="apply-progress" id="apply-progress">
+          <li class="is-active" data-i18n="apply.step.1">Profil</li>
+          <li data-i18n="apply.step.2">Parcours</li>
+          <li data-i18n="apply.step.3">Programme</li>
+          <li data-i18n="apply.step.4">Motivation</li>
+          <li data-i18n="apply.step.5">Confirmation</li>
+        </ol>
+
+        <!-- ============================================================
+             Formulaire
+             ============================================================ -->
+        <form class="form" id="apply-form" novalidate>
+
+          <!-- ----------------------------------------------------------
+               Étape 1 — Profil
+               ---------------------------------------------------------- -->
+          <fieldset class="apply-step is-active" data-step="1">
+            <legend data-i18n="apply.s1.title">Votre profil</legend>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="a-firstname">
+                  <span data-i18n="apply.firstname">Prénom</span><span class="req" aria-hidden="true">*</span>
+                </label>
+                <input type="text" id="a-firstname" name="firstname" required autocomplete="given-name">
+              </div>
+              <div class="field">
+                <label for="a-lastname">
+                  <span data-i18n="apply.lastname">Nom</span><span class="req" aria-hidden="true">*</span>
+                </label>
+                <input type="text" id="a-lastname" name="lastname" required autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="a-email">
+                  <span data-i18n="apply.email">Adresse e-mail</span><span class="req" aria-hidden="true">*</span>
+                </label>
+                <input type="email" id="a-email" name="email" required autocomplete="email"
+                       placeholder="vous@exemple.com">
+              </div>
+              <div class="field">
+                <label for="a-phone" data-i18n="apply.phone">Téléphone / WhatsApp</label>
+                <input type="tel" id="a-phone" name="phone" autocomplete="tel"
+                       placeholder="+237 6XX XXX XXX">
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="a-country" data-i18n="apply.country">Pays</label>
+                <input type="text" id="a-country" name="country" autocomplete="country-name">
+              </div>
+              <div class="field">
+                <label for="a-city" data-i18n="apply.city">Ville</label>
+                <input type="text" id="a-city" name="city" autocomplete="address-level2">
+              </div>
+            </div>
+
+            <div class="apply-nav">
+              <span class="apply-nav__spacer"></span>
+              <button class="btn btn--primary" type="button" data-next="2" data-i18n="apply.next">Suivant</button>
+            </div>
+          </fieldset>
+
+          <!-- ----------------------------------------------------------
+               Étape 2 — Parcours
+               ---------------------------------------------------------- -->
+          <fieldset class="apply-step" data-step="2">
+            <legend data-i18n="apply.s2.title">Votre parcours</legend>
+
+            <div class="field">
+              <label for="a-status" data-i18n="apply.status">Situation actuelle</label>
+              <select id="a-status" name="status">
+                <option data-i18n="apply.status.1">Étudiant(e)</option>
+                <option data-i18n="apply.status.2">Jeune diplômé(e)</option>
+                <option data-i18n="apply.status.3">Chercheur(se)</option>
+                <option data-i18n="apply.status.4">Entrepreneur(e)</option>
+                <option data-i18n="apply.status.5">Professionnel(le)</option>
+                <option data-i18n="apply.status.6">En recherche d'emploi</option>
+                <option data-i18n="apply.status.7">Autre</option>
+              </select>
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="a-level" data-i18n="apply.level">Niveau d'études</label>
+                <select id="a-level" name="level">
+                  <option data-i18n="apply.level.1">Secondaire</option>
+                  <option data-i18n="apply.level.2">Baccalauréat</option>
+                  <option data-i18n="apply.level.3">Licence / Bachelor</option>
+                  <option data-i18n="apply.level.4">Master</option>
+                  <option data-i18n="apply.level.5">Doctorat</option>
+                  <option data-i18n="apply.level.6">Autre</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="a-field" data-i18n="apply.field">Domaine d'études ou d'activité</label>
+                <input type="text" id="a-field" name="field"
+                       placeholder="Informatique, biologie, gestion…">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="a-org" data-i18n="apply.org">Établissement ou organisation</label>
+              <input type="text" id="a-org" name="organization">
+            </div>
+
+            <div class="apply-nav">
+              <button class="btn btn--outline" type="button" data-prev="1" data-i18n="apply.prev">Précédent</button>
+              <span class="apply-nav__spacer"></span>
+              <button class="btn btn--primary" type="button" data-next="3" data-i18n="apply.next">Suivant</button>
+            </div>
+          </fieldset>
+
+          <!-- ----------------------------------------------------------
+               Étape 3 — Programme
+               ---------------------------------------------------------- -->
+          <fieldset class="apply-step" data-step="3">
+            <legend data-i18n="apply.s3.title">Le programme souhaité</legend>
+
+            <div class="field">
+              <label for="a-program" data-i18n="apply.program">Programme</label>
+              <select id="a-program" name="program">
+                <option data-i18n="apply.program.1">Informatique &amp; numérique</option>
+                <option data-i18n="apply.program.2">Recherche &amp; rédaction scientifique</option>
+                <option data-i18n="apply.program.3">Entrepreneuriat &amp; leadership</option>
+                <option data-i18n="apply.program.4">Développement personnel</option>
+                <option data-i18n="apply.program.5">Data &amp; analyse</option>
+                <option data-i18n="apply.program.6">Mentorat / accompagnement</option>
+                <option data-i18n="apply.program.7">Autre</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="a-format" data-i18n="apply.format">Format souhaité</label>
+              <select id="a-format" name="format">
+                <option data-i18n="apply.format.1">Présentiel</option>
+                <option data-i18n="apply.format.2">En ligne</option>
+                <option data-i18n="apply.format.3">Hybride</option>
+                <option data-i18n="apply.format.4">Peu importe</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="a-availability" data-i18n="apply.availability">Disponibilité</label>
+              <select id="a-availability" name="availability">
+                <option data-i18n="apply.avail.1">Journée</option>
+                <option data-i18n="apply.avail.2">Soirée</option>
+                <option data-i18n="apply.avail.3">Week-end</option>
+                <option data-i18n="apply.avail.4">Vacances scolaires</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label data-i18n="apply.needs">Besoins particuliers (facultatif)</label>
+              <div class="check-group">
+                <label class="check-item">
+                  <input type="checkbox" name="needs" value="certificate">
+                  <span data-i18n="apply.needs.1">Je souhaite recevoir un certificat</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" name="needs" value="scholarship">
+                  <span data-i18n="apply.needs.2">Je souhaite demander une prise en charge des frais</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" name="needs" value="accessibility">
+                  <span data-i18n="apply.needs.3">J'ai besoin d'aménagements particuliers</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="apply-nav">
+              <button class="btn btn--outline" type="button" data-prev="2" data-i18n="apply.prev">Précédent</button>
+              <span class="apply-nav__spacer"></span>
+              <button class="btn btn--primary" type="button" data-next="4" data-i18n="apply.next">Suivant</button>
+            </div>
+          </fieldset>
+
+          <!-- ----------------------------------------------------------
+               Étape 4 — Motivation
+               ---------------------------------------------------------- -->
+          <fieldset class="apply-step" data-step="4">
+            <legend data-i18n="apply.s4.title">Votre motivation</legend>
+
+            <div class="field">
+              <label for="a-motivation">
+                <span data-i18n="apply.motivation">Pourquoi souhaitez-vous rejoindre ce programme ?</span>
+                <span class="req" aria-hidden="true">*</span>
+              </label>
+              <textarea id="a-motivation" name="motivation" required
+                        placeholder="Décrivez votre motivation, vos objectifs…"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="a-expectations" data-i18n="apply.expectations">Qu'attendez-vous de ce programme ?</label>
+              <textarea id="a-expectations" name="expectations" style="min-height: 100px;"></textarea>
+            </div>
+
+            <div class="field">
+              <label class="check-item" style="margin-top: 0.5rem;">
+                <input type="checkbox" id="a-consent" name="consent" required>
+                <span data-i18n="apply.consent">
+                  J'accepte que mes données soient utilisées pour traiter ma candidature.
+                  Elles ne seront ni vendues ni transmises à des tiers.
+                </span>
+              </label>
+            </div>
+
+            <div class="apply-nav">
+              <button class="btn btn--outline" type="button" data-prev="3" data-i18n="apply.prev">Précédent</button>
+              <span class="apply-nav__spacer"></span>
+              <button class="btn btn--primary" type="button" data-next="5" data-i18n="apply.review">Vérifier</button>
+            </div>
+          </fieldset>
+
+          <!-- ----------------------------------------------------------
+               Étape 5 — Récapitulatif et envoi
+               ---------------------------------------------------------- -->
+          <fieldset class="apply-step" data-step="5">
+            <legend data-i18n="apply.s5.title">Vérification et envoi</legend>
+
+            <p class="lead" data-i18n="apply.s5.lead">
+              Vérifiez les informations saisies avant d'envoyer votre candidature.
+            </p>
+
+            <div class="apply-summary" id="apply-summary">
+              <!-- Rempli dynamiquement par JavaScript -->
+            </div>
+
+            <div class="notice" style="margin-top: 1.5rem;">
+              <span aria-hidden="true">ℹ️</span>
+              <span data-i18n="apply.s5.note">
+                Ce formulaire ouvre votre logiciel de messagerie avec les informations saisies.
+                Aucune donnée n'est stockée sur ce site.
+              </span>
+            </div>
+
+            <div class="apply-nav">
+              <button class="btn btn--outline" type="button" data-prev="4" data-i18n="apply.prev">Précédent</button>
+              <span class="apply-nav__spacer"></span>
+              <button class="btn btn--primary" type="submit" data-i18n="apply.submit">Envoyer ma candidature</button>
+            </div>
+          </fieldset>
+
+        </form>
+
+        <!-- ============================================================
+             Confirmation
+             ============================================================ -->
+        <div class="apply-success" id="apply-success" role="status">
+          <h3 data-i18n="apply.success.title">Candidature préparée</h3>
+          <p data-i18n="apply.success.text">
+            Votre logiciel de messagerie devrait s'ouvrir avec votre candidature pré-remplie.
+            Si ce n'est pas le cas, écrivez-nous directement à l'adresse indiquée sur la page Contact.
+          </p>
+          <div class="btn-row" style="justify-content: center; margin-top: 1rem;">
+            <a class="btn btn--primary" href="/contact" data-i18n="nav.contact">Contact</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-footer__brand">
+            <span class="brand__mark" aria-hidden="true">TM</span>
+            <span class="brand__text">
+              <span class="brand__name">Talentuous Minds</span>
+              <span class="brand__tag" data-i18n="brand.tag">Fellowship</span>
+            </span>
+          </div>
+          <p data-i18n="footer.about">
+            Talentuous Minds Fellowship est une initiative orientée vers le développement des compétences,
+            l'éducation, l'accompagnement des jeunes et la valorisation des talents.
+          </p>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <ul>
+            <li><a href="/" data-i18n="nav.home">Accueil</a></li>
+            <li><a href="/about" data-i18n="nav.about">À propos</a></li>
+            <li><a href="/programs" data-i18n="nav.programs">Programmes</a></li>
+            <li><a href="/events" data-i18n="nav.events">Événements</a></li>
+            <li><a href="/services" data-i18n="nav.services">Services</a></li>
+            <li><a href="/team" data-i18n="nav.team">Équipe</a></li>
+            <li><a href="/apply" data-i18n="nav.apply">Candidater</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer.programs.title">Programmes</h4>
+          <ul>
+            <li><a href="/programs#informatique" data-i18n="footer.programs.1">Informatique &amp; numérique</a></li>
+            <li><a href="/programs#recherche" data-i18n="footer.programs.2">Recherche &amp; sciences</a></li>
+            <li><a href="/programs#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneuriat</a></li>
+            <li><a href="/programs#developpement" data-i18n="footer.programs.4">Développement personnel</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer.contact.title">Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@talentuousminds.org">contact@talentuousminds.org</a></li>
+            <li><a href="https://web.facebook.com/talentuousMinds/" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="/legal" data-i18n="footer.legal">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">Tous droits réservés.</span></span>
+        <a href="#main" data-i18n="footer.back">Retour en haut</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Logique du formulaire multi-étapes
+       ========================================================================== -->
+  <script>
+    (function () {
+      "use strict";
+
+      var form = document.getElementById("apply-form");
+      if (!form) return;
+
+      var steps = Array.prototype.slice.call(form.querySelectorAll(".apply-step"));
+      var progressItems = Array.prototype.slice.call(
+        document.querySelectorAll("#apply-progress li")
+      );
+      var summary = document.getElementById("apply-summary");
+      var success = document.getElementById("apply-success");
+      var current = 1;
+
+      var CONTACT_EMAIL = "contact@talentuousminds.org";
+
+      /* ----------------------------------------------------------------------
+         Navigation entre les étapes
+         ---------------------------------------------------------------------- */
+      function showStep(n) {
+        current = n;
+
+        steps.forEach(function (step) {
+          step.classList.toggle("is-active", Number(step.dataset.step) === n);
+        });
+
+        progressItems.forEach(function (item, index) {
+          var num = index + 1;
+          item.classList.toggle("is-active", num === n);
+          item.classList.toggle("is-done", num < n);
+        });
+
+        if (n === 5) buildSummary();
+
+        /* Remonter en haut de la section pour la lisibilité */
+        var top = document.getElementById("apply-progress");
+        if (top) top.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      /* ----------------------------------------------------------------------
+         Validation des champs d'une étape
+         ---------------------------------------------------------------------- */
+      function validateStep(n) {
+        var step = steps[n - 1];
+        if (!step) return true;
+
+        var fields = step.querySelectorAll("input[required], textarea[required], select[required]");
+        var valid = true;
+
+        Array.prototype.forEach.call(fields, function (field) {
+          if (field.type === "checkbox" && !field.checked) {
+            valid = false;
+            field.closest(".check-item").style.borderColor = "#b3261e";
+          } else if (field.type !== "checkbox" && !field.value.trim()) {
+            valid = false;
+            field.style.borderColor = "#b3261e";
+          } else {
+            field.style.borderColor = "";
+            if (field.type === "checkbox") {
+              var item = field.closest(".check-item");
+              if (item) item.style.borderColor = "";
+            }
+          }
+        });
+
+        if (!valid) {
+          window.alert(
+            document.documentElement.lang === "en"
+              ? "Please fill in all required fields marked with *."
+              : "Merci de remplir tous les champs obligatoires marqués d'un *."
+          );
+        }
+        return valid;
+      }
+
+      /* ----------------------------------------------------------------------
+         Récapitulatif
+         ---------------------------------------------------------------------- */
+      function labelFor(id) {
+        var el = document.getElementById(id);
+        if (!el) return "";
+        if (el.tagName === "SELECT") {
+          return el.options[el.selectedIndex] ? el.options[el.selectedIndex].textContent.trim() : "";
+        }
+        return el.value.trim();
+      }
+
+      function buildSummary() {
+        if (!summary) return;
+
+        var needs = Array.prototype.slice
+          .call(form.querySelectorAll('input[name="needs"]:checked'))
+          .map(function (cb) {
+            var span = cb.parentElement.querySelector("span");
+            return span ? span.textContent.trim() : cb.value;
+          });
+
+        var rows = [
+          [document.documentElement.lang === "en" ? "Name" : "Nom",
+           (labelFor("a-firstname") + " " + labelFor("a-lastname")).trim()],
+          [document.documentElement.lang === "en" ? "Email" : "E-mail", labelFor("a-email")],
+          [document.documentElement.lang === "en" ? "Phone" : "Téléphone", labelFor("a-phone") || "—"],
+          [document.documentElement.lang === "en" ? "Location" : "Localisation",
+           [labelFor("a-city"), labelFor("a-country")].filter(Boolean).join(", ") || "—"],
+          [document.documentElement.lang === "en" ? "Status" : "Situation", labelFor("a-status")],
+          [document.documentElement.lang === "en" ? "Program" : "Programme", labelFor("a-program")],
+          [document.documentElement.lang === "en" ? "Format" : "Format", labelFor("a-format")],
+          [document.documentElement.lang === "en" ? "Availability" : "Disponibilité", labelFor("a-availability")]
+        ];
+
+        if (needs.length) {
+          rows.push([
+            document.documentElement.lang === "en" ? "Specific needs" : "Besoins particuliers",
+            needs.join(" · ")
+          ]);
+        }
+
+        var html = "<dl>";
+        rows.forEach(function (row) {
+          html += "<dt>" + escapeHtml(row[0]) + "</dt><dd>" + escapeHtml(row[1]) + "</dd>";
+        });
+        html += "</dl>";
+        summary.innerHTML = html;
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      /* ----------------------------------------------------------------------
+         Boutons Suivant / Précédent
+         ---------------------------------------------------------------------- */
+      form.addEventListener("click", function (event) {
+        var nextBtn = event.target.closest("[data-next]");
+        var prevBtn = event.target.closest("[data-prev]");
+
+        if (nextBtn) {
+          var target = Number(nextBtn.getAttribute("data-next"));
+          if (validateStep(current)) showStep(target);
+        }
+
+        if (prevBtn) {
+          showStep(Number(prevBtn.getAttribute("data-prev")));
+        }
+      });
+
+      /* ----------------------------------------------------------------------
+         Envoi : construction d'un lien mailto
+         ---------------------------------------------------------------------- */
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!validateStep(4)) {
+          showStep(4);
+          return;
+        }
+
+        var body = [
+          "CANDIDATURE — Talentuous Minds Fellowship",
+          "==========================================",
+          "",
+          "Nom complet : " + labelFor("a-firstname") + " " + labelFor("a-lastname"),
+          "E-mail      : " + labelFor("a-email"),
+          "Téléphone   : " + (labelFor("a-phone") || "—"),
+          "Pays / Ville: " + [labelFor("a-country"), labelFor("a-city")].filter(Boolean).join(", "),
+          "",
+          "-- Parcours --",
+          "Situation   : " + labelFor("a-status"),
+          "Niveau      : " + labelFor("a-level"),
+          "Domaine     : " + (labelFor("a-field") || "—"),
+          "Établissement: " + (labelFor("a-org") || "—"),
+          "",
+          "-- Programme --",
+          "Programme   : " + labelFor("a-program"),
+          "Format      : " + labelFor("a-format"),
+          "Disponibilité: " + labelFor("a-availability"),
+          "",
+          "-- Motivation --",
+          labelFor("a-motivation"),
+          "",
+          "-- Attentes --",
+          labelFor("a-expectations") || "—"
+        ].join("\n");
+
+        var subject = "Candidature — " + labelFor("a-firstname") + " " + labelFor("a-lastname")
+                    + " — " + labelFor("a-program");
+
+        var mailto = "mailto:" + CONTACT_EMAIL
+                   + "?subject=" + encodeURIComponent(subject)
+                   + "&body=" + encodeURIComponent(body);
+
+        window.location.href = mailto;
+
+        /* Afficher la confirmation */
+        form.style.display = "none";
+        var prog = document.getElementById("apply-progress");
+        if (prog) prog.style.display = "none";
+        if (success) {
+          success.classList.add("is-visible");
+          success.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      });
+
+      /* ----------------------------------------------------------------------
+         Réinitialiser les bordures d'erreur à la saisie
+         ---------------------------------------------------------------------- */
+      form.addEventListener("input", function (event) {
+        if (event.target.style) event.target.style.borderColor = "";
+      });
+
+      showStep(1);
+    })();
+  </script>
+
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>
