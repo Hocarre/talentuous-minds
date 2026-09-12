@@ -1,0 +1,609 @@
+/* ==========================================================================
+   Talentuous Minds Fellowship — Internationalisation FR / EN
+   Système léger sans dépendance : les traductions vivent dans le DOM.
+   Chaque élément traduisible porte :
+     data-i18n="clé"          -> remplace textContent
+     data-i18n-html="clé"     -> remplace innerHTML (gras, liens)
+     data-i18n-placeholder    -> remplace l'attribut placeholder
+     data-i18n-aria           -> remplace l'attribut aria-label
+   Le dictionnaire FR est le texte par défaut présent dans le HTML.
+   ========================================================================== */
+
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "tm-lang";
+  var DEFAULT_LANG = "fr";
+  var SUPPORTED = ["fr", "en"];
+
+  /* ------------------------------------------------------------------------
+     Dictionnaire de traduction
+     Clés : identiques dans toutes les pages, préfixées par page si besoin.
+     ------------------------------------------------------------------------ */
+  var I18N = {
+    en: {
+      /* --- Navigation et éléments communs --- */
+      "nav.home": "Home",
+      "nav.about": "About",
+      "nav.programs": "Programs",
+      "nav.services": "Services",
+      "nav.contact": "Contact",
+      "nav.events": "Events",
+      "nav.team": "Team",
+      "nav.cta": "Join us",
+      "nav.toggle": "Open menu",
+      "brand.tag": "Fellowship",
+      "skip": "Skip to main content",
+
+      /* --- Accueil : hero --- */
+      "home.hero.eyebrow": "Skills · Education · Talent",
+      "home.hero.title": "Building a generation of",
+      "home.hero.title.accent": "capable, autonomous talents",
+      "home.hero.lead": "Talentuous Minds Fellowship is an initiative dedicated to skills development, education, youth support and the recognition of talent. We create an environment conducive to learning, personal and professional growth, innovation and entrepreneurship.",
+      "home.hero.quote": "Building a generation of competent, autonomous talents able to contribute to the development of their community.",
+      "home.hero.panel.title": "What we do",
+      "home.hero.panel.1": "Computer and digital skills training",
+      "home.hero.panel.2": "Entrepreneurship and leadership programs",
+      "home.hero.panel.3": "Data management and analysis services",
+      "home.hero.panel.4": "Scientific writing and research support",
+      "home.hero.btn.primary": "Discover our programs",
+      "home.hero.btn.secondary": "Contact us",
+
+      /* --- Accueil : piliers --- */
+      "home.pillars.eyebrow": "Our areas of action",
+      "home.pillars.title": "Six pillars to develop talent",
+      "home.pillars.lead": "Our activities are structured around complementary areas, from digital skills to scientific research.",
+      "home.pillar.1.title": "Digital & IT training",
+      "home.pillar.1.text": "General computing, office software, collaborative tools, digital tools for studies and work, introduction to programming and data analysis.",
+      "home.pillar.2.title": "Personal development",
+      "home.pillar.2.text": "Time management, communication, public speaking, self-confidence, teamwork, project management and problem solving.",
+      "home.pillar.3.title": "Entrepreneurship & leadership",
+      "home.pillar.3.text": "Business creation, opportunity identification, project design, leadership, team management and innovation.",
+      "home.pillar.4.title": "Research & academia",
+      "home.pillar.4.text": "Research methodology, scientific writing, LaTeX, bibliographic research, statistics and thesis support.",
+      "home.pillar.5.title": "Data & analysis",
+      "home.pillar.5.text": "Data analysis, data cleaning, survey design, interview guides, data entry forms and methodological support.",
+      "home.pillar.6.title": "Mentoring",
+      "home.pillar.6.text": "Support for students, researchers and professionals in their academic and career paths.",
+
+      /* --- Accueil : approche --- */
+      "home.approach.eyebrow": "Our teaching approach",
+      "home.approach.title": "A practical, results-oriented pedagogy",
+      "home.approach.lead": "Our approach rests on four principles designed to turn knowledge into concrete skills.",
+      "home.step.1.title": "Learn",
+      "home.step.1.text": "Acquire the fundamental knowledge required.",
+      "home.step.2.title": "Practise",
+      "home.step.2.text": "Immediately apply knowledge through exercises and projects.",
+      "home.step.3.title": "Experiment",
+      "home.step.3.text": "Work on real, concrete situations.",
+      "home.step.4.title": "Transform",
+      "home.step.4.text": "Use the acquired skills to solve real problems in studies, business or the community.",
+
+      /* --- Accueil : public --- */
+      "home.audience.eyebrow": "Who is it for?",
+      "home.audience.title": "A program open to different profiles",
+      "home.audience.1.title": "Students",
+      "home.audience.1.text": "To develop digital, academic and professional skills.",
+      "home.audience.2.title": "Young graduates",
+      "home.audience.2.text": "To ease their entry into the job market and strengthen employability.",
+      "home.audience.3.title": "Researchers",
+      "home.audience.3.text": "For methodology, scientific tools, data management and writing.",
+      "home.audience.4.title": "Entrepreneurs",
+      "home.audience.4.text": "To develop entrepreneurship, leadership and project management skills.",
+      "home.audience.5.title": "Professionals",
+      "home.audience.5.text": "To strengthen skills and the ability to use digital tools.",
+      "home.audience.6.title": "Organisations",
+      "home.audience.6.text": "For data services, studies, surveys and staff training.",
+
+      /* --- Accueil : pourquoi nous rejoindre --- */
+      "home.why.eyebrow": "Why join us?",
+      "home.why.title": "What you gain with Talentuous Minds",
+      "home.why.1.title": "Develop your skills",
+      "home.why.1.text": "Acquire skills directly useful in your studies and professional life.",
+      "home.why.2.title": "Learn from experienced people",
+      "home.why.2.text": "Benefit from training and support adapted to participants' needs.",
+      "home.why.3.title": "Grow your network",
+      "home.why.3.text": "Meet other students, researchers, professionals and entrepreneurs.",
+      "home.why.4.title": "Turn your ideas into projects",
+      "home.why.4.text": "Move from an idea to a concrete project.",
+      "home.why.5.title": "Prepare for the professional world",
+      "home.why.5.text": "Develop the technical and behavioural skills organisations look for.",
+
+      /* --- Accueil : CTA --- */
+      "home.cta.title": "Ready to develop your talent?",
+      "home.cta.text": "Join our programs or contact us to discuss your training, support or data analysis needs.",
+      "home.cta.btn.primary": "Apply now",
+      "home.cta.btn.secondary": "Contact us",
+
+      /* --- À propos --- */
+      "about.hero.title": "About Talentuous Minds",
+      "about.hero.lead": "An initiative oriented towards skills development, education, youth support and the recognition of talent.",
+      "about.who.eyebrow": "Who we are",
+      "about.who.title": "An initiative for talent development",
+      "about.who.p1": "Talentuous Minds Fellowship, presented as Talentuous Minds, is an initiative oriented towards skills development, education, youth support and the recognition of talent.",
+      "about.who.p2": "Through its activities, Talentuous Minds seeks to create an environment conducive to learning, personal and professional growth, innovation and entrepreneurship.",
+      "about.who.p3": "The organisation focuses particularly on developing the practical skills that young people, students, researchers, entrepreneurs and professionals need to better meet the demands of the academic and professional world.",
+      "about.who.p4": "Its documented activities include computer training, entrepreneurship and leadership programs, as well as training and services related to data management and analysis. Public records also attest to scientific training activities, notably around scientific writing and digital tools.",
+      "about.vision.eyebrow": "Our vision",
+      "about.vision.title": "Our vision",
+      "about.vision.quote": "Building a generation of competent, autonomous talents able to contribute to the development of their community.",
+      "about.vision.p1": "The vision of Talentuous Minds rests on the idea that the sustainable development of a society depends above all on the development of its human capital.",
+      "about.vision.p2": "The organisation therefore aims to contribute to the emergence of a generation that is:",
+      "about.vision.li1": "better trained;",
+      "about.vision.li2": "more autonomous;",
+      "about.vision.li3": "able to use technology;",
+      "about.vision.li4": "able to undertake;",
+      "about.vision.li5": "able to solve problems;",
+      "about.vision.li6": "open to innovation;",
+      "about.vision.li7": "committed to its community;",
+      "about.vision.li8": "able to turn knowledge into concrete solutions.",
+      "about.vision.p3": "Talentuous Minds thus seeks to help bring forth talented minds capable of thinking, innovating and acting.",
+      "about.mission.eyebrow": "Our mission",
+      "about.mission.title": "Our mission",
+      "about.mission.quote": "Develop skills and recognise talent through training, support, mentoring, entrepreneurship, digital tools, research and knowledge management.",
+      "about.mission.p1": "Concretely, Talentuous Minds seeks to:",
+      "about.mission.li1": "offer accessible and practical training;",
+      "about.mission.li2": "strengthen young people's digital skills;",
+      "about.mission.li3": "support students and professionals;",
+      "about.mission.li4": "promote entrepreneurship;",
+      "about.mission.li5": "develop leadership skills;",
+      "about.mission.li6": "encourage research and scientific output;",
+      "about.mission.li7": "support organisations in data management and analysis;",
+      "about.mission.li8": "promote the use of technology in education and work;",
+      "about.mission.li9": "create learning and professional development opportunities.",
+      "about.values.eyebrow": "Our values",
+      "about.values.title": "The principles that guide us",
+      "about.values.lead": "Seven values shape our identity and our way of working.",
+      "about.value.1.title": "Excellence",
+      "about.value.1.text": "We encourage our members and beneficiaries to strive for excellence in their academic, professional and entrepreneurial paths.",
+      "about.value.2.title": "Integrity",
+      "about.value.2.text": "We place particular importance on honesty, responsibility and respect for ethical principles.",
+      "about.value.3.title": "Innovation",
+      "about.value.3.text": "We encourage new ideas, the use of technology and the creation of solutions adapted to the problems of our society.",
+      "about.value.4.title": "Sharing",
+      "about.value.4.text": "Knowledge gains more value when it is shared. Talentuous Minds therefore encourages the transmission of knowledge and mutual aid.",
+      "about.value.5.title": "Leadership",
+      "about.value.5.text": "We want to help train people able to take initiative, lead projects and have a positive impact on their environment.",
+      "about.value.6.title": "Commitment",
+      "about.value.6.text": "We encourage our members to actively participate in the development of their community.",
+      "about.value.7.title": "Inclusion",
+      "about.value.7.text": "We want to create learning opportunities accessible to different profiles, notably young people, students, researchers and professionals.",
+      "about.impact.eyebrow": "Our impact",
+      "about.impact.title": "Our impact",
+      "about.impact.lead": "These indicators will be published once the figures have been verified with Talentuous Minds.",
+      "about.impact.1": "People trained",
+      "about.impact.2": "Training sessions held",
+      "about.impact.3": "Cities covered",
+      "about.impact.4": "Projects supported",
+      "about.impact.5": "Entrepreneurs supported",
+      "about.impact.6": "Researchers supported",
+      "about.impact.7": "Partner organisations",
+      "about.impact.8": "Certificates issued",
+      "about.impact.pending": "To be confirmed",
+      "about.partners.eyebrow": "Our partners",
+      "about.partners.title": "Together, we can create more opportunities",
+      "about.partners.text": "We work with universities, schools, research centres, companies, NGOs, associations, public institutions and international organisations. Partner names and logos are published only after confirmation of the relationship with each organisation.",
+
+      /* --- Programmes --- */
+      "programs.hero.title": "Our programs",
+      "programs.hero.lead": "Practical training designed to develop directly useful skills in studies, work and entrepreneurship.",
+      "programs.cat1.title": "IT & digital",
+      "programs.cat1.1": "General computing",
+      "programs.cat1.2": "Office software",
+      "programs.cat1.3": "Microsoft Word",
+      "programs.cat1.4": "Microsoft Excel",
+      "programs.cat1.5": "PowerPoint",
+      "programs.cat1.6": "Collaborative tools",
+      "programs.cat1.7": "Online information research",
+      "programs.cat1.8": "Digital tools for studies",
+      "programs.cat1.9": "Professional digital tools",
+      "programs.cat1.10": "Introduction to programming",
+      "programs.cat1.11": "Data analysis tools",
+      "programs.cat1.12": "Digital communication tools",
+      "programs.cat2.title": "Research & science",
+      "programs.cat2.1": "Introduction to scientific research",
+      "programs.cat2.2": "Research methodology",
+      "programs.cat2.3": "Scientific writing",
+      "programs.cat2.4": "Bibliographic research",
+      "programs.cat2.5": "Survey design",
+      "programs.cat2.6": "Data collection",
+      "programs.cat2.7": "Data processing",
+      "programs.cat2.8": "Statistical analysis",
+      "programs.cat2.9": "Presentation of results",
+      "programs.cat2.10": "Theses and reports",
+      "programs.cat2.11": "Scientific tools",
+      "programs.cat2.12": "Support for students and researchers",
+      "programs.cat3.title": "Entrepreneurship & leadership",
+      "programs.cat3.1": "Entrepreneurship",
+      "programs.cat3.2": "Business creation",
+      "programs.cat3.3": "Opportunity identification",
+      "programs.cat3.4": "Project design",
+      "programs.cat3.5": "Leadership",
+      "programs.cat3.6": "Team management",
+      "programs.cat3.7": "Entrepreneurial communication",
+      "programs.cat3.8": "Project management",
+      "programs.cat3.9": "Innovation",
+      "programs.cat3.10": "Business idea development",
+      "programs.cat4.title": "Personal development",
+      "programs.cat4.1": "Personal development",
+      "programs.cat4.2": "Time management",
+      "programs.cat4.3": "Communication",
+      "programs.cat4.4": "Public speaking",
+      "programs.cat4.5": "Self-confidence",
+      "programs.cat4.6": "Teamwork",
+      "programs.cat4.7": "Project management",
+      "programs.cat4.8": "Problem solving",
+      "programs.cat4.9": "Academic and career guidance",
+      "programs.cat4.10": "Preparation for professional integration",
+      "programs.events.eyebrow": "Our events",
+      "programs.events.title": "Documented activities",
+      "programs.events.lead": "A selection of publicly documented activities. Each event page includes photos, description, date, venue, speakers, program and participants.",
+      "programs.event.1.title": "Computer training — holiday session",
+      "programs.event.1.meta": "Garoua, 2023",
+      "programs.event.1.text": "A special holiday computer training session held in Garoua in 2023.",
+      "programs.event.2.title": "Entrepreneurship & leadership seminar",
+      "programs.event.2.meta": "7–8 April 2023 · with certificate",
+      "programs.event.2.text": "A training seminar on entrepreneurship and leadership, delivered with a certificate.",
+      "programs.event.3.title": "Scientific Document Writing with LaTeX",
+      "programs.event.3.meta": "May 2023 · certified",
+      "programs.event.3.text": "A training course on scientific document writing using LaTeX, delivered by Talentuous Minds Fellowship.",
+      "programs.cta.title": "Interested in one of our programs?",
+      "programs.cta.text": "Contact us to find out about upcoming sessions, schedules and registration terms.",
+      "programs.cta.btn": "Request information",
+
+      /* --- Services --- */
+      "services.hero.title": "Data & analysis services",
+      "services.hero.lead": "Support for organisations, researchers and professionals in designing studies, collecting, cleaning and analysing data.",
+      "services.1.title": "Data analysis",
+      "services.1.text": "Support in organising, processing, analysing and interpreting data.",
+      "services.2.title": "Data cleaning",
+      "services.2.text": "Identification and correction of inconsistencies, duplicates, missing values or errors in databases.",
+      "services.3.title": "Survey design",
+      "services.3.text": "Design of questionnaires adapted to the objectives of a study or survey.",
+      "services.4.title": "Interview guides",
+      "services.4.text": "Development of structured guides for qualitative interviews and field studies.",
+      "services.5.title": "Data entry forms",
+      "services.5.text": "Design of tools facilitating structured data collection and entry.",
+      "services.6.title": "Methodological support",
+      "services.6.text": "Assistance in study design, data collection and preparation of datasets for analysis.",
+      "services.process.eyebrow": "How we work",
+      "services.process.title": "A structured approach",
+      "services.process.1.title": "Framing",
+      "services.process.1.text": "Clarifying objectives, research questions and expected deliverables.",
+      "services.process.2.title": "Design",
+      "services.process.2.text": "Building collection tools: questionnaires, interview guides, data entry forms.",
+      "services.process.3.title": "Collection & cleaning",
+      "services.process.3.text": "Gathering data and correcting inconsistencies, duplicates and missing values.",
+      "services.process.4.title": "Analysis & reporting",
+      "services.process.4.text": "Statistical analysis, interpretation and presentation of results.",
+      "services.cta.title": "A data project to discuss?",
+      "services.cta.text": "Describe your needs and we will get back to you with a proposal adapted to your context.",
+      "services.cta.btn": "Request a quote",
+
+      /* --- Contact --- */
+      "contact.hero.title": "Contact us",
+      "contact.hero.lead": "A question about our programs, a training request or a data project? Write to us.",
+      "contact.form.title": "Send us a message",
+      "contact.form.name": "Full name",
+      "contact.form.email": "Email address",
+      "contact.form.subject": "Subject",
+      "contact.form.subject.1": "Training information",
+      "contact.form.subject.2": "Program application",
+      "contact.form.subject.3": "Data & analysis service",
+      "contact.form.subject.4": "Partnership",
+      "contact.form.subject.5": "Other",
+      "contact.form.message": "Your message",
+      "contact.form.submit": "Send message",
+      "contact.form.note": "This form opens your email client. No data is stored on this site.",
+      "contact.info.title": "Contact details",
+      "contact.info.email": "Email",
+      "contact.info.phone": "Phone",
+      "contact.info.address": "Address",
+      "contact.info.social": "Social media",
+      "contact.info.pending": "To be completed",
+      "contact.apply.title": "Apply to a program",
+      "contact.apply.text": "Applications are handled through an external form. Click below to access it.",
+      "contact.apply.btn": "Open the application form",
+
+      /* --- Événements --- */
+      "events.hero.title": "Our events and activities",
+      "events.hero.lead": "Training sessions, seminars and support programs organised by Talentuous Minds Fellowship. This page progressively builds the organisation's digital archives.",
+      "events.filter.all": "All activities",
+      "events.filter.it": "IT",
+      "events.filter.entrepreneurship": "Entrepreneurship",
+      "events.filter.research": "Research",
+      "events.photo.pending": "Photo to be provided",
+      "events.tag.it": "IT",
+      "events.tag.entrepreneurship": "Entrepreneurship",
+      "events.tag.research": "Research",
+      "events.tag.past": "Past",
+      "events.tag.certified": "Certificate",
+      "events.meta.date": "Date",
+      "events.meta.place": "Venue",
+      "events.meta.type": "Type",
+      "events.1.title": "Computer training — holiday session",
+      "events.1.date": "2023",
+      "events.1.place": "Garoua, Cameroon",
+      "events.1.type": "Practical training",
+      "events.1.text": "A special holiday computer training session held in Garoua in 2023. This session aimed to introduce participants to basic computer tools and digital skills useful in studies and work.",
+      "events.1.note": "Details to be completed: number of participants, duration, detailed program, speakers.",
+      "events.2.title": "Training seminar on entrepreneurship and leadership",
+      "events.2.date": "7 and 8 April 2023",
+      "events.2.place": "To be completed",
+      "events.2.type": "Seminar with certificate",
+      "events.2.text": "A training seminar on entrepreneurship and leadership, held on 7 and 8 April 2023 and delivered with a certificate. This seminar is among the publicly documented activities of Talentuous Minds Fellowship.",
+      "events.2.note": "Details to be completed: speakers, two-day program, number of participants, certificate award photos.",
+      "events.3.title": "Scientific Document Writing with LaTeX",
+      "events.3.date": "May 2023",
+      "events.3.place": "To be completed",
+      "events.3.type": "Certified training",
+      "events.3.text": "A training course on scientific document writing using LaTeX, delivered by Talentuous Minds Fellowship in May 2023. A public certification mentions this activity.",
+      "events.3.note": "Details to be completed: program, number of participants, trainer, examples of documents produced.",
+      "events.schema.eyebrow": "Event page structure",
+      "events.schema.title": "What each event contains",
+      "events.schema.lead": "Each event page can include the following elements, in order to build a complete and searchable archive.",
+      "events.schema.1": "Photos",
+      "events.schema.2": "Date and venue",
+      "events.schema.3": "Speakers",
+      "events.schema.4": "Program",
+      "events.schema.5": "Participants",
+      "events.schema.6": "Certificates",
+      "events.schema.7": "Training materials",
+      "events.schema.8": "Registration link",
+      "events.upcoming.eyebrow": "Upcoming sessions",
+      "events.upcoming.title": "Upcoming events",
+      "events.upcoming.lead": "The calendar of upcoming sessions will be published as soon as it is confirmed.",
+      "events.cta.title": "Would you like to join an upcoming session?",
+      "events.cta.text": "Contact us to be informed about upcoming training sessions and seminars.",
+
+      /* --- Équipe --- */
+      "team.hero.title": "Our team",
+      "team.hero.lead": "The people who design, run and support the activities of Talentuous Minds Fellowship.",
+      "team.board.eyebrow": "Coordination",
+      "team.board.title": "Coordination and leadership",
+      "team.board.lead": "The coordination, leadership and representation roles of the organisation.",
+      "team.role.coordinator": "General coordination",
+      "team.role.coordinator.bio": "Steering activities, coordinating programs and representing the organisation.",
+      "team.role.programs": "Programs manager",
+      "team.role.programs.bio": "Designing training, planning sessions and pedagogical follow-up.",
+      "team.role.research": "Research manager",
+      "team.role.research.bio": "Scientific support, methodology and supervision of research work.",
+      "team.status.pending": "To be filled / confirmed",
+      "team.trainers.eyebrow": "Trainers",
+      "team.trainers.title": "Trainers and speakers",
+      "team.trainers.lead": "The areas of expertise mobilised during training sessions and seminars.",
+      "team.expertise.it": "IT & digital",
+      "team.expertise.it.bio": "Office software, digital tools, introduction to programming.",
+      "team.expertise.data": "Data & analysis",
+      "team.expertise.data.bio": "Data processing, cleaning and statistical analysis.",
+      "team.expertise.research": "Research & writing",
+      "team.expertise.research.bio": "Methodology, scientific writing, LaTeX, bibliography.",
+      "team.expertise.entrepreneurship": "Entrepreneurship & leadership",
+      "team.expertise.entrepreneurship.bio": "Business creation, project management, leadership.",
+      "team.members.eyebrow": "Community",
+      "team.members.title": "Members and volunteers",
+      "team.members.lead": "Talentuous Minds relies on the commitment of its members and volunteers.",
+      "team.members.1.title": "Become a volunteer",
+      "team.members.1.text": "Contribute to organising training, following up participants and the life of the association.",
+      "team.members.2.title": "Become a trainer",
+      "team.members.2.text": "Share your expertise by leading a training session or workshop.",
+      "team.members.3.title": "Become a partner",
+      "team.members.3.text": "Support the organisation's activities, materially or financially.",
+      "team.cta.title": "Want to join the team?",
+      "team.cta.text": "Whether you are a trainer, researcher, student or professional, your contribution can help develop skills and recognise talent.",
+
+      /* --- Pied de page --- */
+      "footer.about": "Talentuous Minds Fellowship is an initiative dedicated to skills development, education, youth support and the recognition of talent.",
+      "footer.nav.title": "Navigation",
+      "footer.programs.title": "Programs",
+      "footer.contact.title": "Contact",
+      "footer.programs.1": "IT & digital",
+      "footer.programs.2": "Research & science",
+      "footer.programs.3": "Entrepreneurship",
+      "footer.programs.4": "Personal development",
+      "footer.rights": "All rights reserved.",
+      "footer.legal": "Legal notice",
+      "footer.back": "Back to top"
+    }
+  };
+
+  /* ------------------------------------------------------------------------
+     Gestion de la langue
+     ------------------------------------------------------------------------ */
+  function getStoredLang() {
+    try {
+      var stored = localStorage.getItem(STORAGE_KEY);
+      if (stored && SUPPORTED.indexOf(stored) !== -1) return stored;
+    } catch (e) {
+      /* localStorage indisponible (mode privé) : on ignore */
+    }
+    return DEFAULT_LANG;
+  }
+
+  function storeLang(lang) {
+    try {
+      localStorage.setItem(STORAGE_KEY, lang);
+    } catch (e) {
+      /* silencieux */
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     Sauvegarde du texte français original (pour pouvoir y revenir)
+     ------------------------------------------------------------------------ */
+  function captureFrenchSource() {
+    var nodes = document.querySelectorAll(
+      "[data-i18n], [data-i18n-html], [data-i18n-placeholder], [data-i18n-aria]"
+    );
+    Array.prototype.forEach.call(nodes, function (node) {
+      if (node.hasAttribute("data-i18n")) {
+        node.setAttribute("data-fr-text", node.textContent);
+      }
+      if (node.hasAttribute("data-i18n-html")) {
+        node.setAttribute("data-fr-html", node.innerHTML);
+      }
+      if (node.hasAttribute("data-i18n-placeholder")) {
+        node.setAttribute("data-fr-placeholder", node.getAttribute("placeholder") || "");
+      }
+      if (node.hasAttribute("data-i18n-aria")) {
+        node.setAttribute("data-fr-aria", node.getAttribute("aria-label") || "");
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     Application d'une langue
+     ------------------------------------------------------------------------ */
+  function applyLang(lang) {
+    var dict = I18N[lang] || null;
+
+    var nodes = document.querySelectorAll(
+      "[data-i18n], [data-i18n-html], [data-i18n-placeholder], [data-i18n-aria]"
+    );
+
+    Array.prototype.forEach.call(nodes, function (node) {
+      /* Texte simple */
+      if (node.hasAttribute("data-i18n")) {
+        var keyText = node.getAttribute("data-i18n");
+        if (lang === "fr") {
+          var frText = node.getAttribute("data-fr-text");
+          if (frText !== null) node.textContent = frText;
+        } else if (dict && dict[keyText] !== undefined) {
+          node.textContent = dict[keyText];
+        }
+      }
+
+      /* HTML enrichi */
+      if (node.hasAttribute("data-i18n-html")) {
+        var keyHtml = node.getAttribute("data-i18n-html");
+        if (lang === "fr") {
+          var frHtml = node.getAttribute("data-fr-html");
+          if (frHtml !== null) node.innerHTML = frHtml;
+        } else if (dict && dict[keyHtml] !== undefined) {
+          node.innerHTML = dict[keyHtml];
+        }
+      }
+
+      /* Placeholder */
+      if (node.hasAttribute("data-i18n-placeholder")) {
+        var keyPh = node.getAttribute("data-i18n-placeholder");
+        if (lang === "fr") {
+          var frPh = node.getAttribute("data-fr-placeholder");
+          if (frPh !== null) node.setAttribute("placeholder", frPh);
+        } else if (dict && dict[keyPh] !== undefined) {
+          node.setAttribute("placeholder", dict[keyPh]);
+        }
+      }
+
+      /* aria-label */
+      if (node.hasAttribute("data-i18n-aria")) {
+        var keyAria = node.getAttribute("data-i18n-aria");
+        if (lang === "fr") {
+          var frAria = node.getAttribute("data-fr-aria");
+          if (frAria !== null) node.setAttribute("aria-label", frAria);
+        } else if (dict && dict[keyAria] !== undefined) {
+          node.setAttribute("aria-label", dict[keyAria]);
+        }
+      }
+    });
+
+    /* Attribut lang du document et titre */
+    document.documentElement.setAttribute("lang", lang);
+
+    var titleNode = document.querySelector("title");
+    if (titleNode) {
+      var titleFr = titleNode.getAttribute("data-title-fr");
+      var titleEn = titleNode.getAttribute("data-title-en");
+      if (lang === "en" && titleEn) titleNode.textContent = titleEn;
+      if (lang === "fr" && titleFr) titleNode.textContent = titleFr;
+    }
+
+    /* Description meta */
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc) {
+      var descFr = desc.getAttribute("data-desc-fr");
+      var descEn = desc.getAttribute("data-desc-en");
+      if (lang === "en" && descEn) desc.setAttribute("content", descEn);
+      if (lang === "fr" && descFr) desc.setAttribute("content", descFr);
+    }
+
+    /* État des boutons de langue */
+    var buttons = document.querySelectorAll("[data-lang-btn]");
+    Array.prototype.forEach.call(buttons, function (btn) {
+      var isActive = btn.getAttribute("data-lang-btn") === lang;
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    storeLang(lang);
+  }
+
+  /* ------------------------------------------------------------------------
+     Initialisation
+     ------------------------------------------------------------------------ */
+  function init() {
+    captureFrenchSource();
+
+    /* Boutons de bascule */
+    var buttons = document.querySelectorAll("[data-lang-btn]");
+    Array.prototype.forEach.call(buttons, function (btn) {
+      btn.addEventListener("click", function () {
+        applyLang(btn.getAttribute("data-lang-btn"));
+      });
+    });
+
+    /* Langue initiale : préférence stockée, sinon français */
+    applyLang(getStoredLang());
+
+    /* Menu mobile */
+    var toggle = document.querySelector("[data-nav-toggle]");
+    var nav = document.querySelector("[data-nav]");
+    if (toggle && nav) {
+      toggle.addEventListener("click", function () {
+        var open = nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      /* Fermer le menu après un clic sur un lien */
+      Array.prototype.forEach.call(nav.querySelectorAll("a"), function (link) {
+        link.addEventListener("click", function () {
+          nav.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    /* Année dynamique dans le pied de page */
+    var yearNodes = document.querySelectorAll("[data-current-year]");
+    Array.prototype.forEach.call(yearNodes, function (node) {
+      node.textContent = String(new Date().getFullYear());
+    });
+
+    /* Animations d'apparition au défilement */
+    var reveals = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window && reveals.length) {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+      Array.prototype.forEach.call(reveals, function (el) {
+        observer.observe(el);
+      });
+    } else {
+      Array.prototype.forEach.call(reveals, function (el) {
+        el.classList.add("is-visible");
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

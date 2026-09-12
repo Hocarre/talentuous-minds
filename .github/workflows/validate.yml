@@ -1,0 +1,194 @@
+# =============================================================================
+# Validation du site — Talentuous Minds Fellowship
+# =============================================================================
+# Ce workflow vérifie la qualité du site à chaque push et pull request.
+#
+# Il NE déploie PAS : Cloudflare Pages déploie automatiquement depuis GitHub
+# dès qu'un commit arrive sur `main` (intégration Git native).
+#
+# Ce workflow sert de garde-fou : il bloque les erreurs avant qu'elles
+# n'atteignent la production.
+# =============================================================================
+
+name: Validation du site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Vérifier le site statique
+    runs-on: ubuntu-latest
+
+    steps:
+      # -----------------------------------------------------------------------
+      # 1. Récupération du code
+      # -----------------------------------------------------------------------
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+
+      # -----------------------------------------------------------------------
+      # 2. Vérification de la présence des fichiers requis
+      # -----------------------------------------------------------------------
+      - name: Vérifier les fichiers requis
+        run: |
+          set -e
+          REQUIRED=(
+            index.html
+            about.html
+            programs.html
+            events.html
+            services.html
+            team.html
+            contact.html
+            404.html
+            robots.txt
+            sitemap.xml
+            assets/css/style.css
+            assets/js/i18n.js
+            assets/img/favicon.svg
+          )
+          MISSING=0
+          for f in "${REQUIRED[@]}"; do
+            if [[ ! -f "$f" ]]; then
+              echo "::error file=$f::Fichier requis manquant"
+              MISSING=1
+            fi
+          done
+          if [[ "$MISSING" -eq 1 ]]; then
+            exit 1
+          fi
+          echo "✓ Les ${#REQUIRED[@]} fichiers requis sont présents"
+
+      # -----------------------------------------------------------------------
+      # 3. Vérification de la cohérence de la navigation
+      # -----------------------------------------------------------------------
+      - name: Vérifier les liens de navigation
+        run: |
+          set -e
+          PAGES=(index.html about.html programs.html events.html services.html team.html contact.html)
+          EXPECTED=7
+          FAIL=0
+
+          for page in "${PAGES[@]}"; do
+            # Liens dans l'en-tête
+            header=$(sed -n '/<nav class="nav"/,/<\/nav>/p' "$page" | grep -c 'class="nav__link"' || true)
+            # Liens dans le bloc Navigation du pied de page
+            # (on cible les data-i18n des liens, pas le titre du bloc)
+            footer=$(awk '/footer.nav.title/,/<\/ul>/' "$page" \
+                     | grep -c 'data-i18n="nav\.\(home\|about\|programs\|events\|services\|team\|contact\)"' || true)
+
+            if [[ "$header" -ne "$EXPECTED" ]]; then
+              echo "::error file=$page::En-tête : $header liens trouvés, $EXPECTED attendus"
+              FAIL=1
+            fi
+            if [[ "$footer" -ne "$EXPECTED" ]]; then
+              echo "::error file=$page::Pied de page : $footer liens trouvés, $EXPECTED attendus"
+              FAIL=1
+            fi
+            echo "  $page : en-tête=$header pied=$footer"
+          done
+
+          if [[ "$FAIL" -eq 1 ]]; then
+            exit 1
+          fi
+          echo "✓ Navigation cohérente sur les ${#PAGES[@]} pages"
+
+      # -----------------------------------------------------------------------
+      # 4. Vérification des liens internes cassés
+      # -----------------------------------------------------------------------
+      - name: Vérifier les liens internes
+        run: |
+          set -e
+          FAIL=0
+          # Extraire tous les href locaux (fichiers .html) et vérifier leur existence
+          for page in *.html; do
+            while IFS= read -r target; do
+              # Ignorer les ancres pures et les liens externes
+              [[ "$target" == \#* ]] && continue
+              [[ "$target" == http* ]] && continue
+              [[ "$target" == mailto:* ]] && continue
+              # Ignorer la racine du site (servie par l'hébergeur, pas un fichier)
+              [[ "$target" == "/" ]] && continue
+              # Retirer l'ancre éventuelle
+              file="${target%%#*}"
+              [[ -z "$file" ]] && continue
+              if [[ ! -f "$file" ]]; then
+                echo "::error file=$page::Lien cassé vers '$target'"
+                FAIL=1
+              fi
+            done < <(grep -o 'href="[^"]*"' "$page" | sed 's/href="//;s/"$//' | sort -u)
+          done
+
+          if [[ "$FAIL" -eq 1 ]]; then
+            exit 1
+          fi
+          echo "✓ Aucun lien interne cassé"
+
+      # -----------------------------------------------------------------------
+      # 5. Vérification de la parité des clés de traduction FR/EN
+      # -----------------------------------------------------------------------
+      - name: Vérifier les traductions FR/EN
+        run: |
+          set -e
+          FAIL=0
+
+          # Toutes les clés utilisées dans le HTML
+          grep -rho 'data-i18n[a-z-]*="[^"]*"' --include="*.html" . \
+            | sed 's/.*="//;s/"$//' | sort -u > /tmp/keys_used.txt
+
+          # Toutes les clés définies dans le dictionnaire anglais
+          sed -n '/en: {/,/^    }/p' assets/js/i18n.js \
+            | grep -o '"[a-z0-9._]*":' | sed 's/"//g;s/:$//' | sort -u > /tmp/keys_defined.txt
+
+          # Clés utilisées mais non traduites
+          MISSING=$(comm -23 /tmp/keys_used.txt /tmp/keys_defined.txt || true)
+
+          if [[ -n "$MISSING" ]]; then
+            echo "::warning::Clés utilisées dans le HTML sans traduction anglaise :"
+            echo "$MISSING" | sed 's/^/    /'
+            # Avertissement seulement : le français reste la langue par défaut
+          fi
+
+          echo "  Clés utilisées : $(wc -l < /tmp/keys_used.txt)"
+          echo "  Clés traduites : $(wc -l < /tmp/keys_defined.txt)"
+
+          if [[ "$FAIL" -eq 1 ]]; then
+            exit 1
+          fi
+          echo "✓ Vérification des traductions terminée"
+
+      # -----------------------------------------------------------------------
+      # 6. Vérification de la validité XML du sitemap
+      # -----------------------------------------------------------------------
+      - name: Vérifier le sitemap
+        run: |
+          set -e
+          if command -v xmllint >/dev/null 2>&1; then
+            xmllint --noout sitemap.xml
+            echo "✓ sitemap.xml est un XML valide"
+          else
+            python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml'); print('✓ sitemap.xml est un XML valide')"
+          fi
+
+      # -----------------------------------------------------------------------
+      # 7. Détection des contenus non complétés
+      # -----------------------------------------------------------------------
+      - name: Signaler les contenus à compléter
+        run: |
+          COUNT=$(grep -rn "REMPLACER\|À compléter\|To be completed\|To be confirmed" \
+                  --include="*.html" --include="*.js" . 2>/dev/null | wc -l || true)
+          if [[ "$COUNT" -gt 0 ]]; then
+            echo "::notice::$COUNT emplacement(s) de contenu à compléter avant publication"
+            grep -rn "REMPLACER\|À compléter\|To be completed\|To be confirmed" \
+              --include="*.html" --include="*.js" . 2>/dev/null | sed 's/^/    /' || true
+          else
+            echo "✓ Aucun contenu marqué comme incomplet"
+          fi

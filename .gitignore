@@ -1,0 +1,13 @@
+# Dépendances de build locales (aucune n'est requise pour le site)
+
+# Le site est 100 % statique : HTML + CSS + JavaScript vanilla.
+# Aucun bundler, aucun npm install, aucune compilation.
+
+# Servir le site en local :
+#   python3 -m http.server 8000
+#   puis ouvrir http://localhost:8000
+
+# --- Réservé à d'éventuels outils de développement (non nécessaires) ---
+# node_modules/
+# .cache/
+# dist/

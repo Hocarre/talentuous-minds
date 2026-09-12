@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-title-fr="Contact — Talentuous Minds Fellowship"
+         data-title-en="Contact — Talentuous Minds Fellowship">
+    Contact — Talentuous Minds Fellowship
+  </title>
+  <meta name="description"
+        data-desc-fr="Contactez Talentuous Minds Fellowship : informations sur les formations, candidatures, services d'analyse de données et partenariats."
+        data-desc-en="Contact Talentuous Minds Fellowship: training information, applications, data analysis services and partnerships."
+        content="Contactez Talentuous Minds Fellowship : informations sur les formations, candidatures, services d'analyse de données et partenariats.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">TM</span>
+        <span class="brand__text">
+          <span class="brand__name">Talentuous Minds</span>
+          <span class="brand__tag" data-i18n="brand.tag">Fellowship</span>
+        </span>
+      </a>
+
+      <nav class="nav" data-nav aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html" data-i18n="nav.home">Accueil</a></li>
+          <li><a class="nav__link" href="about.html" data-i18n="nav.about">À propos</a></li>
+          <li><a class="nav__link" href="programs.html" data-i18n="nav.programs">Programmes</a></li>
+          <li><a class="nav__link" href="events.html" data-i18n="nav.events">Événements</a></li>
+          <li><a class="nav__link" href="services.html" data-i18n="nav.services">Services</a></li>
+          <li><a class="nav__link" href="team.html" data-i18n="nav.team">Équipe</a></li>
+          <li><a class="nav__link" href="contact.html" aria-current="page" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <div class="lang-switch" role="group" aria-label="Langue / Language">
+          <button type="button" data-lang-btn="fr" aria-pressed="true">FR</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+
+      <button class="nav-toggle" type="button" data-nav-toggle
+              aria-expanded="false" aria-label="Ouvrir le menu" data-i18n-aria="nav.toggle">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero" style="padding-block: 4.5rem;">
+      <div class="container">
+        <span class="eyebrow" data-i18n="nav.contact">Contact</span>
+        <h1 data-i18n="contact.hero.title">Nous contacter</h1>
+        <p class="hero__lead" data-i18n="contact.hero.lead">
+          Une question sur nos programmes, une demande de formation ou un projet de données ?
+          Écrivez-nous.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid--2" style="align-items: start;">
+
+          <!-- ============================================================
+               Formulaire (mailto, aucun stockage côté serveur)
+               ============================================================ -->
+          <div class="reveal">
+            <h2 data-i18n="contact.form.title">Envoyez-nous un message</h2>
+
+            <form class="form" id="contact-form" novalidate>
+              <div class="form__row">
+                <div class="field">
+                  <label for="name" data-i18n="contact.form.name">Nom complet</label>
+                  <input type="text" id="name" name="name" required autocomplete="name"
+                         placeholder="Votre nom">
+                </div>
+                <div class="field">
+                  <label for="email" data-i18n="contact.form.email">Adresse e-mail</label>
+                  <input type="email" id="email" name="email" required autocomplete="email"
+                         placeholder="vous@exemple.com">
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="subject" data-i18n="contact.form.subject">Objet</label>
+                <select id="subject" name="subject">
+                  <option data-i18n="contact.form.subject.1">Informations sur les formations</option>
+                  <option data-i18n="contact.form.subject.2">Candidature à un programme</option>
+                  <option data-i18n="contact.form.subject.3">Service data &amp; analyse</option>
+                  <option data-i18n="contact.form.subject.4">Partenariat</option>
+                  <option data-i18n="contact.form.subject.5">Autre</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="message" data-i18n="contact.form.message">Votre message</label>
+                <textarea id="message" name="message" required
+                          placeholder="Décrivez votre demande…"></textarea>
+              </div>
+
+              <div>
+                <button class="btn btn--primary" type="submit" data-i18n="contact.form.submit">
+                  Envoyer le message
+                </button>
+              </div>
+
+              <p class="form__note" data-i18n="contact.form.note">
+                Ce formulaire ouvre votre logiciel de messagerie. Aucune donnée n'est stockée sur ce site.
+              </p>
+            </form>
+          </div>
+
+          <!-- ============================================================
+               Coordonnées
+               ============================================================ -->
+          <div class="reveal">
+            <h2 data-i18n="contact.info.title">Coordonnées</h2>
+
+            <div class="card" style="margin-bottom: 1.5rem;">
+              <h3 data-i18n="contact.info.email">E-mail</h3>
+              <p><a href="mailto:contact@talentuousminds.org">contact@talentuousminds.org</a></p>
+
+              <h3 style="margin-top: 1.25rem;" data-i18n="contact.info.phone">Téléphone</h3>
+              <p class="form__note" data-i18n="contact.info.pending">À compléter</p>
+
+              <h3 style="margin-top: 1.25rem;" data-i18n="contact.info.address">Adresse</h3>
+              <p class="form__note" data-i18n="contact.info.pending">À compléter</p>
+
+              <h3 style="margin-top: 1.25rem;" data-i18n="contact.info.social">Réseaux sociaux</h3>
+              <p>
+                <a href="https://web.facebook.com/talentuousMinds/" target="_blank" rel="noopener">Facebook</a>
+              </p>
+            </div>
+
+            <div class="notice">
+              <span aria-hidden="true">ℹ️</span>
+              <span>
+                <strong>Coordonnées à confirmer.</strong>
+                Les champs marqués « À compléter » doivent être renseignés par Talentuous Minds.
+                Aucune information n'a été inventée.
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Candidature (formulaire externe)
+         ================================================================== -->
+    <section class="section section--alt" id="candidater">
+      <div class="container">
+        <div class="cta reveal">
+          <h2 data-i18n="contact.apply.title">Candidater à un programme</h2>
+          <p data-i18n="contact.apply.text">
+            Les candidatures sont traitées via un formulaire externe. Cliquez ci-dessous pour y accéder.
+          </p>
+          <div class="btn-row">
+            <!-- Remplacer le href par l'URL réelle du formulaire (Google Forms, Tally, Typeform…) -->
+            <a class="btn btn--primary"
+               href="https://forms.gle/REMPLACER-PAR-VOTRE-FORMULAIRE"
+               target="_blank" rel="noopener"
+               data-i18n="contact.apply.btn">Ouvrir le formulaire de candidature</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-footer__brand">
+            <span class="brand__mark" aria-hidden="true">TM</span>
+            <span class="brand__text">
+              <span class="brand__name">Talentuous Minds</span>
+              <span class="brand__tag" data-i18n="brand.tag">Fellowship</span>
+            </span>
+          </div>
+          <p data-i18n="footer.about">
+            Talentuous Minds Fellowship est une initiative orientée vers le développement des compétences,
+            l'éducation, l'accompagnement des jeunes et la valorisation des talents.
+          </p>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+            <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+            <li><a href="programs.html" data-i18n="nav.programs">Programmes</a></li>
+            <li><a href="events.html" data-i18n="nav.events">Événements</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="team.html" data-i18n="nav.team">Équipe</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer.programs.title">Programmes</h4>
+          <ul>
+            <li><a href="programs.html#informatique" data-i18n="footer.programs.1">Informatique &amp; numérique</a></li>
+            <li><a href="programs.html#recherche" data-i18n="footer.programs.2">Recherche &amp; sciences</a></li>
+            <li><a href="programs.html#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneuriat</a></li>
+            <li><a href="programs.html#developpement" data-i18n="footer.programs.4">Développement personnel</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer.contact.title">Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@talentuousminds.org">contact@talentuousminds.org</a></li>
+            <li><a href="https://web.facebook.com/talentuousMinds/" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">Tous droits réservés.</span></span>
+        <a href="#main" data-i18n="footer.back">Retour en haut</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Le formulaire construit un lien mailto avec les champs saisis -->
+  <script>
+    (function () {
+      "use strict";
+      var form = document.getElementById("contact-form");
+      if (!form) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var name = (document.getElementById("name").value || "").trim();
+        var email = (document.getElementById("email").value || "").trim();
+        var subjectSelect = document.getElementById("subject");
+        var subject = subjectSelect.options[subjectSelect.selectedIndex].textContent.trim();
+        var message = (document.getElementById("message").value || "").trim();
+
+        if (!name || !email || !message) {
+          window.alert("Merci de remplir tous les champs obligatoires. / Please fill in all required fields.");
+          return;
+        }
+
+        var body = "Nom / Name: " + name + "\n"
+                 + "E-mail: " + email + "\n\n"
+                 + message;
+
+        var mailto = "mailto:contact@talentuousminds.org"
+                   + "?subject=" + encodeURIComponent("[Site] " + subject)
+                   + "&body=" + encodeURIComponent(body);
+
+        window.location.href = mailto;
+      });
+    })();
+  </script>
+
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>
