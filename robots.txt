@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://talentuousminds.pages.dev/sitemap.xml
+Sitemap: https://talentuous-minds.pages.dev/sitemap.xml

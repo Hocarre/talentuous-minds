@@ -32,7 +32,7 @@ jobs:
       # 1. Récupération du code
       # -----------------------------------------------------------------------
       - name: Checkout du dépôt
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # -----------------------------------------------------------------------
       # 2. Vérification de la présence des fichiers requis
@@ -108,20 +108,36 @@ jobs:
         run: |
           set -e
           FAIL=0
-          # Extraire tous les href locaux (fichiers .html) et vérifier leur existence
+
+          # Cloudflare Pages sert les pages sans extension (/about, /programs…).
+          # Chaque lien interne doit correspondre à un fichier .html existant.
+          # Les ressources (assets/, images) sont vérifiées séparément.
           for page in *.html; do
             while IFS= read -r target; do
               # Ignorer les ancres pures et les liens externes
               [[ "$target" == \#* ]] && continue
               [[ "$target" == http* ]] && continue
               [[ "$target" == mailto:* ]] && continue
-              # Ignorer la racine du site (servie par l'hébergeur, pas un fichier)
+              # Ignorer la racine du site (servie par index.html)
               [[ "$target" == "/" ]] && continue
+              # Ignorer les ressources statiques (CSS, JS, images, favicon)
+              [[ "$target" == assets/* ]] && continue
+              [[ "$target" == *.css ]] && continue
+              [[ "$target" == *.js ]] && continue
+              [[ "$target" == *.svg ]] && continue
+              [[ "$target" == *.png ]] && continue
+              [[ "$target" == *.jpg ]] && continue
+              [[ "$target" == *.webp ]] && continue
+
               # Retirer l'ancre éventuelle
-              file="${target%%#*}"
-              [[ -z "$file" ]] && continue
-              if [[ ! -f "$file" ]]; then
-                echo "::error file=$page::Lien cassé vers '$target'"
+              clean="${target%%#*}"
+              # Retirer le slash initial
+              clean="${clean#/}"
+              [[ -z "$clean" ]] && continue
+
+              # URL propre -> fichier .html correspondant
+              if [[ ! -f "${clean}.html" ]]; then
+                echo "::error file=$page::Lien cassé vers '$target' (attendu : ${clean}.html)"
                 FAIL=1
               fi
             done < <(grep -o 'href="[^"]*"' "$page" | sed 's/href="//;s/"$//' | sort -u)

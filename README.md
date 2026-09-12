@@ -23,6 +23,7 @@ talentuous-minds/
 ├── robots.txt          # Directives d'indexation
 ├── sitemap.xml         # Plan du site
 ├── deploy.sh           # Génération du dépôt Git + instructions de déploiement
+├── serve.py            # Serveur local reproduisant les URLs propres de Cloudflare
 ├── .github/
 │   └── workflows/
 │       └── validate.yml  # CI : vérifie fichiers, navigation, liens, traductions, sitemap
@@ -36,20 +37,19 @@ talentuous-minds/
 
 ## 2. Tester en local
 
-Aucune installation requise. Deux options :
-
-**Option A — Ouvrir directement le fichier**
+Aucune installation requise. Cloudflare Pages sert les pages **sans extension**
+(`/about`, `/programs`…), ce que `python3 -m http.server` ne sait pas faire.
+Utilise donc le serveur fourni :
 
 ```bash
-xdg-open index.html    # Linux
-open index.html        # macOS
+python3 serve.py
+# puis ouvrir http://localhost:8000
 ```
 
-**Option B — Serveur local (recommandé, pour tester les chemins absolus)**
+Ou, pour un simple aperçu (les liens `.html` directs fonctionneront, mais pas les URLs propres) :
 
 ```bash
 python3 -m http.server 8000
-# puis ouvrir http://localhost:8000
 ```
 
 ---
