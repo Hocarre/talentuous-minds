@@ -36,9 +36,9 @@ class CleanURLHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self) -> None:  # noqa: N802 (nom imposé par la stdlib)
         """Résout les URLs propres vers les fichiers .html correspondants.
 
-        Exemples :
+        Cloudflare Pages sert les pages sans extension et **aplatit** les URLs :
             /about              -> about.html
-            /training/module-1  -> training-module-1.html
+            /training-module-1  -> training-module-1.html
         """
         # On ignore la query string et le fragment
         path = self.path.split("?")[0].split("#")[0]
@@ -47,20 +47,11 @@ class CleanURLHandler(http.server.SimpleHTTPRequestHandler):
         if path not in ("", "/"):
             local = Path(self.translate_path(path))
 
-            # Si la ressource n'existe pas, tenter une résolution .html
+            # Si la ressource n'existe pas, tenter avec l'extension .html
             if not local.exists():
-                clean = path.strip("/")
-
-                # Cas 1 : URL simple -> clean.html
                 candidate = Path(str(local) + ".html")
-
-                # Cas 2 : URL imbriquée -> segments joints par des tirets
-                if not candidate.exists() and "/" in clean:
-                    flat = clean.replace("/", "-")
-                    candidate = Path(str(self.translate_path("/")) + flat + ".html")
-
                 if candidate.exists():
-                    self.path = "/" + candidate.name
+                    self.path = path + ".html"
 
         super().do_GET()
 
@@ -95,7 +86,7 @@ def main() -> int:
             print(f"  URL    : http://localhost:{port}")
             print()
             print("  URLs propres actives : /about  /programs  /training  /events  /services  /team")
-            print("  Modules imbriqués    : /training/module-1 … /training/module-7")
+            print("  Pages de module      : /training-module-1 … /training-module-7")
             print("  Arrêt : Ctrl+C")
             print()
             httpd.serve_forever()

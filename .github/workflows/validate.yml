@@ -146,13 +146,8 @@ jobs:
               clean="${clean#/}"
               [[ -z "$clean" ]] && continue
 
-              # Résolution de l'URL propre vers le fichier .html correspondant :
-              #   /about              -> about.html
-              #   /training/module-1  -> training-module-1.html
+              # Cloudflare Pages aplatit les URLs : /training-module-1 -> training-module-1.html
               candidate="${clean}.html"
-              if [[ "$clean" == */* ]]; then
-                candidate="$(echo "$clean" | tr '/' '-').html"
-              fi
 
               if [[ ! -f "$candidate" ]]; then
                 echo "::error file=$page::Lien cassé vers '$target' (attendu : ${candidate})"
