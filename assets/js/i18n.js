@@ -483,6 +483,13 @@
       "apply.submit": "Send my application",
       "apply.success.title": "Application prepared",
       "apply.success.text": "Your email client should open with your application pre-filled. If not, write to us directly at the address shown on the Contact page.",
+      "apply.form.title": "Official application form",
+      "apply.form.lead": "The official form is hosted on Google Forms. Your answers reach us directly and are stored securely.",
+      "apply.form.btn": "Open the official form",
+      "apply.form.note": "The form opens in a new tab. Your data is processed in accordance with our privacy policy.",
+      "apply.local.eyebrow": "Local form",
+      "apply.local.title": "Application by email",
+      "apply.local.lead": "This form opens your email client with the information you entered. No data is stored on this site.",
 
       /* --- Mentions légales --- */
       "legal.hero.eyebrow": "Legal information",

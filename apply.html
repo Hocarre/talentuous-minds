@@ -66,6 +66,57 @@
       <div class="container" style="max-width: 860px;">
 
         <!-- ============================================================
+             Candidature via Google Form (recommandé)
+             ============================================================ -->
+        <div class="cta reveal" id="google-form">
+          <h2 data-i18n="apply.form.title">Formulaire de candidature officiel</h2>
+          <p data-i18n="apply.form.lead">
+            Le formulaire officiel est hébergé sur Google Forms. Vos réponses nous
+            parviennent directement et sont enregistrées de manière sécurisée.
+          </p>
+          <div class="btn-row">
+            <!-- Remplacer par l'URL obtenue via apps-script/CreerFormulaireCandidature.gs -->
+            <a class="btn btn--primary"
+               id="google-form-link"
+               href="https://docs.google.com/forms/d/e/REMPLACER-PAR-VOTRE-FORMULAIRE/viewform"
+               target="_blank" rel="noopener"
+               data-i18n="apply.form.btn">Ouvrir le formulaire officiel</a>
+          </div>
+          <p class="form__note" style="margin-top: 1rem; color: #c4d0e2;"
+             data-i18n="apply.form.note">
+            Le formulaire s'ouvre dans un nouvel onglet. Vos données sont traitées
+            conformément à notre politique de confidentialité.
+          </p>
+        </div>
+
+        <div class="notice reveal" style="margin-top: 2rem;">
+          <span aria-hidden="true">ℹ️</span>
+          <span>
+            <strong>Vous préférez rester sur ce site ?</strong>
+            Un formulaire local est disponible ci-dessous. Il ouvre votre logiciel
+            de messagerie avec votre candidature pré-remplie.
+            <a href="#candidature-locale">Aller au formulaire local</a>
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Formulaire local (repli)
+         ================================================================== -->
+    <section class="section section--alt" id="candidature-locale">
+      <div class="container" style="max-width: 860px;">
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="apply.local.eyebrow">Formulaire local</span>
+          <h2 data-i18n="apply.local.title">Candidature par e-mail</h2>
+          <p class="lead" data-i18n="apply.local.lead">
+            Ce formulaire ouvre votre logiciel de messagerie avec les informations
+            saisies. Aucune donnée n'est stockée sur ce site.
+          </p>
+        </div>
+
+        <!-- ============================================================
              Indicateur de progression
              ============================================================ -->
         <ol class="apply-progress" id="apply-progress">
