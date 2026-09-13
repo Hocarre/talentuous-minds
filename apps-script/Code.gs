@@ -53,7 +53,7 @@
 // =============================================================================
 
 /** Adresse qui reçoit la notification à chaque nouvelle demande. */
-var NOTIFICATION_EMAIL = 'hermannito93@gmail.com';
+var NOTIFICATION_EMAIL = 'talentsiaminds@gmail.com';
 
 /** Nom de l'onglet de la Sheet qui reçoit les données. */
 var SHEET_NAME = 'Demandes';

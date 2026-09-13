@@ -42,13 +42,14 @@ Dans la Sheet : **Extensions** → **Apps Script**
 1. Supprimer tout le contenu de l'éditeur
 2. Copier l'intégralité de `apps-script/Code.gs`
 3. Coller dans l'éditeur
-4. **Modifier la ligne 41** :
+4. **Vérifier la ligne 41** (adresse de notification) :
 
 ```javascript
-var NOTIFICATION_EMAIL = 'hermannito93@gmail.com';
+var NOTIFICATION_EMAIL = 'talentsiaminds@gmail.com';
 ```
 
-Remplacer par l'adresse qui doit recevoir les notifications.
+C'est le compte Google officiel de l'organisation. Toutes les notifications
+y arrivent, et la Google Sheet doit appartenir à ce même compte.
 
 ### Étape 4 — Déployer l'application Web
 
