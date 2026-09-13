@@ -1,20 +1,24 @@
-# Formulaire de candidature — Google Forms
+# Formulaire de candidature — Google Forms bilingue
 
-Génération automatique d'un Google Form complet pour les candidatures, avec
-Google Sheet de réponses et notifications par e-mail.
+Génération automatique d'un Google Form de candidature **bilingue
+(anglais / français)**, avec Google Sheet de réponses et notifications.
+
+> **Note** : le site est en **anglais par défaut**, avec le français en
+> traduction. Le formulaire suit la même logique : l'anglais est mis en avant.
 
 ---
 
-## 1. Pourquoi un Google Form ?
+## 1. Trois approches possibles
 
-| Avantage | Détail |
-|---|---|
-| **Aucun code à écrire** | Le script crée les 17 questions automatiquement |
-| **Sheet de réponses liée** | Chaque candidature apparaît dans un tableur |
-| **Notifications** | Un e-mail à chaque nouvelle candidature |
-| **Anti-spam intégré** | Google filtre les soumissions automatisées |
-| **Export facile** | CSV, Excel, PDF depuis la Sheet |
-| **Gratuit** | Sans limite pratique pour une association |
+Google Forms ne gère pas nativement le multilingue. Trois solutions :
+
+| Approche | Avantage | Inconvénient |
+|---|---|---|
+| **A. Un formulaire bilingue** | Un seul lien, une seule Sheet | Chargé visuellement |
+| **B. Deux formulaires séparés** | Propre pour chaque audience | Deux Sheets à suivre |
+| **C. Anglais + description FR** | Léger | Moins accessible |
+
+Le script implémente **A** par défaut. Pour **B**, exécuter `creerDeuxFormulaires()`.
 
 ---
 
@@ -24,208 +28,159 @@ Google Sheet de réponses et notifications par e-mail.
 
 1. Aller sur **<https://script.google.com>**
 2. Cliquer sur **Nouveau projet**
-3. Renommer le projet : **`Générateur formulaire candidature`**
+3. Nommer : **`Générateur formulaire candidature bilingue`**
 
 ### Étape 2 — Coller le code
 
-1. Supprimer le contenu par défaut de l'éditeur
-2. Ouvrir `apps-script/CreerFormulaireCandidature.gs`
+1. Supprimer le contenu par défaut
+2. Ouvrir `apps-script/CreerFormulaireBilingue.gs`
 3. Copier **tout** son contenu
 4. Coller dans l'éditeur
-5. `Ctrl+S` pour enregistrer
+5. `Ctrl+S`
 
 ### Étape 3 — Vérifier la configuration
 
-En haut du fichier, trois constantes :
-
 ```javascript
-var FORM_TITLE = 'Candidature — Talentuous Minds Fellowship';
 var NOTIFICATION_EMAIL = 'talentsiaminds@gmail.com';
 var CREATE_RESPONSE_SHEET = true;
 ```
 
-Ajuster `NOTIFICATION_EMAIL` si nécessaire.
-
 ### Étape 4 — Exécuter
 
-1. Dans la barre du haut, sélectionner la fonction **`creerFormulaireCandidature`**
+1. Sélectionner la fonction **`creerFormulaireBilingue`**
 2. Cliquer sur **Exécuter**
-3. Autoriser les permissions (même procédure que pour le suivi devis :
-   *Paramètres avancés* → *Accéder à…*)
+3. Autoriser les permissions (*Paramètres avancés* → *Accéder à…*)
 
 ### Étape 5 — Récupérer l'URL
 
-1. Menu **Affichage** → **Journaux d'exécution**
-2. L'URL publique du formulaire y est affichée :
+1. **Affichage** → **Journaux d'exécution**
+2. Copier l'**URL publique** :
 
 ```
 https://docs.google.com/forms/d/e/1FAIpQLS.../viewform
 ```
 
-3. **Copier cette URL**
+### Étape 6 — Activer les notifications
 
-### Étape 6 — Connecter le site
+1. Sélectionner la fonction **`installerNotificationCandidatures`**
+2. **Exécuter**
 
-Dans `apply.html`, chercher :
+### Étape 7 — Connecter le site
 
-```html
-href="https://docs.google.com/forms/d/e/REMPLACER-PAR-VOTRE-FORMULAIRE/viewform"
-```
-
-Remplacer par l'URL copiée.
+Dans `apply.html`, remplacer l'attribut `href` du bouton
+`id="google-form-link"` par l'URL copiée.
 
 ---
 
-## 3. Activer les notifications par e-mail
+## 3. Structure du formulaire bilingue
 
-Le formulaire fonctionne sans cette étape, mais vous ne serez pas prévenu
-des nouvelles candidatures.
+Chaque question affiche les deux langues : `English / Français`.
 
-1. Dans l'éditeur Apps Script, sélectionner la fonction
-   **`installerNotificationCandidatures`**
-2. Cliquer sur **Exécuter**
-3. Vérifier dans le journal : `✓ Notification installée`
+### Section 1 — Profile / Profil
 
-Un déclencheur est créé : à chaque soumission, `onCandidatureSoumise` s'exécute
-et envoie un e-mail formaté à `NOTIFICATION_EMAIL`.
+| Question | Type | Obligatoire |
+|---|---|---|
+| First name / Prénom | Texte | Oui |
+| Last name / Nom | Texte | Oui |
+| Email address / Adresse e-mail | Texte (validé) | Oui |
+| Phone / WhatsApp | Texte | Non |
+| Country / Pays | Texte | Non |
+| City / Ville | Texte | Non |
+
+### Section 2 — Background / Parcours
+
+| Question | Type | Obligatoire |
+|---|---|---|
+| Current situation / Situation actuelle | Choix unique (7 options bilingues) | Oui |
+| Education level / Niveau d'études | Choix unique (6 options) | Non |
+| Field of study / Domaine d'études | Texte | Non |
+| Institution / Établissement | Texte | Non |
+
+### Section 3 — Program / Programme
+
+| Question | Type | Obligatoire |
+|---|---|---|
+| Program / Programme | Choix unique (8 options) | Oui |
+| Preferred format / Format souhaité | Choix unique (4 options) | Non |
+| Availability / Disponibilité | Choix unique (4 options) | Non |
+| Specific needs / Besoins particuliers | Cases à cocher (3 options) | Non |
+
+### Section 4 — Motivation
+
+| Question | Type | Obligatoire |
+|---|---|---|
+| Why do you want to join? / Pourquoi ? | Paragraphe | Oui |
+| What do you expect? / Qu'attendez-vous ? | Paragraphe | Non |
+| How did you hear about us? / Comment ? | Paragraphe | Non |
+
+### Section 5 — Consent / Consentement
+
+| Question | Type | Obligatoire |
+|---|---|---|
+| Use of your data / Utilisation des données | Case à cocher | Oui |
 
 ---
 
-## 4. Structure du formulaire créé
+## 4. Variante : deux formulaires séparés
 
-### Section 1 — Profil (6 questions)
+Si vous préférez un formulaire propre par langue :
 
-| Question | Type | Obligatoire |
-|---|---|---|
-| Prénom | Texte | Oui |
-| Nom | Texte | Oui |
-| Adresse e-mail | Texte (validé e-mail) | Oui |
-| Téléphone / WhatsApp | Texte | Non |
-| Pays | Texte | Non |
-| Ville | Texte | Non |
+1. Exécuter la fonction **`creerDeuxFormulaires`**
+2. Deux formulaires sont créés :
+   - `Application — Talentuous Minds Fellowship` (anglais)
+   - `Candidature — Talentuous Minds Fellowship` (français)
+3. Chacun a sa propre Sheet de réponses
+4. Coller l'URL anglaise dans `apply.html`
+5. Pour l'URL française, modifier la clé `apply.form.btn` dans `i18n.js`
 
-### Section 2 — Parcours (4 questions)
-
-| Question | Type | Obligatoire |
-|---|---|---|
-| Situation actuelle | Choix unique (7 options) | Oui |
-| Niveau d'études | Choix unique (6 options) | Non |
-| Domaine d'études ou d'activité | Texte | Non |
-| Établissement ou organisation | Texte | Non |
-
-### Section 3 — Programme souhaité (4 questions)
-
-| Question | Type | Obligatoire |
-|---|---|---|
-| Programme | Choix unique (8 options, dont Drug Discovery) | Oui |
-| Format souhaité | Choix unique (4 options) | Non |
-| Disponibilité | Choix unique (4 options) | Non |
-| Besoins particuliers | Cases à cocher (3 options) | Non |
-
-### Section 4 — Motivation (3 questions)
-
-| Question | Type | Obligatoire |
-|---|---|---|
-| Pourquoi rejoindre ce programme ? | Paragraphe | Oui |
-| Qu'attendez-vous de ce programme ? | Paragraphe | Non |
-| Comment avez-vous connu Talentuous Minds ? | Paragraphe | Non |
-
-### Section 5 — Consentement (1 question)
-
-| Question | Type | Obligatoire |
-|---|---|---|
-| Utilisation des données | Case à cocher | Oui |
-
-**Total : 18 questions, 5 sections, barre de progression activée.**
+**Inconvénient** : deux Sheets à suivre séparément.
 
 ---
 
-## 5. Personnalisation
+## 5. Fonctions disponibles
 
-### Modifier le thème
-
-1. Ouvrir le formulaire (URL d'édition, dans les journaux)
-2. Cliquer sur l'icône **palette** en haut à droite
-3. Choisir la couleur d'en-tête (suggéré : bleu marine `#0f2547`)
-4. Ajouter une image d'en-tête si disponible
-
-### Ajouter une question
-
-1. Ouvrir le formulaire en édition
-2. Cliquer sur le **+** à droite de la section
-3. Choisir le type de question
-
-### Modifier les options d'un choix
-
-1. Ouvrir le formulaire en édition
-2. Cliquer sur la question
-3. Modifier les options directement
+| Fonction | Rôle |
+|---|---|
+| `creerFormulaireBilingue()` | Crée le formulaire bilingue |
+| `creerDeuxFormulaires()` | Crée deux formulaires (EN + FR) |
+| `afficherUrlsFormulaires()` | Réaffiche les URL existantes |
+| `installerNotificationCandidatures()` | Active les notifications |
+| `onCandidatureSoumise(e)` | Appelée automatiquement (ne pas exécuter) |
 
 ---
 
 ## 6. Suivi des candidatures
 
-La Sheet de réponses contient une ligne par candidature, avec l'horodatage.
+La Sheet de réponses contient une ligne par candidature.
 
 ### Ajouter une colonne de suivi
 
-1. Dans la Sheet, ajouter une colonne **Statut** (colonne AQ ou suivante)
-2. Utiliser des valeurs cohérentes :
+Ajouter une colonne **Status / Statut** avec des valeurs cohérentes :
 
 | Statut | Signification |
 |---|---|
-| `Nouveau` | Candidature reçue, non traitée |
-| `En cours` | En cours d'examen |
-| `Entretien` | Entretien programmé |
-| `Accepté` | Candidature acceptée |
-| `Refusé` | Candidature refusée |
-| `Liste d'attente` | En attente de place |
-
-### Filtrer les candidatures
-
-1. Sélectionner la ligne d'en-tête
-2. **Données** → **Créer un filtre**
-3. Filtrer par programme, statut, date…
-
-### Exporter
-
-**Fichier** → **Télécharger** → CSV / Excel / PDF
+| `New` / `Nouveau` | Candidature reçue |
+| `In review` / `En cours` | En cours d'examen |
+| `Interview` / `Entretien` | Entretien programmé |
+| `Accepted` / `Accepté` | Candidature acceptée |
+| `Rejected` / `Refusé` | Candidature refusée |
+| `Waiting list` / `Liste d'attente` | En attente de place |
 
 ---
 
-## 7. Différences avec le formulaire local du site
-
-Le site propose **deux parcours de candidature** :
-
-| | Google Form | Formulaire local |
-|---|---|---|
-| **Accès** | Bouton principal sur `/apply` | Section « Formulaire local » |
-| **Stockage** | Google Sheet | Aucun (envoi par e-mail) |
-| **Notification** | Automatique | Manuelle (vous lisez l'e-mail) |
-| **Suivi** | Tableur avec statuts | Boîte e-mail |
-| **Expérience** | Quitte le site | Reste sur le site |
-| **RGPD** | Google sous-traitant | Aucun tiers |
-
-**Recommandation** : utiliser le Google Form comme parcours principal
-(meilleur suivi), et garder le formulaire local comme alternative pour les
-visiteurs qui préfèrent ne pas quitter le site.
-
----
-
-## 8. RGPD
+## 7. RGPD
 
 Le Google Form stocke les candidatures chez **Google LLC**. Cela implique :
 
 1. **Mentionner Google** comme sous-traitant dans `/legal`
-   → **déjà fait** dans la section « Sous-traitants »
-2. **Informer** les candidats du traitement de leurs données
-   → **déjà fait** dans la section 5 du formulaire (consentement)
+   → **déjà fait**
+2. **Informer** les candidats du traitement
+   → **déjà fait** (section 5 du formulaire)
 3. **Prévoir la suppression** des candidatures non retenues
-   → à faire manuellement dans la Sheet
 
 ### Durée de conservation recommandée
 
-| Type | Durée suggérée |
+| Type | Durée |
 |---|---|
 | Candidature acceptée | Durée du programme + 1 an |
 | Candidature refusée | 6 mois, puis suppression |
@@ -233,23 +188,28 @@ Le Google Form stocke les candidatures chez **Google LLC**. Cela implique :
 
 ---
 
-## 9. Dépannage
+## 8. Dépannage
 
 | Problème | Cause | Solution |
 |---|---|---|
-| « Formulaire introuvable » | Script exécuté avant création | Lancer `creerFormulaireCandidature` d'abord |
+| « Aucun formulaire trouvé » | Script exécuté avant création | Lancer `creerFormulaireBilingue` d'abord |
 | Pas d'e-mail de notification | Déclencheur non installé | Lancer `installerNotificationCandidatures` |
-| L'URL ne fonctionne pas sur le site | URL d'édition au lieu de publique | Utiliser l'URL `/viewform`, pas `/edit` |
-| Doublons de notification | Déclencheurs multiples | Le script les supprime automatiquement |
-| Le formulaire demande une connexion | Paramètre de partage | Formulaire → Réponses → ne pas restreindre |
+| L'URL ne fonctionne pas | URL d'édition au lieu de publique | Utiliser `/viewform`, pas `/edit` |
+| Le formulaire demande une connexion | Restriction de partage | Formulaire → Réponses → ne pas restreindre |
 
 ---
 
-## 10. Fonctions disponibles
+## 9. Comparaison avec le formulaire local du site
 
-| Fonction | Rôle |
-|---|---|
-| `creerFormulaireCandidature()` | Crée le formulaire complet |
-| `afficherUrlsFormulaire()` | Réaffiche les URL (si perdues) |
-| `installerNotificationCandidatures()` | Active les notifications e-mail |
-| `onCandidatureSoumise(e)` | Appelée automatiquement (ne pas exécuter) |
+| | Google Form | Formulaire local |
+|---|---|---|
+| Accès | Bouton principal sur `/apply` | Section « Local form » |
+| Langues | Bilingue dans un formulaire | Bascule EN/FR native |
+| Stockage | Google Sheet | Aucun (e-mail) |
+| Suivi | Tableur avec statuts | Boîte e-mail |
+| Expérience | Quitte le site | Reste sur le site |
+| RGPD | Google sous-traitant | Aucun tiers |
+
+**Recommandation** : Google Form comme parcours principal (meilleur suivi),
+formulaire local comme alternative.
+
