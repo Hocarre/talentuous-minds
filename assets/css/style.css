@@ -817,6 +817,142 @@ blockquote {
 }
 
 /* --------------------------------------------------------------------------
+   11d. Formations Drug Discovery
+   -------------------------------------------------------------------------- */
+.module {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.module:last-of-type { border-bottom: 0; }
+
+.module__num {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--navy-800), var(--navy-600));
+  color: var(--gold-400);
+  font-size: 1.05rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.module__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.module__head h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.module__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.module__meta li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0;
+}
+
+.module__meta strong {
+  color: var(--navy-800);
+  font-weight: 700;
+}
+
+.module__topics {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.module__topics li { margin-bottom: 0.25rem; }
+
+/* Badge de niveau */
+.level-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.level-badge--intro { background: #e6f4ea; color: #1e6b3a; }
+.level-badge--inter { background: #fff3e0; color: #8a5000; }
+.level-badge--adv   { background: #fde8e8; color: #9b1c1c; }
+
+/* Badge de prix */
+.price-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.price-badge--free { background: var(--gold-100); color: #7a5f00; }
+.price-badge--paid { background: var(--navy-100); color: var(--navy-700); }
+
+/* Tableau des prérequis techniques */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: var(--space-sm);
+}
+
+.spec-table th,
+.spec-table td {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-table th {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  background: var(--surface-alt);
+}
+
+.spec-table td { color: var(--ink-soft); }
+
+.spec-table tr:last-child td { border-bottom: 0; }
+
+@media (max-width: 620px) {
+  .module { grid-template-columns: 1fr; gap: var(--space-sm); }
+  .spec-table { font-size: 0.82rem; }
+  .spec-table th, .spec-table td { padding: 0.55rem 0.5rem; }
+}
+
+/* --------------------------------------------------------------------------
    12. Section CTA
    -------------------------------------------------------------------------- */
 .cta {

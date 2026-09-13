@@ -15,6 +15,7 @@ talentuous-minds/
 ├── index.html          # Accueil : hero, 6 pôles, approche, public cible, CTA
 ├── about.html          # À propos : qui sommes-nous, vision, mission, valeurs, impact, partenaires
 ├── programs.html       # Programmes : 4 pôles de formation + événements documentés
+├── training.html       # Formations Drug Discovery : 7 modules spécialisés
 ├── events.html         # Événements : fiches détaillées + structure d'archive
 ├── services.html       # Services : data & analyse (6 services + démarche)
 ├── team.html           # Équipe : coordination, formateurs, bénévoles

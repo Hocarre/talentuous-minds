@@ -44,6 +44,7 @@ jobs:
             index.html
             about.html
             programs.html
+            training.html
             events.html
             services.html
             team.html
@@ -76,8 +77,8 @@ jobs:
       - name: Vérifier les liens de navigation
         run: |
           set -e
-          PAGES=(index.html about.html programs.html events.html services.html team.html apply.html contact.html legal.html)
-          EXPECTED=8
+          PAGES=(index.html about.html programs.html training.html events.html services.html team.html apply.html contact.html legal.html)
+          EXPECTED=9
           FAIL=0
 
           for page in "${PAGES[@]}"; do
