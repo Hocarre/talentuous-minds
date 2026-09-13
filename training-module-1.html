@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-title-fr="Module 1 — Docking moléculaire | Talentuous Minds Fellowship"
+         data-title-en="Module 1 — Molecular docking | Talentuous Minds Fellowship">
+    Module 1 — Docking moléculaire | Talentuous Minds Fellowship
+  </title>
+  <meta name="description"
+        data-desc-fr="Formation docking moléculaire : AutoDock Vina, préparation PDBQT, grille de recherche, validation par redocking. Programme détaillé sur 2 jours."
+        data-desc-en="Molecular docking training: AutoDock Vina, PDBQT preparation, search grid, redocking validation. Detailed 2-day program."
+        content="Formation docking moléculaire : AutoDock Vina, préparation PDBQT, grille de recherche, validation par redocking. Programme détaillé sur 2 jours.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/">
+        <span class="brand__mark" aria-hidden="true">TM</span>
+        <span class="brand__text">
+          <span class="brand__name">Talentuous Minds</span>
+          <span class="brand__tag" data-i18n="brand.tag">Fellowship</span>
+        </span>
+      </a>
+
+      <nav class="nav" data-nav aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="/" data-i18n="nav.home">Accueil</a></li>
+          <li><a class="nav__link" href="/about" data-i18n="nav.about">À propos</a></li>
+          <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programmes</a></li>
+          <li><a class="nav__link" href="/training" data-i18n="nav.training">Drug Discovery</a></li>
+          <li><a class="nav__link" href="/events" data-i18n="nav.events">Événements</a></li>
+          <li><a class="nav__link" href="/services" data-i18n="nav.services">Services</a></li>
+          <li><a class="nav__link" href="/team" data-i18n="nav.team">Équipe</a></li>
+          <li><a class="nav__link" href="/apply" data-i18n="nav.apply">Candidater</a></li>
+          <li><a class="nav__link" href="/contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <div class="lang-switch" role="group" aria-label="Langue / Language">
+          <button type="button" data-lang-btn="fr" aria-pressed="true">FR</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+
+      <button class="nav-toggle" type="button" data-nav-toggle
+              aria-expanded="false" aria-label="Ouvrir le menu" data-i18n-aria="nav.toggle">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="module-hero">
+      <div class="container">
+        <span class="eyebrow" data-i18n="mod.nav.back">Module 01 / 07</span>
+        <h1 data-i18n="training.m1.title">Docking moléculaire</h1>
+        <p class="hero__lead" data-i18n="training.m1.text">
+          Principe du docking, préparation du récepteur et du ligand, définition de la grille
+          de recherche, paramétrage d'AutoDock Vina et interprétation des scores d'affinité.
+        </p>
+        <dl class="module-hero__meta">
+          <div>
+            <dt data-i18n="training.meta.duration">Durée</dt>
+            <dd data-i18n="training.m1.dur">2 jours (14 h)</dd>
+          </div>
+          <div>
+            <dt data-i18n="mod.level">Niveau</dt>
+            <dd data-i18n="training.level.intro">Débutant</dd>
+          </div>
+          <div>
+            <dt data-i18n="mod.price">Tarif</dt>
+            <dd data-i18n="mod.price.quote">Sur devis</dd>
+          </div>
+          <div>
+            <dt data-i18n="mod.format">Format</dt>
+            <dd data-i18n="training.format.hybrid">Présentiel ou en ligne</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 900px;">
+
+        <div class="notice reveal" style="margin-bottom: 2.5rem;">
+          <span aria-hidden="true">⚠️</span>
+          <span>
+            <strong>Programme indicatif.</strong>
+            Le déroulé ci-dessous décrit le contenu prévu. Les horaires peuvent être ajustés
+            selon le rythme du groupe. Aucune date de session n'est encore fixée.
+          </span>
+        </div>
+
+        <!-- Objectifs -->
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="mod.objectives.eyebrow">Objectifs pédagogiques</span>
+          <h2 data-i18n="mod.objectives.title">À l'issue de ce module, vous saurez</h2>
+        </div>
+
+        <ul class="objectives reveal">
+          <li data-i18n="mod.m1.o1">Expliquer le principe du docking et les limites des fonctions de score</li>
+          <li data-i18n="mod.m1.o2">Préparer un récepteur et un ligand au format PDBQT</li>
+          <li data-i18n="mod.m1.o3">Choisir un site actif et définir une grille de recherche pertinente</li>
+          <li data-i18n="mod.m1.o4">Paramétrer AutoDock Vina selon la question biologique</li>
+          <li data-i18n="mod.m1.o5">Valider un protocole par redocking et interpréter le RMSD</li>
+        </ul>
+
+        <!-- Programme jour 1 -->
+        <h2 class="reveal" style="margin-top: 3rem;" data-i18n="mod.day1">Jour 1 — Fondements et préparation</h2>
+
+        <table class="schedule reveal">
+          <caption data-i18n="mod.schedule.caption">Programme détaillé — Jour 1</caption>
+          <thead>
+            <tr>
+              <th data-i18n="mod.col.time">Horaire</th>
+              <th data-i18n="mod.col.topic">Contenu</th>
+              <th data-i18n="mod.col.type">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>09:00 – 09:30</td><td data-i18n="mod.m1.d1s1">Accueil, présentation des participants et des objectifs</td><td data-i18n="mod.type.intro">Introduction</td></tr>
+            <tr><td>09:30 – 10:45</td><td data-i18n="mod.m1.d1s2">Théorie : interactions protéine-ligand (hydrogène, hydrophobe, électrostatique, π-stacking)</td><td data-i18n="mod.type.theory">Théorie</td></tr>
+            <tr class="schedule__break"><td>10:45 – 11:00</td><td colspan="2" data-i18n="mod.break">Pause</td></tr>
+            <tr><td>11:00 – 12:30</td><td data-i18n="mod.m1.d1s3">Fonctions de score : principes, forces et limites. Pourquoi le score n'est pas une énergie libre</td><td data-i18n="mod.type.theory">Théorie</td></tr>
+            <tr class="schedule__break"><td>12:30 – 14:00</td><td colspan="2" data-i18n="mod.lunch">Déjeuner</td></tr>
+            <tr><td>14:00 – 15:30</td><td data-i18n="mod.m1.d1s4">Préparation du récepteur : nettoyage PDB, ajout d'hydrogènes, gestion des eaux et cofacteurs</td><td data-i18n="mod.type.practice">Travaux pratiques</td></tr>
+            <tr class="schedule__break"><td>15:30 – 15:45</td><td colspan="2" data-i18n="mod.break">Pause</td></tr>
+            <tr><td>15:45 – 17:15</td><td data-i18n="mod.m1.d1s5">Conversion PDB → PDBQT avec AutoDockTools et MGLTools. Préparation du ligand</td><td data-i18n="mod.type.practice">Travaux pratiques</td></tr>
+            <tr><td>17:15 – 17:45</td><td data-i18n="mod.m1.d1s6">Synthèse de la journée et questions</td><td data-i18n="mod.type.wrap">Synthèse</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Programme jour 2 -->
+        <h2 class="reveal" style="margin-top: 3rem;" data-i18n="mod.day2">Jour 2 — Grille, docking et validation</h2>
+
+        <table class="schedule reveal">
+          <caption data-i18n="mod.schedule.caption2">Programme détaillé — Jour 2</caption>
+          <thead>
+            <tr>
+              <th data-i18n="mod.col.time">Horaire</th>
+              <th data-i18n="mod.col.topic">Contenu</th>
+              <th data-i18n="mod.col.type">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>09:00 – 10:00</td><td data-i18n="mod.m1.d2s1">Retour sur le jour 1. Identification du site actif : structures expérimentales, prédiction, littérature</td><td data-i18n="mod.type.theory">Théorie</td></tr>
+            <tr><td>10:00 – 10:45</td><td data-i18n="mod.m1.d2s2">Définition de la grille de recherche : centre, dimensions, cas des sites allostériques</td><td data-i18n="mod.type.theory">Théorie</td></tr>
+            <tr class="schedule__break"><td>10:45 – 11:00</td><td colspan="2" data-i18n="mod.break">Pause</td></tr>
+            <tr><td>11:00 – 12:30</td><td data-i18n="mod.m1.d2s3">Paramétrage Vina : exhaustiveness, num_modes, energy_range. Effet sur le temps de calcul et les résultats</td><td data-i18n="mod.type.practice">Travaux pratiques</td></tr>
+            <tr class="schedule__break"><td>12:30 – 14:00</td><td colspan="2" data-i18n="mod.lunch">Déjeuner</td></tr>
+            <tr><td>14:00 – 15:30</td><td data-i18n="mod.m1.d2s4">Lancement du docking. Lecture du fichier de sortie et des scores d'affinité</td><td data-i18n="mod.type.practice">Travaux pratiques</td></tr>
+            <tr class="schedule__break"><td>15:30 – 15:45</td><td colspan="2" data-i18n="mod.break">Pause</td></tr>
+            <tr><td>15:45 – 16:45</td><td data-i18n="mod.m1.d2s5">Validation par redocking : calcul du RMSD entre pose prédite et pose cristallographique</td><td data-i18n="mod.type.practice">Travaux pratiques</td></tr>
+            <tr><td>16:45 – 17:30</td><td data-i18n="mod.m1.d2s6">Interprétation des résultats, pièges courants, évaluation finale et clôture</td><td data-i18n="mod.type.wrap">Synthèse</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Prérequis et matériel -->
+        <div class="grid grid--2" style="margin-top: 3rem;">
+          <div class="card reveal">
+            <h3 data-i18n="mod.prereq.title">Prérequis</h3>
+            <ul style="margin: 0; color: var(--ink-soft); font-size: 0.93rem;">
+              <li data-i18n="training.m1.prereq">Biochimie de base, ligne de commande</li>
+              <li data-i18n="mod.m1.prereq2">Notions de structure des protéines</li>
+              <li data-i18n="mod.m1.prereq3">Aucune expérience en programmation requise</li>
+            </ul>
+          </div>
+
+          <div class="card reveal">
+            <h3 data-i18n="mod.material.title">Matériel nécessaire</h3>
+            <ul style="margin: 0; color: var(--ink-soft); font-size: 0.93rem;">
+              <li data-i18n="mod.material.1">Ordinateur avec 8 Go de RAM minimum</li>
+              <li data-i18n="mod.material.2">Linux, macOS ou Windows 10+</li>
+              <li data-i18n="mod.material.3">20 Go d'espace disque libre</li>
+              <li data-i18n="mod.material.4">Logiciels fournis : AutoDock Vina, MGLTools, PyMOL</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation entre modules -->
+        <nav class="module-nav" aria-label="Navigation entre les modules">
+          <a class="btn btn--outline" href="/training" data-i18n="mod.nav.all">Tous les modules</a>
+          <a class="btn btn--primary" href="/training/module-2" data-i18n="mod.nav.next">Module suivant : Criblage virtuel →</a>
+        </nav>
+
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="cta reveal">
+          <h2 data-i18n="mod.cta.title">Intéressé par ce module ?</h2>
+          <p data-i18n="mod.cta.text">
+            Précisez votre statut et votre niveau. Nous vous répondrons avec les modalités
+            et un devis adapté.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="/apply" data-i18n="mod.cta.btn">Demander le programme</a>
+            <a class="btn btn--ghost-light" href="/contact" data-i18n="nav.contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-footer__brand">
+            <span class="brand__mark" aria-hidden="true">TM</span>
+            <span class="brand__text">
+              <span class="brand__name">Talentuous Minds</span>
+              <span class="brand__tag" data-i18n="brand.tag">Fellowship</span>
+            </span>
+          </div>
+          <p data-i18n="footer.about">
+            Talentuous Minds Fellowship est une initiative orientée vers le développement des compétences,
+            l'éducation, l'accompagnement des jeunes et la valorisation des talents.
+          </p>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <ul>
+            <li><a href="/" data-i18n="nav.home">Accueil</a></li>
+            <li><a href="/about" data-i18n="nav.about">À propos</a></li>
+            <li><a href="/programs" data-i18n="nav.programs">Programmes</a></li>
+            <li><a href="/training" data-i18n="nav.training">Drug Discovery</a></li>
+            <li><a href="/events" data-i18n="nav.events">Événements</a></li>
+            <li><a href="/services" data-i18n="nav.services">Services</a></li>
+            <li><a href="/team" data-i18n="nav.team">Équipe</a></li>
+            <li><a href="/apply" data-i18n="nav.apply">Candidater</a></li>
+            <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer.programs.title">Programmes</h4>
+          <ul>
+            <li><a href="/programs#informatique" data-i18n="footer.programs.1">Informatique &amp; numérique</a></li>
+            <li><a href="/programs#recherche" data-i18n="footer.programs.2">Recherche &amp; sciences</a></li>
+            <li><a href="/programs#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneuriat</a></li>
+            <li><a href="/programs#developpement" data-i18n="footer.programs.4">Développement personnel</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 data-i18n="footer.contact.title">Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@talentuousminds.org">contact@talentuousminds.org</a></li>
+            <li><a href="https://web.facebook.com/talentuousMinds/" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="/legal" data-i18n="footer.legal">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">Tous droits réservés.</span></span>
+        <a href="#main" data-i18n="footer.back">Retour en haut</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js"></script>
+</body>
+</html>

@@ -45,6 +45,13 @@ jobs:
             about.html
             programs.html
             training.html
+            training-module-1.html
+            training-module-2.html
+            training-module-3.html
+            training-module-4.html
+            training-module-5.html
+            training-module-6.html
+            training-module-7.html
             events.html
             services.html
             team.html
@@ -55,6 +62,7 @@ jobs:
             robots.txt
             sitemap.xml
             serve.py
+            generate_modules.py
             assets/css/style.css
             assets/js/i18n.js
             assets/img/favicon.svg
@@ -138,9 +146,16 @@ jobs:
               clean="${clean#/}"
               [[ -z "$clean" ]] && continue
 
-              # URL propre -> fichier .html correspondant
-              if [[ ! -f "${clean}.html" ]]; then
-                echo "::error file=$page::Lien cassé vers '$target' (attendu : ${clean}.html)"
+              # Résolution de l'URL propre vers le fichier .html correspondant :
+              #   /about              -> about.html
+              #   /training/module-1  -> training-module-1.html
+              candidate="${clean}.html"
+              if [[ "$clean" == */* ]]; then
+                candidate="$(echo "$clean" | tr '/' '-').html"
+              fi
+
+              if [[ ! -f "$candidate" ]]; then
+                echo "::error file=$page::Lien cassé vers '$target' (attendu : ${candidate})"
                 FAIL=1
               fi
             done < <(grep -o 'href="[^"]*"' "$page" | sed 's/href="//;s/"$//' | sort -u)

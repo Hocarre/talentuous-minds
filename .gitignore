@@ -11,3 +11,9 @@
 # node_modules/
 # .cache/
 # dist/
+
+# --- Python (scripts de génération) ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/

@@ -16,6 +16,13 @@ talentuous-minds/
 ├── about.html          # À propos : qui sommes-nous, vision, mission, valeurs, impact, partenaires
 ├── programs.html       # Programmes : 4 pôles de formation + événements documentés
 ├── training.html       # Formations Drug Discovery : 7 modules spécialisés
+├── training-module-1.html  # Détail module 1 : docking moléculaire
+├── training-module-2.html  # Détail module 2 : criblage virtuel
+├── training-module-3.html  # Détail module 3 : dynamique moléculaire
+├── training-module-4.html  # Détail module 4 : analyse des interactions
+├── training-module-5.html  # Détail module 5 : prédiction de structure
+├── training-module-6.html  # Détail module 6 : programmation scientifique
+├── training-module-7.html  # Détail module 7 : rédaction scientifique
 ├── events.html         # Événements : fiches détaillées + structure d'archive
 ├── services.html       # Services : data & analyse (6 services + démarche)
 ├── team.html           # Équipe : coordination, formateurs, bénévoles
@@ -27,6 +34,8 @@ talentuous-minds/
 ├── sitemap.xml         # Plan du site
 ├── deploy.sh           # Génération du dépôt Git + instructions de déploiement
 ├── serve.py            # Serveur local reproduisant les URLs propres de Cloudflare
+├── generate_modules.py # Générateur des pages de détail des modules
+├── module_texts_fr.py  # Textes français des pages de module
 ├── .github/
 │   └── workflows/
 │       └── validate.yml  # CI : vérifie fichiers, navigation, liens, traductions, sitemap
