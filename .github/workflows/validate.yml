@@ -86,7 +86,7 @@ jobs:
         run: |
           set -e
           PAGES=(index.html about.html programs.html training.html events.html services.html team.html apply.html contact.html legal.html)
-          EXPECTED=9
+          EXPECTED=8
           FAIL=0
 
           for page in "${PAGES[@]}"; do

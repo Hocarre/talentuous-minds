@@ -32,7 +32,6 @@
           <li><a class="nav__link" href="/" data-i18n="nav.home">Accueil</a></li>
           <li><a class="nav__link" href="/about" data-i18n="nav.about">À propos</a></li>
           <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programmes</a></li>
-          <li><a class="nav__link" href="/training" data-i18n="nav.training">Drug Discovery</a></li>
           <li><a class="nav__link" href="/events" data-i18n="nav.events">Événements</a></li>
           <li><a class="nav__link" href="/services" aria-current="page" data-i18n="nav.services">Services</a></li>
           <li><a class="nav__link" href="/team" data-i18n="nav.team">Équipe</a></li>
@@ -118,6 +117,115 @@
               des bases destinées à l'analyse.
             </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Prestations de simulation — vous n'avez pas les ressources ?
+         ================================================================== -->
+    <section class="section" id="simulations">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow" data-i18n="services.sim.eyebrow">Prestations de calcul</span>
+          <h2 data-i18n="services.sim.title">Nous réalisons vos simulations à votre place</h2>
+          <p class="lead" data-i18n="services.sim.lead">
+            Vous n'avez pas la puissance de calcul, les logiciels installés ou le temps
+            nécessaire ? Nous prenons en charge vos simulations et vous livrons les
+            résultats analysés.
+          </p>
+        </div>
+
+        <div class="grid grid--2">
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">🖥️</div>
+            <h3 data-i18n="services.sim.1.title">Docking à la demande</h3>
+            <p data-i18n="services.sim.1.text">
+              Vous fournissez une cible et une liste de molécules : nous préparons les
+              fichiers, lançons le docking et vous livrons les scores, les poses et
+              les interactions analysées.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">📦</div>
+            <h3 data-i18n="services.sim.2.title">Criblage de chimiothèques</h3>
+            <p data-i18n="services.sim.2.text">
+              Criblage virtuel de collections de composés (ZINC, PubChem, chimiothèques
+              internes), avec filtration ADMET et sélection des hits prioritaires.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">⏱️</div>
+            <h3 data-i18n="services.sim.3.title">Dynamique moléculaire longue</h3>
+            <p data-i18n="services.sim.3.text">
+              Simulations de 100 ns à plusieurs microsecondes, analyse de stabilité,
+              interactions au cours du temps et calcul d'énergie libre de liaison.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">🧩</div>
+            <h3 data-i18n="services.sim.4.title">Modélisation de structures</h3>
+            <p data-i18n="services.sim.4.text">
+              Prédiction de structures par AlphaFold ou modélisation par homologie,
+              validation du modèle et préparation pour vos études de docking.
+            </p>
+          </article>
+        </div>
+
+        <!-- Déroulement d'une prestation -->
+        <div class="section__head reveal" style="margin-top: 3.5rem;">
+          <span class="eyebrow" data-i18n="services.sim.how.eyebrow">Déroulement</span>
+          <h2 data-i18n="services.sim.how.title">Comment se déroule une prestation</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <h3 data-i18n="services.sim.step.1.title">Cadrage</h3>
+            <p data-i18n="services.sim.step.1.text">
+              Vous décrivez la question biologique, la cible et les molécules d'intérêt.
+              Nous évaluons la faisabilité et le temps de calcul nécessaire.
+            </p>
+          </div>
+          <div class="step reveal">
+            <h3 data-i18n="services.sim.step.2.title">Devis</h3>
+            <p data-i18n="services.sim.step.2.text">
+              Nous vous transmettons un devis précisant le périmètre, le délai et le
+              livrable attendu.
+            </p>
+          </div>
+          <div class="step reveal">
+            <h3 data-i18n="services.sim.step.3.title">Exécution</h3>
+            <p data-i18n="services.sim.step.3.text">
+              Préparation des fichiers, lancement des simulations, contrôle qualité
+              et suivi régulier de l'avancement.
+            </p>
+          </div>
+          <div class="step reveal">
+            <h3 data-i18n="services.sim.step.4.title">Livraison</h3>
+            <p data-i18n="services.sim.step.4.text">
+              Résultats analysés, figures, tableaux et rapport méthodologique
+              reproductible. Les fichiers bruts sont fournis.
+            </p>
+          </div>
+        </div>
+
+        <div class="notice reveal" style="margin-top: 2.5rem;">
+          <span aria-hidden="true">ℹ️</span>
+          <span>
+            <strong>Ce que nous ne faisons pas.</strong>
+            Nous ne réalisons pas de tests expérimentaux en laboratoire (synthèse,
+            essais biologiques). Nos prestations couvrent uniquement la modélisation
+            et l'analyse computationnelle. Les résultats prédits doivent être validés
+            expérimentalement avant toute conclusion thérapeutique.
+          </span>
+        </div>
+
+        <div class="btn-row" style="margin-top: 2.5rem; justify-content: center;">
+          <a class="btn btn--primary" href="/contact" data-i18n="services.sim.btn">Décrire mon projet</a>
+          <a class="btn btn--outline" href="/training" data-i18n="services.sim.btn2">Voir aussi les formations</a>
         </div>
       </div>
     </section>
@@ -282,7 +390,6 @@
             <li><a href="/" data-i18n="nav.home">Accueil</a></li>
             <li><a href="/about" data-i18n="nav.about">À propos</a></li>
             <li><a href="/programs" data-i18n="nav.programs">Programmes</a></li>
-            <li><a href="/training" data-i18n="nav.training">Drug Discovery</a></li>
             <li><a href="/events" data-i18n="nav.events">Événements</a></li>
             <li><a href="/services" data-i18n="nav.services">Services</a></li>
             <li><a href="/team" data-i18n="nav.team">Équipe</a></li>

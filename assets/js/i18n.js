@@ -898,6 +898,45 @@
       "mod.m7.d2s5": "Managing references with BibTeX",
       "mod.m7.d2s6": "Responding to reviewers and final assessment",
 
+      /* --- Prestations de simulation --- */
+      "services.sim.eyebrow": "Computational services",
+      "services.sim.title": "We run your simulations for you",
+      "services.sim.lead": "You don't have the computing power, the installed software or the time? We take charge of your simulations and deliver the analysed results.",
+      "services.sim.1.title": "Docking on demand",
+      "services.sim.1.text": "You provide a target and a list of molecules: we prepare the files, run the docking and deliver the scores, poses and analysed interactions.",
+      "services.sim.2.title": "Library screening",
+      "services.sim.2.text": "Virtual screening of compound collections (ZINC, PubChem, in-house libraries), with ADMET filtering and prioritisation of hits.",
+      "services.sim.3.title": "Long molecular dynamics",
+      "services.sim.3.text": "Simulations from 100 ns to several microseconds, stability analysis, interactions over time and binding free energy calculation.",
+      "services.sim.4.title": "Structure modelling",
+      "services.sim.4.text": "Structure prediction with AlphaFold or homology modelling, model validation and preparation for your docking studies.",
+      "services.sim.how.eyebrow": "Process",
+      "services.sim.how.title": "How a service engagement works",
+      "services.sim.step.1.title": "Scoping",
+      "services.sim.step.1.text": "You describe the biological question, the target and the molecules of interest. We assess feasibility and required computation time.",
+      "services.sim.step.2.title": "Quotation",
+      "services.sim.step.2.text": "We send you a quotation specifying the scope, the deadline and the expected deliverable.",
+      "services.sim.step.3.title": "Execution",
+      "services.sim.step.3.text": "File preparation, running the simulations, quality control and regular progress updates.",
+      "services.sim.step.4.title": "Delivery",
+      "services.sim.step.4.text": "Analysed results, figures, tables and a reproducible methodological report. Raw files are provided.",
+      "services.sim.btn": "Describe my project",
+      "services.sim.btn2": "See also the training",
+
+      /* --- Accueil : Drug Discovery --- */
+      "home.dd.eyebrow": "Specialised training",
+      "home.dd.title": "Drug Discovery: from target to drug candidate",
+      "home.dd.lead": "A 7-module pathway in computer-aided drug discovery: molecular docking, virtual screening, molecular dynamics, interaction analysis, structure prediction, programming and scientific writing.",
+      "home.dd.text": "We also offer simulation services for teams that lack the necessary computing resources.",
+      "home.dd.btn": "Discover the pathway",
+      "home.dd.btn2": "Simulation services",
+
+      /* --- Programmes : Drug Discovery --- */
+      "programs.dd.eyebrow": "Pillar 05 — Specialised training",
+      "programs.dd.lead": "A 7-module pathway in computer-aided drug discovery: molecular docking, virtual screening, molecular dynamics, interaction analysis, structure prediction, programming and scientific writing.",
+      "programs.dd.btn": "See the full pathway",
+      "programs.dd.btn2": "Start with module 1",
+
       /* --- Pied de page --- */
       "footer.about": "Talentuous Minds Fellowship is an initiative dedicated to skills development, education, youth support and the recognition of talent.",
       "footer.nav.title": "Navigation",
