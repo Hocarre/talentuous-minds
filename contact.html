@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu principal</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
@@ -29,18 +29,18 @@
 
       <nav class="nav" data-nav aria-label="Navigation principale">
         <ul class="nav__list">
-          <li><a class="nav__link" href="/" data-i18n="nav.home">Accueil</a></li>
-          <li><a class="nav__link" href="/about" data-i18n="nav.about">À propos</a></li>
-          <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programmes</a></li>
-          <li><a class="nav__link" href="/events" data-i18n="nav.events">Événements</a></li>
+          <li><a class="nav__link" href="/" data-i18n="nav.home">Home</a></li>
+          <li><a class="nav__link" href="/about" data-i18n="nav.about">About</a></li>
+          <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programs</a></li>
+          <li><a class="nav__link" href="/events" data-i18n="nav.events">Events</a></li>
           <li><a class="nav__link" href="/services" data-i18n="nav.services">Services</a></li>
-          <li><a class="nav__link" href="/team" data-i18n="nav.team">Équipe</a></li>
-          <li><a class="nav__link" href="/apply" data-i18n="nav.apply">Candidater</a></li>
+          <li><a class="nav__link" href="/team" data-i18n="nav.team">Team</a></li>
+          <li><a class="nav__link" href="/apply" data-i18n="nav.apply">Apply</a></li>
           <li><a class="nav__link" href="/contact" aria-current="page" data-i18n="nav.contact">Contact</a></li>
         </ul>
         <div class="lang-switch" role="group" aria-label="Langue / Language">
-          <button type="button" data-lang-btn="fr" aria-pressed="true">FR</button>
-          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+          <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-btn="fr" aria-pressed="false">FR</button>
         </div>
       </nav>
 
@@ -54,11 +54,8 @@
     <section class="hero" style="padding-block: 4.5rem;">
       <div class="container">
         <span class="eyebrow" data-i18n="nav.contact">Contact</span>
-        <h1 data-i18n="contact.hero.title">Nous contacter</h1>
-        <p class="hero__lead" data-i18n="contact.hero.lead">
-          Une question sur nos programmes, une demande de formation ou un projet de données ?
-          Écrivez-nous.
-        </p>
+        <h1 data-i18n="contact.hero.title">Contact us</h1>
+        <p class="hero__lead" data-i18n="contact.hero.lead">A question about our programs, a training request or a data project? Write to us.</p>
       </div>
     </section>
 
@@ -70,48 +67,44 @@
                Formulaire (mailto, aucun stockage côté serveur)
                ============================================================ -->
           <div class="reveal">
-            <h2 data-i18n="contact.form.title">Envoyez-nous un message</h2>
+            <h2 data-i18n="contact.form.title">Send us a message</h2>
 
             <form class="form" id="contact-form" novalidate>
               <div class="form__row">
                 <div class="field">
-                  <label for="name" data-i18n="contact.form.name">Nom complet</label>
+                  <label for="name" data-i18n="contact.form.name">Full name</label>
                   <input type="text" id="name" name="name" required autocomplete="name"
                          placeholder="Votre nom">
                 </div>
                 <div class="field">
-                  <label for="email" data-i18n="contact.form.email">Adresse e-mail</label>
+                  <label for="email" data-i18n="contact.form.email">Email address</label>
                   <input type="email" id="email" name="email" required autocomplete="email"
                          placeholder="vous@exemple.com">
                 </div>
               </div>
 
               <div class="field">
-                <label for="subject" data-i18n="contact.form.subject">Objet</label>
+                <label for="subject" data-i18n="contact.form.subject">Subject</label>
                 <select id="subject" name="subject">
-                  <option data-i18n="contact.form.subject.1">Informations sur les formations</option>
-                  <option data-i18n="contact.form.subject.2">Candidature à un programme</option>
-                  <option data-i18n="contact.form.subject.3">Service data &amp; analyse</option>
-                  <option data-i18n="contact.form.subject.4">Partenariat</option>
-                  <option data-i18n="contact.form.subject.5">Autre</option>
+                  <option data-i18n="contact.form.subject.1">Training information</option>
+                  <option data-i18n="contact.form.subject.2">Program application</option>
+                  <option data-i18n="contact.form.subject.3">Data & analysis service</option>
+                  <option data-i18n="contact.form.subject.4">Partnership</option>
+                  <option data-i18n="contact.form.subject.5">Other</option>
                 </select>
               </div>
 
               <div class="field">
-                <label for="message" data-i18n="contact.form.message">Votre message</label>
+                <label for="message" data-i18n="contact.form.message">Your message</label>
                 <textarea id="message" name="message" required
                           placeholder="Décrivez votre demande…"></textarea>
               </div>
 
               <div>
-                <button class="btn btn--primary" type="submit" data-i18n="contact.form.submit">
-                  Envoyer le message
-                </button>
+                <button class="btn btn--primary" type="submit" data-i18n="contact.form.submit">Send message</button>
               </div>
 
-              <p class="form__note" data-i18n="contact.form.note">
-                Ce formulaire ouvre votre logiciel de messagerie. Aucune donnée n'est stockée sur ce site.
-              </p>
+              <p class="form__note" data-i18n="contact.form.note">This form opens your email client. No data is stored on this site.</p>
             </form>
           </div>
 
@@ -119,19 +112,19 @@
                Coordonnées
                ============================================================ -->
           <div class="reveal">
-            <h2 data-i18n="contact.info.title">Coordonnées</h2>
+            <h2 data-i18n="contact.info.title">Contact details</h2>
 
             <div class="card" style="margin-bottom: 1.5rem;">
-              <h3 data-i18n="contact.info.email">E-mail</h3>
+              <h3 data-i18n="contact.info.email">Email</h3>
               <p><a href="mailto:contact@talentuousminds.org">contact@talentuousminds.org</a></p>
 
-              <h3 style="margin-top: 1.25rem;" data-i18n="contact.info.phone">Téléphone</h3>
-              <p class="form__note" data-i18n="contact.info.pending">À compléter</p>
+              <h3 style="margin-top: 1.25rem;" data-i18n="contact.info.phone">Phone</h3>
+              <p class="form__note" data-i18n="contact.info.pending">To be completed</p>
 
-              <h3 style="margin-top: 1.25rem;" data-i18n="contact.info.address">Adresse</h3>
-              <p class="form__note" data-i18n="contact.info.pending">À compléter</p>
+              <h3 style="margin-top: 1.25rem;" data-i18n="contact.info.address">Address</h3>
+              <p class="form__note" data-i18n="contact.info.pending">To be completed</p>
 
-              <h3 style="margin-top: 1.25rem;" data-i18n="contact.info.social">Réseaux sociaux</h3>
+              <h3 style="margin-top: 1.25rem;" data-i18n="contact.info.social">Social media</h3>
               <p>
                 <a href="https://web.facebook.com/talentuousMinds/" target="_blank" rel="noopener">Facebook</a>
               </p>
@@ -157,16 +150,14 @@
     <section class="section section--alt" id="candidater">
       <div class="container">
         <div class="cta reveal">
-          <h2 data-i18n="contact.apply.title">Candidater à un programme</h2>
-          <p data-i18n="contact.apply.text">
-            Les candidatures sont traitées via un formulaire externe. Cliquez ci-dessous pour y accéder.
-          </p>
+          <h2 data-i18n="contact.apply.title">Apply to a program</h2>
+          <p data-i18n="contact.apply.text">Applications are handled through an external form. Click below to access it.</p>
           <div class="btn-row">
             <!-- Remplacer le href par l'URL réelle du formulaire (Google Forms, Tally, Typeform…) -->
             <a class="btn btn--primary"
                href="https://forms.gle/REMPLACER-PAR-VOTRE-FORMULAIRE"
                target="_blank" rel="noopener"
-               data-i18n="contact.apply.btn">Ouvrir le formulaire de candidature</a>
+               data-i18n="contact.apply.btn">Open the application form</a>
           </div>
         </div>
       </div>
@@ -185,33 +176,30 @@
               <span class="brand__tag" data-i18n="brand.tag">Fellowship</span>
             </span>
           </div>
-          <p data-i18n="footer.about">
-            Talentuous Minds Fellowship est une initiative orientée vers le développement des compétences,
-            l'éducation, l'accompagnement des jeunes et la valorisation des talents.
-          </p>
+          <p data-i18n="footer.about">Talentuous Minds Fellowship is an initiative dedicated to skills development, education, youth support and the recognition of talent.</p>
         </div>
 
         <div>
           <h4 data-i18n="footer.nav.title">Navigation</h4>
           <ul>
-            <li><a href="/" data-i18n="nav.home">Accueil</a></li>
-            <li><a href="/about" data-i18n="nav.about">À propos</a></li>
-            <li><a href="/programs" data-i18n="nav.programs">Programmes</a></li>
-            <li><a href="/events" data-i18n="nav.events">Événements</a></li>
+            <li><a href="/" data-i18n="nav.home">Home</a></li>
+            <li><a href="/about" data-i18n="nav.about">About</a></li>
+            <li><a href="/programs" data-i18n="nav.programs">Programs</a></li>
+            <li><a href="/events" data-i18n="nav.events">Events</a></li>
             <li><a href="/services" data-i18n="nav.services">Services</a></li>
-            <li><a href="/team" data-i18n="nav.team">Équipe</a></li>
-            <li><a href="/apply" data-i18n="nav.apply">Candidater</a></li>
+            <li><a href="/team" data-i18n="nav.team">Team</a></li>
+            <li><a href="/apply" data-i18n="nav.apply">Apply</a></li>
           <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 data-i18n="footer.programs.title">Programmes</h4>
+          <h4 data-i18n="footer.programs.title">Programs</h4>
           <ul>
-            <li><a href="/programs#informatique" data-i18n="footer.programs.1">Informatique &amp; numérique</a></li>
-            <li><a href="/programs#recherche" data-i18n="footer.programs.2">Recherche &amp; sciences</a></li>
-            <li><a href="/programs#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneuriat</a></li>
-            <li><a href="/programs#developpement" data-i18n="footer.programs.4">Développement personnel</a></li>
+            <li><a href="/programs#informatique" data-i18n="footer.programs.1">IT & digital</a></li>
+            <li><a href="/programs#recherche" data-i18n="footer.programs.2">Research & science</a></li>
+            <li><a href="/programs#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneurship</a></li>
+            <li><a href="/programs#developpement" data-i18n="footer.programs.4">Personal development</a></li>
           </ul>
         </div>
 
@@ -220,16 +208,16 @@
           <ul>
             <li><a href="mailto:contact@talentuousminds.org">contact@talentuousminds.org</a></li>
             <li><a href="https://web.facebook.com/talentuousMinds/" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="/legal" data-i18n="footer.legal">Mentions légales</a></li>
-            <li><a href="/apply" data-i18n="nav.apply">Candidater</a></li>
+            <li><a href="/legal" data-i18n="footer.legal">Legal notice</a></li>
+            <li><a href="/apply" data-i18n="nav.apply">Apply</a></li>
           <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
       </div>
 
       <div class="site-footer__bottom">
-        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">Tous droits réservés.</span></span>
-        <a href="#main" data-i18n="footer.back">Retour en haut</a>
+        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <a href="#main" data-i18n="footer.back">Back to top</a>
       </div>
     </div>
   </footer>

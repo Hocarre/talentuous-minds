@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu principal</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
@@ -29,18 +29,18 @@
 
       <nav class="nav" data-nav aria-label="Navigation principale">
         <ul class="nav__list">
-          <li><a class="nav__link" href="/" data-i18n="nav.home">Accueil</a></li>
-          <li><a class="nav__link" href="/about" data-i18n="nav.about">À propos</a></li>
-          <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programmes</a></li>
-          <li><a class="nav__link" href="/events" data-i18n="nav.events">Événements</a></li>
+          <li><a class="nav__link" href="/" data-i18n="nav.home">Home</a></li>
+          <li><a class="nav__link" href="/about" data-i18n="nav.about">About</a></li>
+          <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programs</a></li>
+          <li><a class="nav__link" href="/events" data-i18n="nav.events">Events</a></li>
           <li><a class="nav__link" href="/services" aria-current="page" data-i18n="nav.services">Services</a></li>
-          <li><a class="nav__link" href="/team" data-i18n="nav.team">Équipe</a></li>
-          <li><a class="nav__link" href="/apply" data-i18n="nav.apply">Candidater</a></li>
+          <li><a class="nav__link" href="/team" data-i18n="nav.team">Team</a></li>
+          <li><a class="nav__link" href="/apply" data-i18n="nav.apply">Apply</a></li>
           <li><a class="nav__link" href="/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
         <div class="lang-switch" role="group" aria-label="Langue / Language">
-          <button type="button" data-lang-btn="fr" aria-pressed="true">FR</button>
-          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+          <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-btn="fr" aria-pressed="false">FR</button>
         </div>
       </nav>
 
@@ -53,16 +53,12 @@
 
     <section class="hero" style="padding-block: 4.5rem;">
       <div class="container">
-        <span class="eyebrow" data-i18n="sim.hero.eyebrow">Prestations de calcul</span>
-        <h1 data-i18n="sim.hero.title">Nous réalisons vos simulations à votre place</h1>
-        <p class="hero__lead" data-i18n="sim.hero.lead">
-          Vous n'avez pas la puissance de calcul, les logiciels installés ou le temps
-          nécessaire ? Nous prenons en charge vos simulations et vous livrons les
-          résultats analysés.
-        </p>
+        <span class="eyebrow" data-i18n="sim.hero.eyebrow">Computational services</span>
+        <h1 data-i18n="sim.hero.title">We run your simulations for you</h1>
+        <p class="hero__lead" data-i18n="sim.hero.lead">You don't have the computing power, the installed software or the time? We take charge of your simulations and deliver the analysed results.</p>
         <div class="btn-row" style="margin-top: 1.5rem;">
-          <a class="btn btn--primary" href="#devis" data-i18n="sim.hero.btn">Demander un devis</a>
-          <a class="btn btn--ghost-light" href="#prestations" data-i18n="sim.hero.btn2">Voir les prestations</a>
+          <a class="btn btn--primary" href="#devis" data-i18n="sim.hero.btn">Request a quote</a>
+          <a class="btn btn--ghost-light" href="#prestations" data-i18n="sim.hero.btn2">See the services</a>
         </div>
       </div>
     </section>
@@ -92,103 +88,81 @@
     <section class="section" id="prestations">
       <div class="container">
         <div class="section__head reveal">
-          <span class="eyebrow" data-i18n="sim.list.eyebrow">Nos prestations</span>
-          <h2 data-i18n="sim.list.title">Six prestations de modélisation moléculaire</h2>
-          <p class="lead" data-i18n="sim.list.lead">
-            Chaque prestation peut être réalisée indépendamment ou combinée dans un
-            projet complet, du criblage initial à la rédaction de l'article.
-          </p>
+          <span class="eyebrow" data-i18n="sim.list.eyebrow">Our services</span>
+          <h2 data-i18n="sim.list.title">Six molecular modelling services</h2>
+          <p class="lead" data-i18n="sim.list.lead">Each service can be performed independently or combined into a complete project, from initial screening to article writing.</p>
         </div>
 
         <div class="grid grid--3">
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">🧬</div>
-            <h3 data-i18n="services.dd.1.title">Docking moléculaire</h3>
-            <p data-i18n="sim.1.text">
-              Vous fournissez une cible et une liste de molécules : nous préparons les
-              fichiers, définissons la grille, lançons le docking et vous livrons les
-              scores, les poses et les interactions analysées.
-            </p>
+            <h3 data-i18n="services.dd.1.title">Molecular docking</h3>
+            <p data-i18n="sim.1.text">You provide a target and a list of molecules: we prepare the files, define the grid, run the docking and deliver the scores, poses and analysed interactions.</p>
             <ul class="module__topics">
-              <li data-i18n="sim.1.li1">Préparation du récepteur et des ligands (PDBQT)</li>
-              <li data-i18n="sim.1.li2">Docking AutoDock Vina, paramètres optimisés</li>
-              <li data-i18n="sim.1.li3">Validation par redocking et calcul du RMSD</li>
-              <li data-i18n="sim.1.li4">Analyse PLIP des interactions</li>
+              <li data-i18n="sim.1.li1">Receptor and ligand preparation (PDBQT)</li>
+              <li data-i18n="sim.1.li2">AutoDock Vina docking, optimised parameters</li>
+              <li data-i18n="sim.1.li3">Validation by redocking and RMSD calculation</li>
+              <li data-i18n="sim.1.li4">PLIP interaction analysis</li>
             </ul>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">🔎</div>
-            <h3 data-i18n="services.dd.2.title">Criblage virtuel</h3>
-            <p data-i18n="sim.2.text">
-              Criblage de collections de composés (ZINC, PubChem, chimiothèques internes)
-              avec hiérarchisation et sélection des hits prioritaires.
-            </p>
+            <h3 data-i18n="services.dd.2.title">Virtual screening</h3>
+            <p data-i18n="sim.2.text">Screening of compound collections (ZINC, PubChem, in-house libraries) with ranking and selection of priority hits.</p>
             <ul class="module__topics">
-              <li data-i18n="sim.2.li1">Constitution et préparation de la chimiothèque</li>
-              <li data-i18n="sim.2.li2">Criblage automatisé et parallélisé</li>
-              <li data-i18n="sim.2.li3">Clustering des hits par similarité chimique</li>
-              <li data-i18n="sim.2.li4">Classement et priorisation finale</li>
+              <li data-i18n="sim.2.li1">Library assembly and preparation</li>
+              <li data-i18n="sim.2.li2">Automated, parallelised screening</li>
+              <li data-i18n="sim.2.li3">Clustering of hits by chemical similarity</li>
+              <li data-i18n="sim.2.li4">Final ranking and prioritisation</li>
             </ul>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">⏱️</div>
-            <h3 data-i18n="services.dd.3.title">Dynamique moléculaire</h3>
-            <p data-i18n="sim.3.text">
-              Simulations de 100 ns à plusieurs microsecondes pour évaluer la stabilité
-              de vos complexes et affiner les prédictions de docking.
-            </p>
+            <h3 data-i18n="services.dd.3.title">Molecular dynamics</h3>
+            <p data-i18n="sim.3.text">Simulations from 100 ns to several microseconds to assess the stability of your complexes and refine docking predictions.</p>
             <ul class="module__topics">
-              <li data-i18n="sim.3.li1">Préparation du système (solvatation, ions)</li>
-              <li data-i18n="sim.3.li2">Minimisation, équilibration, production</li>
-              <li data-i18n="sim.3.li3">Analyse RMSD, RMSF, liaisons hydrogène</li>
-              <li data-i18n="sim.3.li4">Énergie libre de liaison (MM/PBSA, MM/GBSA)</li>
+              <li data-i18n="sim.3.li1">System preparation (solvation, ions)</li>
+              <li data-i18n="sim.3.li2">Minimisation, equilibration, production</li>
+              <li data-i18n="sim.3.li3">RMSD, RMSF, hydrogen bond analysis</li>
+              <li data-i18n="sim.3.li4">Binding free energy (MM/PBSA, MM/GBSA)</li>
             </ul>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">🧪</div>
-            <h3 data-i18n="services.sim.5.title">Filtration ADMET</h3>
-            <p data-i18n="sim.4.text">
-              Évaluation des propriétés pharmacocinétiques et toxicologiques pour
-              éliminer les composés problématiques avant tout test en laboratoire.
-            </p>
+            <h3 data-i18n="services.sim.5.title">ADMET filtering</h3>
+            <p data-i18n="sim.4.text">Assessment of pharmacokinetic and toxicological properties to eliminate problematic compounds before any laboratory testing.</p>
             <ul class="module__topics">
-              <li data-i18n="sim.4.li1">Absorption, distribution, métabolisme, excrétion</li>
-              <li data-i18n="sim.4.li2">Règles de Lipinski et de Veber</li>
-              <li data-i18n="sim.4.li3">Prédiction de biodisponibilité orale</li>
-              <li data-i18n="sim.4.li4">Alertes structurales de toxicité</li>
+              <li data-i18n="sim.4.li1">Absorption, distribution, metabolism, excretion</li>
+              <li data-i18n="sim.4.li2">Lipinski's and Veber's rules</li>
+              <li data-i18n="sim.4.li3">Oral bioavailability prediction</li>
+              <li data-i18n="sim.4.li4">Structural toxicity alerts</li>
             </ul>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">🧩</div>
-            <h3 data-i18n="services.sim.4.title">Modélisation de structures</h3>
-            <p data-i18n="sim.5.text">
-              Obtention d'une structure 3D lorsque aucune structure expérimentale
-              n'est disponible pour votre cible.
-            </p>
+            <h3 data-i18n="services.sim.4.title">Structure modelling</h3>
+            <p data-i18n="sim.5.text">Obtaining a 3D structure when no experimental structure is available for your target.</p>
             <ul class="module__topics">
-              <li data-i18n="sim.5.li1">Prédiction AlphaFold2 / ESMFold</li>
-              <li data-i18n="sim.5.li2">Modélisation par homologie (MODELLER)</li>
-              <li data-i18n="sim.5.li3">Évaluation de la qualité (pLDDT, PAE, Ramachandran)</li>
-              <li data-i18n="sim.5.li4">Préparation du modèle pour le docking</li>
+              <li data-i18n="sim.5.li1">AlphaFold2 / ESMFold prediction</li>
+              <li data-i18n="sim.5.li2">Homology modelling (MODELLER)</li>
+              <li data-i18n="sim.5.li3">Quality assessment (pLDDT, PAE, Ramachandran)</li>
+              <li data-i18n="sim.5.li4">Preparing the model for docking</li>
             </ul>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">📄</div>
-            <h3 data-i18n="services.sim.6.title">Rédaction scientifique LaTeX</h3>
-            <p data-i18n="sim.6.text">
-              Mise en forme professionnelle de vos articles, mémoires et rapports,
-              avec respect des normes des revues scientifiques.
-            </p>
+            <h3 data-i18n="services.sim.6.title">LaTeX scientific writing</h3>
+            <p data-i18n="sim.6.text">Professional formatting of your articles, theses and reports, complying with scientific journal standards.</p>
             <ul class="module__topics">
-              <li data-i18n="sim.6.li1">Structuration IMRaD (Introduction, Méthodes, Résultats, Discussion)</li>
-              <li data-i18n="sim.6.li2">Tableaux booktabs et unités siunitx</li>
-              <li data-i18n="sim.6.li3">Figures multi-panel avec subcaption</li>
-              <li data-i18n="sim.6.li4">Bibliographie BibTeX et conformité aux revues</li>
+              <li data-i18n="sim.6.li1">IMRaD structuring (Introduction, Methods, Results, Discussion)</li>
+              <li data-i18n="sim.6.li2">booktabs tables and siunitx units</li>
+              <li data-i18n="sim.6.li3">Multi-panel figures with subcaption</li>
+              <li data-i18n="sim.6.li4">BibTeX bibliography and journal compliance</li>
             </ul>
           </article>
         </div>
@@ -201,38 +175,26 @@
     <section class="section section--alt" id="deroulement">
       <div class="container">
         <div class="section__head section__head--center reveal">
-          <span class="eyebrow" data-i18n="services.sim.how.eyebrow">Déroulement</span>
-          <h2 data-i18n="services.sim.how.title">Comment se déroule une prestation</h2>
+          <span class="eyebrow" data-i18n="services.sim.how.eyebrow">Process</span>
+          <h2 data-i18n="services.sim.how.title">How a service engagement works</h2>
         </div>
 
         <div class="steps">
           <div class="step reveal">
-            <h3 data-i18n="services.sim.step.1.title">Cadrage</h3>
-            <p data-i18n="services.sim.step.1.text">
-              Vous décrivez la question biologique, la cible et les molécules d'intérêt.
-              Nous évaluons la faisabilité et le temps de calcul nécessaire.
-            </p>
+            <h3 data-i18n="services.sim.step.1.title">Scoping</h3>
+            <p data-i18n="services.sim.step.1.text">You describe the biological question, the target and the molecules of interest. We assess feasibility and required computation time.</p>
           </div>
           <div class="step reveal">
-            <h3 data-i18n="services.sim.step.2.title">Devis</h3>
-            <p data-i18n="services.sim.step.2.text">
-              Nous vous transmettons un devis précisant le périmètre, le délai et le
-              livrable attendu.
-            </p>
+            <h3 data-i18n="services.sim.step.2.title">Quotation</h3>
+            <p data-i18n="services.sim.step.2.text">We send you a quotation specifying the scope, the deadline and the expected deliverable.</p>
           </div>
           <div class="step reveal">
-            <h3 data-i18n="services.sim.step.3.title">Exécution</h3>
-            <p data-i18n="services.sim.step.3.text">
-              Préparation des fichiers, lancement des simulations, contrôle qualité
-              et suivi régulier de l'avancement.
-            </p>
+            <h3 data-i18n="services.sim.step.3.title">Execution</h3>
+            <p data-i18n="services.sim.step.3.text">File preparation, running the simulations, quality control and regular progress updates.</p>
           </div>
           <div class="step reveal">
-            <h3 data-i18n="services.sim.step.4.title">Livraison</h3>
-            <p data-i18n="services.sim.step.4.text">
-              Résultats analysés, figures, tableaux et rapport méthodologique
-              reproductible. Les fichiers bruts sont fournis.
-            </p>
+            <h3 data-i18n="services.sim.step.4.title">Delivery</h3>
+            <p data-i18n="services.sim.step.4.text">Analysed results, figures, tables and a reproducible methodological report. Raw files are provided.</p>
           </div>
         </div>
       </div>
@@ -244,30 +206,27 @@
     <section class="section" id="devis">
       <div class="container" style="max-width: 860px;">
         <div class="section__head reveal">
-          <span class="eyebrow" data-i18n="sim.quote.eyebrow">Demande de devis</span>
-          <h2 data-i18n="sim.quote.title">Décrivez votre projet</h2>
-          <p class="lead" data-i18n="sim.quote.lead">
-            Plus votre description est précise, plus notre devis sera pertinent.
-            Tous les champs marqués d'un astérisque sont obligatoires.
-          </p>
+          <span class="eyebrow" data-i18n="sim.quote.eyebrow">Quote request</span>
+          <h2 data-i18n="sim.quote.title">Describe your project</h2>
+          <p class="lead" data-i18n="sim.quote.lead">The more precise your description, the more relevant our quote will be. All fields marked with an asterisk are required.</p>
         </div>
 
         <form class="form" id="quote-form" novalidate>
 
           <!-- Contact -->
           <fieldset class="apply-step is-active" data-step="1">
-            <legend data-i18n="sim.form.contact">Vos coordonnées</legend>
+            <legend data-i18n="sim.form.contact">Your contact details</legend>
 
             <div class="form__row">
               <div class="field">
                 <label for="q-name">
-                  <span data-i18n="sim.form.name">Nom et prénom</span><span class="req" aria-hidden="true">*</span>
+                  <span data-i18n="sim.form.name">Full name</span><span class="req" aria-hidden="true">*</span>
                 </label>
                 <input type="text" id="q-name" required autocomplete="name">
               </div>
               <div class="field">
                 <label for="q-email">
-                  <span data-i18n="sim.form.email">Adresse e-mail</span><span class="req" aria-hidden="true">*</span>
+                  <span data-i18n="sim.form.email">Email address</span><span class="req" aria-hidden="true">*</span>
                 </label>
                 <input type="email" id="q-email" required autocomplete="email" placeholder="vous@exemple.com">
               </div>
@@ -275,17 +234,17 @@
 
             <div class="form__row">
               <div class="field">
-                <label for="q-org" data-i18n="sim.form.org">Institution ou organisation</label>
+                <label for="q-org" data-i18n="sim.form.org">Institution or organisation</label>
                 <input type="text" id="q-org" autocomplete="organization">
               </div>
               <div class="field">
-                <label for="q-status" data-i18n="sim.form.status">Votre statut</label>
+                <label for="q-status" data-i18n="sim.form.status">Your status</label>
                 <select id="q-status">
-                  <option data-i18n="sim.status.1">Étudiant(e)</option>
-                  <option data-i18n="sim.status.2">Doctorant(e) / post-doctorant(e)</option>
-                  <option data-i18n="sim.status.3">Chercheur(se) académique</option>
-                  <option data-i18n="sim.status.4">Industrie pharmaceutique / biotech</option>
-                  <option data-i18n="sim.status.5">Autre</option>
+                  <option data-i18n="sim.status.1">Student</option>
+                  <option data-i18n="sim.status.2">PhD student / postdoc</option>
+                  <option data-i18n="sim.status.3">Academic researcher</option>
+                  <option data-i18n="sim.status.4">Pharmaceutical industry / biotech</option>
+                  <option data-i18n="sim.status.5">Other</option>
                 </select>
               </div>
             </div>
@@ -293,34 +252,34 @@
 
           <!-- Prestations souhaitées -->
           <fieldset class="apply-step is-active" data-step="2">
-            <legend data-i18n="sim.form.services">Prestations souhaitées</legend>
+            <legend data-i18n="sim.form.services">Services requested</legend>
 
             <div class="field">
-              <label data-i18n="sim.form.choose">Sélectionnez une ou plusieurs prestations</label>
+              <label data-i18n="sim.form.choose">Select one or more services</label>
               <div class="check-group">
                 <label class="check-item">
                   <input type="checkbox" name="service" value="docking">
-                  <span data-i18n="services.dd.1.title">Docking moléculaire</span>
+                  <span data-i18n="services.dd.1.title">Molecular docking</span>
                 </label>
                 <label class="check-item">
                   <input type="checkbox" name="service" value="screening">
-                  <span data-i18n="services.dd.2.title">Criblage virtuel</span>
+                  <span data-i18n="services.dd.2.title">Virtual screening</span>
                 </label>
                 <label class="check-item">
                   <input type="checkbox" name="service" value="md">
-                  <span data-i18n="services.dd.3.title">Dynamique moléculaire</span>
+                  <span data-i18n="services.dd.3.title">Molecular dynamics</span>
                 </label>
                 <label class="check-item">
                   <input type="checkbox" name="service" value="admet">
-                  <span data-i18n="services.sim.5.title">Filtration ADMET</span>
+                  <span data-i18n="services.sim.5.title">ADMET filtering</span>
                 </label>
                 <label class="check-item">
                   <input type="checkbox" name="service" value="structure">
-                  <span data-i18n="services.sim.4.title">Modélisation de structures</span>
+                  <span data-i18n="services.sim.4.title">Structure modelling</span>
                 </label>
                 <label class="check-item">
                   <input type="checkbox" name="service" value="latex">
-                  <span data-i18n="services.sim.6.title">Rédaction scientifique LaTeX</span>
+                  <span data-i18n="services.sim.6.title">LaTeX scientific writing</span>
                 </label>
               </div>
             </div>
@@ -328,52 +287,52 @@
 
           <!-- Détails techniques -->
           <fieldset class="apply-step is-active" data-step="3">
-            <legend data-i18n="sim.form.details">Détails du projet</legend>
+            <legend data-i18n="sim.form.details">Project details</legend>
 
             <div class="form__row">
               <div class="field">
-                <label for="q-target" data-i18n="sim.form.target">Cible biologique (protéine, enzyme, récepteur)</label>
+                <label for="q-target" data-i18n="sim.form.target">Biological target (protein, enzyme, receptor)</label>
                 <input type="text" id="q-target" placeholder="Ex. HER2, EGFR, protéase…">
               </div>
               <div class="field">
-                <label for="q-pdb" data-i18n="sim.form.pdb">Code PDB (si connu)</label>
+                <label for="q-pdb" data-i18n="sim.form.pdb">PDB code (if known)</label>
                 <input type="text" id="q-pdb" placeholder="Ex. 1M17, 3ERT">
               </div>
             </div>
 
             <div class="form__row">
               <div class="field">
-                <label for="q-count" data-i18n="sim.form.count">Nombre de molécules à traiter</label>
+                <label for="q-count" data-i18n="sim.form.count">Number of molecules to process</label>
                 <select id="q-count">
-                  <option data-i18n="sim.count.1">Moins de 10</option>
-                  <option data-i18n="sim.count.2">10 à 100</option>
-                  <option data-i18n="sim.count.3">100 à 1 000</option>
-                  <option data-i18n="sim.count.4">1 000 à 100 000</option>
-                  <option data-i18n="sim.count.5">Plus de 100 000</option>
-                  <option data-i18n="sim.count.6">Je ne sais pas encore</option>
+                  <option data-i18n="sim.count.1">Fewer than 10</option>
+                  <option data-i18n="sim.count.2">10 to 100</option>
+                  <option data-i18n="sim.count.3">100 to 1,000</option>
+                  <option data-i18n="sim.count.4">1,000 to 100,000</option>
+                  <option data-i18n="sim.count.5">More than 100,000</option>
+                  <option data-i18n="sim.count.6">I don't know yet</option>
                 </select>
               </div>
               <div class="field">
-                <label for="q-deadline" data-i18n="sim.form.deadline">Délai souhaité</label>
+                <label for="q-deadline" data-i18n="sim.form.deadline">Desired deadline</label>
                 <select id="q-deadline">
-                  <option data-i18n="sim.delay.1">Urgent (moins d'une semaine)</option>
-                  <option data-i18n="sim.delay.2">Deux à quatre semaines</option>
-                  <option data-i18n="sim.delay.3">Un à trois mois</option>
-                  <option data-i18n="sim.delay.4">Pas de contrainte particulière</option>
+                  <option data-i18n="sim.delay.1">Urgent (less than a week)</option>
+                  <option data-i18n="sim.delay.2">Two to four weeks</option>
+                  <option data-i18n="sim.delay.3">One to three months</option>
+                  <option data-i18n="sim.delay.4">No particular constraint</option>
                 </select>
               </div>
             </div>
 
             <div class="field">
               <label for="q-desc">
-                <span data-i18n="sim.form.desc">Description du projet</span><span class="req" aria-hidden="true">*</span>
+                <span data-i18n="sim.form.desc">Project description</span><span class="req" aria-hidden="true">*</span>
               </label>
               <textarea id="q-desc" required
                         placeholder="Question biologique, contexte de recherche, résultats attendus…"></textarea>
             </div>
 
             <div class="field">
-              <label for="q-data" data-i18n="sim.form.data">Données déjà disponibles</label>
+              <label for="q-data" data-i18n="sim.form.data">Data already available</label>
               <textarea id="q-data" style="min-height: 90px;"
                         placeholder="Structure de la cible, liste de molécules, résultats préliminaires…"></textarea>
             </div>
@@ -381,37 +340,27 @@
             <div class="field">
               <label class="check-item" style="margin-top: 0.5rem;">
                 <input type="checkbox" id="q-consent" required>
-                <span data-i18n="sim.form.consent">
-                  J'accepte que mes données soient utilisées pour traiter ma demande de devis.
-                  Elles ne seront ni vendues ni transmises à des tiers.
-                </span>
+                <span data-i18n="sim.form.consent">I agree that my data may be used to process my quote request. It will not be sold or shared with third parties.</span>
               </label>
             </div>
           </fieldset>
 
           <div class="apply-nav">
             <span class="apply-nav__spacer"></span>
-            <button class="btn btn--primary" type="submit" data-i18n="sim.form.submit">Envoyer ma demande</button>
+            <button class="btn btn--primary" type="submit" data-i18n="sim.form.submit">Send my request</button>
           </div>
 
-          <p class="form__note" data-i18n="sim.form.note">
-            Ce formulaire ouvre votre logiciel de messagerie. Aucune donnée n'est stockée sur ce site.
-          </p>
+          <p class="form__note" data-i18n="sim.form.note">This form opens your email client. No data is stored on this site.</p>
         </form>
 
         <div class="apply-success" id="quote-success" role="status">
-          <h3 data-i18n="sim.success.title">Demande préparée</h3>
-          <p data-i18n="sim.success.text">
-            Votre logiciel de messagerie devrait s'ouvrir avec votre demande pré-remplie.
-            Nous vous répondrons avec un devis adapté.
-          </p>
+          <h3 data-i18n="sim.success.title">Request prepared</h3>
+          <p data-i18n="sim.success.text">Your email client should open with your pre-filled request. We will reply with a tailored quote.</p>
           <p data-reference-wrap style="display: none;">
-            <strong data-i18n="sim.success.ref">Votre référence</strong> :
+            <strong data-i18n="sim.success.ref">Your reference</strong> :
             <code data-reference style="font-size: 1.05em;">—</code>
           </p>
-          <p class="form__note" data-i18n="sim.success.note">
-            Conservez cette référence pour tout échange ultérieur.
-          </p>
+          <p class="form__note" data-i18n="sim.success.note">Keep this reference for any further correspondence.</p>
           <div class="btn-row" style="justify-content: center; margin-top: 1rem;">
             <a class="btn btn--primary" href="/contact" data-i18n="nav.contact">Contact</a>
           </div>
@@ -425,68 +374,48 @@
     <section class="section section--alt" id="faq">
       <div class="container" style="max-width: 820px;">
         <div class="section__head reveal">
-          <span class="eyebrow" data-i18n="sim.faq.eyebrow">Questions fréquentes</span>
-          <h2 data-i18n="sim.faq.title">Ce qu'il faut savoir avant de nous confier un projet</h2>
+          <span class="eyebrow" data-i18n="sim.faq.eyebrow">Frequently asked questions</span>
+          <h2 data-i18n="sim.faq.title">What to know before entrusting us with a project</h2>
         </div>
 
         <div class="reveal">
           <div class="value-item">
             <span class="value-item__num" aria-hidden="true">?</span>
             <div>
-              <h3 data-i18n="sim.faq.1.q">Combien de temps prend un docking ?</h3>
-              <p data-i18n="sim.faq.1.a">
-                Cela dépend du nombre de molécules et de la taille du site actif. Quelques
-                dizaines de molécules se traitent en heures ; un criblage de 100 000 composés
-                demande plusieurs jours de calcul. Nous précisons le délai dans le devis.
-              </p>
+              <h3 data-i18n="sim.faq.1.q">How long does a docking take?</h3>
+              <p data-i18n="sim.faq.1.a">It depends on the number of molecules and the size of the active site. A few dozen molecules take hours; screening 100,000 compounds requires several days of computation. We specify the deadline in the quote.</p>
             </div>
           </div>
 
           <div class="value-item">
             <span class="value-item__num" aria-hidden="true">?</span>
             <div>
-              <h3 data-i18n="sim.faq.2.q">Fournissez-vous les fichiers bruts ?</h3>
-              <p data-i18n="sim.faq.2.a">
-                Oui. Nous livrons systématiquement les fichiers de sortie bruts, les scripts
-                utilisés et un rapport méthodologique permettant de reproduire l'analyse.
-              </p>
+              <h3 data-i18n="sim.faq.2.q">Do you provide the raw files?</h3>
+              <p data-i18n="sim.faq.2.a">Yes. We systematically deliver the raw output files, the scripts used and a methodological report allowing the analysis to be reproduced.</p>
             </div>
           </div>
 
           <div class="value-item">
             <span class="value-item__num" aria-hidden="true">?</span>
             <div>
-              <h3 data-i18n="sim.faq.3.q">Puis-je publier les résultats ?</h3>
-              <p data-i18n="sim.faq.3.a">
-                Oui, les résultats vous appartiennent. Nous pouvons être cités en
-                remerciements ou en co-auteur selon votre niveau d'implication,
-                à discuter au moment du devis.
-              </p>
+              <h3 data-i18n="sim.faq.3.q">Can I publish the results?</h3>
+              <p data-i18n="sim.faq.3.a">Yes, the results belong to you. We can be acknowledged or listed as co-authors depending on your level of involvement, to be discussed when quoting.</p>
             </div>
           </div>
 
           <div class="value-item">
             <span class="value-item__num" aria-hidden="true">?</span>
             <div>
-              <h3 data-i18n="sim.faq.4.q">Garantissez-vous l'activité des molécules ?</h3>
-              <p data-i18n="sim.faq.4.a">
-                <strong>Non.</strong> Le docking prédit une affinité théorique, pas une
-                activité biologique réelle. Aucune méthode computationnelle ne remplace
-                les tests expérimentaux. Nous fournissons des hypothèses à tester,
-                pas des preuves d'efficacité.
-              </p>
+              <h3 data-i18n="sim.faq.4.q">Do you guarantee the activity of the molecules?</h3>
+              <p data-i18n="sim.faq.4.a">No. Docking predicts a theoretical affinity, not real biological activity. No computational method replaces experimental testing. We provide hypotheses to be tested, not proof of efficacy.</p>
             </div>
           </div>
 
           <div class="value-item">
             <span class="value-item__num" aria-hidden="true">?</span>
             <div>
-              <h3 data-i18n="sim.faq.5.q">Travaillez-vous sur des données confidentielles ?</h3>
-              <p data-i18n="sim.faq.5.a">
-                Oui, sur demande et après signature d'un accord de confidentialité (NDA).
-                Nous pouvons également travailler sur vos propres serveurs si vos données
-                ne peuvent pas sortir de votre institution.
-              </p>
+              <h3 data-i18n="sim.faq.5.q">Do you work on confidential data?</h3>
+              <p data-i18n="sim.faq.5.a">Yes, on request and after signing a non-disclosure agreement (NDA). We can also work on your own servers if your data cannot leave your institution.</p>
             </div>
           </div>
         </div>
@@ -499,14 +428,11 @@
     <section class="section">
       <div class="container">
         <div class="cta reveal">
-          <h2 data-i18n="sim.cta.title">Un projet à nous confier ?</h2>
-          <p data-i18n="sim.cta.text">
-            Décrivez votre besoin et nous reviendrons vers vous avec une proposition
-            adaptée à votre contexte et à votre budget.
-          </p>
+          <h2 data-i18n="sim.cta.title">A project to entrust to us?</h2>
+          <p data-i18n="sim.cta.text">Describe your needs and we will get back to you with a proposal adapted to your context and budget.</p>
           <div class="btn-row">
-            <a class="btn btn--primary" href="#devis" data-i18n="sim.hero.btn">Demander un devis</a>
-            <a class="btn btn--ghost-light" href="/training" data-i18n="services.sim.btn2">Voir aussi les formations</a>
+            <a class="btn btn--primary" href="#devis" data-i18n="sim.hero.btn">Request a quote</a>
+            <a class="btn btn--ghost-light" href="/training" data-i18n="services.sim.btn2">See also the training</a>
           </div>
         </div>
       </div>
@@ -525,33 +451,30 @@
               <span class="brand__tag" data-i18n="brand.tag">Fellowship</span>
             </span>
           </div>
-          <p data-i18n="footer.about">
-            Talentuous Minds Fellowship est une initiative orientée vers le développement des compétences,
-            l'éducation, l'accompagnement des jeunes et la valorisation des talents.
-          </p>
+          <p data-i18n="footer.about">Talentuous Minds Fellowship is an initiative dedicated to skills development, education, youth support and the recognition of talent.</p>
         </div>
 
         <div>
           <h4 data-i18n="footer.nav.title">Navigation</h4>
           <ul>
-            <li><a href="/" data-i18n="nav.home">Accueil</a></li>
-            <li><a href="/about" data-i18n="nav.about">À propos</a></li>
-            <li><a href="/programs" data-i18n="nav.programs">Programmes</a></li>
-            <li><a href="/events" data-i18n="nav.events">Événements</a></li>
+            <li><a href="/" data-i18n="nav.home">Home</a></li>
+            <li><a href="/about" data-i18n="nav.about">About</a></li>
+            <li><a href="/programs" data-i18n="nav.programs">Programs</a></li>
+            <li><a href="/events" data-i18n="nav.events">Events</a></li>
             <li><a href="/services" data-i18n="nav.services">Services</a></li>
-            <li><a href="/team" data-i18n="nav.team">Équipe</a></li>
-            <li><a href="/apply" data-i18n="nav.apply">Candidater</a></li>
+            <li><a href="/team" data-i18n="nav.team">Team</a></li>
+            <li><a href="/apply" data-i18n="nav.apply">Apply</a></li>
             <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 data-i18n="footer.programs.title">Programmes</h4>
+          <h4 data-i18n="footer.programs.title">Programs</h4>
           <ul>
-            <li><a href="/programs#informatique" data-i18n="footer.programs.1">Informatique &amp; numérique</a></li>
-            <li><a href="/programs#recherche" data-i18n="footer.programs.2">Recherche &amp; sciences</a></li>
-            <li><a href="/programs#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneuriat</a></li>
-            <li><a href="/programs#developpement" data-i18n="footer.programs.4">Développement personnel</a></li>
+            <li><a href="/programs#informatique" data-i18n="footer.programs.1">IT & digital</a></li>
+            <li><a href="/programs#recherche" data-i18n="footer.programs.2">Research & science</a></li>
+            <li><a href="/programs#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneurship</a></li>
+            <li><a href="/programs#developpement" data-i18n="footer.programs.4">Personal development</a></li>
           </ul>
         </div>
 
@@ -560,14 +483,14 @@
           <ul>
             <li><a href="mailto:contact@talentuousminds.org">contact@talentuousminds.org</a></li>
             <li><a href="https://web.facebook.com/talentuousMinds/" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="/legal" data-i18n="footer.legal">Mentions légales</a></li>
+            <li><a href="/legal" data-i18n="footer.legal">Legal notice</a></li>
           </ul>
         </div>
       </div>
 
       <div class="site-footer__bottom">
-        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">Tous droits réservés.</span></span>
-        <a href="#main" data-i18n="footer.back">Retour en haut</a>
+        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <a href="#main" data-i18n="footer.back">Back to top</a>
       </div>
     </div>
   </footer>

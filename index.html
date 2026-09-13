@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu principal</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 
   <!-- ====================================================================
        En-tête
@@ -32,18 +32,18 @@
 
       <nav class="nav" data-nav aria-label="Navigation principale">
         <ul class="nav__list">
-          <li><a class="nav__link" href="/" aria-current="page" data-i18n="nav.home">Accueil</a></li>
-          <li><a class="nav__link" href="/about" data-i18n="nav.about">À propos</a></li>
-          <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programmes</a></li>
-          <li><a class="nav__link" href="/events" data-i18n="nav.events">Événements</a></li>
+          <li><a class="nav__link" href="/" aria-current="page" data-i18n="nav.home">Home</a></li>
+          <li><a class="nav__link" href="/about" data-i18n="nav.about">About</a></li>
+          <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programs</a></li>
+          <li><a class="nav__link" href="/events" data-i18n="nav.events">Events</a></li>
           <li><a class="nav__link" href="/services" data-i18n="nav.services">Services</a></li>
-          <li><a class="nav__link" href="/team" data-i18n="nav.team">Équipe</a></li>
-          <li><a class="nav__link" href="/apply" data-i18n="nav.apply">Candidater</a></li>
+          <li><a class="nav__link" href="/team" data-i18n="nav.team">Team</a></li>
+          <li><a class="nav__link" href="/apply" data-i18n="nav.apply">Apply</a></li>
           <li><a class="nav__link" href="/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
         <div class="lang-switch" role="group" aria-label="Langue / Language">
-          <button type="button" data-lang-btn="fr" aria-pressed="true">FR</button>
-          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+          <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-btn="fr" aria-pressed="false">FR</button>
         </div>
       </nav>
 
@@ -60,34 +60,26 @@
     <section class="hero">
       <div class="container hero__inner">
         <div>
-          <span class="eyebrow" data-i18n="home.hero.eyebrow">Compétences · Éducation · Talents</span>
+          <span class="eyebrow" data-i18n="home.hero.eyebrow">Skills · Education · Talent</span>
           <h1>
-            <span data-i18n="home.hero.title">Construire une génération de</span>
-            <span class="hero__title-accent" data-i18n="home.hero.title.accent">talents compétents et autonomes</span>
+            <span data-i18n="home.hero.title">Building a generation of</span>
+            <span class="hero__title-accent" data-i18n="home.hero.title.accent">capable, autonomous talents</span>
           </h1>
-          <p class="hero__lead" data-i18n="home.hero.lead">
-            Talentuous Minds Fellowship est une initiative orientée vers le développement des compétences,
-            l'éducation, l'accompagnement des jeunes et la valorisation des talents. Nous créons un
-            environnement favorable à l'apprentissage, au développement personnel et professionnel,
-            à l'innovation et à l'entrepreneuriat.
-          </p>
-          <p class="hero__quote" data-i18n="home.hero.quote">
-            « Construire une génération de talents compétents, autonomes et capables de contribuer
-            au développement de leur communauté. »
-          </p>
+          <p class="hero__lead" data-i18n="home.hero.lead">Talentuous Minds Fellowship is an initiative dedicated to skills development, education, youth support and the recognition of talent. We create an environment conducive to learning, personal and professional growth, innovation and entrepreneurship.</p>
+          <p class="hero__quote" data-i18n="home.hero.quote">Building a generation of competent, autonomous talents able to contribute to the development of their community.</p>
           <div class="btn-row" style="margin-top: 1.75rem;">
-            <a class="btn btn--primary" href="/programs" data-i18n="home.hero.btn.primary">Découvrir nos programmes</a>
-            <a class="btn btn--ghost-light" href="/contact" data-i18n="home.hero.btn.secondary">Nous contacter</a>
+            <a class="btn btn--primary" href="/programs" data-i18n="home.hero.btn.primary">Discover our programs</a>
+            <a class="btn btn--ghost-light" href="/contact" data-i18n="home.hero.btn.secondary">Contact us</a>
           </div>
         </div>
 
         <aside class="hero__panel">
-          <h3 data-i18n="home.hero.panel.title">Ce que nous faisons</h3>
+          <h3 data-i18n="home.hero.panel.title">What we do</h3>
           <ul class="hero__list">
-            <li data-i18n="home.hero.panel.1">Formations en informatique et compétences numériques</li>
-            <li data-i18n="home.hero.panel.2">Programmes d'entrepreneuriat et de leadership</li>
-            <li data-i18n="home.hero.panel.3">Services de gestion et d'analyse de données</li>
-            <li data-i18n="home.hero.panel.4">Accompagnement en rédaction scientifique et recherche</li>
+            <li data-i18n="home.hero.panel.1">Computer and digital skills training</li>
+            <li data-i18n="home.hero.panel.2">Entrepreneurship and leadership programs</li>
+            <li data-i18n="home.hero.panel.3">Data management and analysis services</li>
+            <li data-i18n="home.hero.panel.4">Scientific writing and research support</li>
           </ul>
         </aside>
       </div>
@@ -99,67 +91,46 @@
     <section class="section" id="piliers">
       <div class="container">
         <div class="section__head section__head--center reveal">
-          <span class="eyebrow" data-i18n="home.pillars.eyebrow">Nos domaines d'intervention</span>
-          <h2 data-i18n="home.pillars.title">Six pôles pour développer les talents</h2>
-          <p class="lead" data-i18n="home.pillars.lead">
-            Nos activités s'articulent autour de domaines complémentaires, de la compétence numérique
-            à la recherche scientifique.
-          </p>
+          <span class="eyebrow" data-i18n="home.pillars.eyebrow">Our areas of action</span>
+          <h2 data-i18n="home.pillars.title">Six pillars to develop talent</h2>
+          <p class="lead" data-i18n="home.pillars.lead">Our activities are structured around complementary areas, from digital skills to scientific research.</p>
         </div>
 
         <div class="grid grid--3">
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">💻</div>
-            <h3 data-i18n="home.pillar.1.title">Formation numérique et informatique</h3>
-            <p data-i18n="home.pillar.1.text">
-              Informatique générale, bureautique, outils collaboratifs, outils numériques pour les
-              études et le travail, initiation à la programmation et analyse de données.
-            </p>
+            <h3 data-i18n="home.pillar.1.title">Digital & IT training</h3>
+            <p data-i18n="home.pillar.1.text">General computing, office software, collaborative tools, digital tools for studies and work, introduction to programming and data analysis.</p>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">🎯</div>
-            <h3 data-i18n="home.pillar.2.title">Formation et développement personnel</h3>
-            <p data-i18n="home.pillar.2.text">
-              Gestion du temps, communication, prise de parole en public, confiance en soi,
-              travail en équipe, gestion de projet et résolution de problèmes.
-            </p>
+            <h3 data-i18n="home.pillar.2.title">Personal development</h3>
+            <p data-i18n="home.pillar.2.text">Time management, communication, public speaking, self-confidence, teamwork, project management and problem solving.</p>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">🚀</div>
-            <h3 data-i18n="home.pillar.3.title">Entrepreneuriat et leadership</h3>
-            <p data-i18n="home.pillar.3.text">
-              Création d'entreprise, identification des opportunités, conception de projets,
-              leadership, gestion d'équipe et innovation.
-            </p>
+            <h3 data-i18n="home.pillar.3.title">Entrepreneurship & leadership</h3>
+            <p data-i18n="home.pillar.3.text">Business creation, opportunity identification, project design, leadership, team management and innovation.</p>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">🔬</div>
-            <h3 data-i18n="home.pillar.4.title">Recherche et accompagnement scientifique</h3>
-            <p data-i18n="home.pillar.4.text">
-              Méthodologie de recherche, rédaction scientifique, LaTeX, recherche bibliographique,
-              analyse statistique et accompagnement des mémoires.
-            </p>
+            <h3 data-i18n="home.pillar.4.title">Research & academia</h3>
+            <p data-i18n="home.pillar.4.text">Research methodology, scientific writing, LaTeX, bibliographic research, statistics and thesis support.</p>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">📊</div>
-            <h3 data-i18n="home.pillar.5.title">Data et services d'analyse</h3>
-            <p data-i18n="home.pillar.5.text">
-              Analyse de données, apurement des données, conception de questionnaires, guides
-              d'entretien, masques de saisie et accompagnement méthodologique.
-            </p>
+            <h3 data-i18n="home.pillar.5.title">Data & analysis</h3>
+            <p data-i18n="home.pillar.5.text">Data analysis, data cleaning, survey design, interview guides, data entry forms and methodological support.</p>
           </article>
 
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">🤝</div>
-            <h3 data-i18n="home.pillar.6.title">Mentorat et accompagnement</h3>
-            <p data-i18n="home.pillar.6.text">
-              Accompagnement des étudiants, des chercheurs et des professionnels dans leurs
-              parcours académique et professionnel.
-            </p>
+            <h3 data-i18n="home.pillar.6.title">Mentoring</h3>
+            <p data-i18n="home.pillar.6.text">Support for students, researchers and professionals in their academic and career paths.</p>
           </article>
         </div>
       </div>
@@ -171,37 +142,27 @@
     <section class="section section--alt" id="approche">
       <div class="container">
         <div class="section__head section__head--center reveal">
-          <span class="eyebrow" data-i18n="home.approach.eyebrow">Notre approche pédagogique</span>
-          <h2 data-i18n="home.approach.title">Une pédagogie pratique et orientée vers les résultats</h2>
-          <p class="lead" data-i18n="home.approach.lead">
-            Notre approche repose sur quatre principes conçus pour transformer les connaissances
-            en compétences concrètes.
-          </p>
+          <span class="eyebrow" data-i18n="home.approach.eyebrow">Our teaching approach</span>
+          <h2 data-i18n="home.approach.title">A practical, results-oriented pedagogy</h2>
+          <p class="lead" data-i18n="home.approach.lead">Our approach rests on four principles designed to turn knowledge into concrete skills.</p>
         </div>
 
         <div class="steps">
           <div class="step reveal">
-            <h3 data-i18n="home.step.1.title">Apprendre</h3>
-            <p data-i18n="home.step.1.text">Acquérir les connaissances fondamentales nécessaires.</p>
+            <h3 data-i18n="home.step.1.title">Learn</h3>
+            <p data-i18n="home.step.1.text">Acquire the fundamental knowledge required.</p>
           </div>
           <div class="step reveal">
-            <h3 data-i18n="home.step.2.title">Pratiquer</h3>
-            <p data-i18n="home.step.2.text">
-              Mettre immédiatement les connaissances en application à travers des exercices et des projets.
-            </p>
+            <h3 data-i18n="home.step.2.title">Practise</h3>
+            <p data-i18n="home.step.2.text">Immediately apply knowledge through exercises and projects.</p>
           </div>
           <div class="step reveal">
-            <h3 data-i18n="home.step.3.title">Expérimenter</h3>
-            <p data-i18n="home.step.3.text">
-              Permettre aux participants de travailler sur des situations concrètes.
-            </p>
+            <h3 data-i18n="home.step.3.title">Experiment</h3>
+            <p data-i18n="home.step.3.text">Work on real, concrete situations.</p>
           </div>
           <div class="step reveal">
-            <h3 data-i18n="home.step.4.title">Transformer</h3>
-            <p data-i18n="home.step.4.text">
-              Utiliser les compétences acquises pour résoudre des problèmes réels dans les études,
-              l'entreprise ou la communauté.
-            </p>
+            <h3 data-i18n="home.step.4.title">Transform</h3>
+            <p data-i18n="home.step.4.text">Use the acquired skills to solve real problems in studies, business or the community.</p>
           </div>
         </div>
       </div>
@@ -213,48 +174,34 @@
     <section class="section" id="public">
       <div class="container">
         <div class="section__head section__head--center reveal">
-          <span class="eyebrow" data-i18n="home.audience.eyebrow">À qui s'adressent nos activités ?</span>
-          <h2 data-i18n="home.audience.title">Un programme ouvert à différents profils</h2>
+          <span class="eyebrow" data-i18n="home.audience.eyebrow">Who is it for?</span>
+          <h2 data-i18n="home.audience.title">A program open to different profiles</h2>
         </div>
 
         <div class="grid grid--3">
           <div class="audience reveal">
-            <h3 data-i18n="home.audience.1.title">Étudiants</h3>
-            <p data-i18n="home.audience.1.text">
-              Pour développer leurs compétences numériques, académiques et professionnelles.
-            </p>
+            <h3 data-i18n="home.audience.1.title">Students</h3>
+            <p data-i18n="home.audience.1.text">To develop digital, academic and professional skills.</p>
           </div>
           <div class="audience reveal">
-            <h3 data-i18n="home.audience.2.title">Jeunes diplômés</h3>
-            <p data-i18n="home.audience.2.text">
-              Pour faciliter leur insertion professionnelle et renforcer leur employabilité.
-            </p>
+            <h3 data-i18n="home.audience.2.title">Young graduates</h3>
+            <p data-i18n="home.audience.2.text">To ease their entry into the job market and strengthen employability.</p>
           </div>
           <div class="audience reveal">
-            <h3 data-i18n="home.audience.3.title">Chercheurs</h3>
-            <p data-i18n="home.audience.3.text">
-              Pour les accompagner dans la méthodologie, les outils scientifiques, la gestion
-              des données et la rédaction.
-            </p>
+            <h3 data-i18n="home.audience.3.title">Researchers</h3>
+            <p data-i18n="home.audience.3.text">For methodology, scientific tools, data management and writing.</p>
           </div>
           <div class="audience reveal">
             <h3 data-i18n="home.audience.4.title">Entrepreneurs</h3>
-            <p data-i18n="home.audience.4.text">
-              Pour développer leurs compétences en entrepreneuriat, leadership et gestion de projet.
-            </p>
+            <p data-i18n="home.audience.4.text">To develop entrepreneurship, leadership and project management skills.</p>
           </div>
           <div class="audience reveal">
-            <h3 data-i18n="home.audience.5.title">Professionnels</h3>
-            <p data-i18n="home.audience.5.text">
-              Pour renforcer leurs compétences et leur capacité à utiliser les outils numériques.
-            </p>
+            <h3 data-i18n="home.audience.5.title">Professionals</h3>
+            <p data-i18n="home.audience.5.text">To strengthen skills and the ability to use digital tools.</p>
           </div>
           <div class="audience reveal">
             <h3 data-i18n="home.audience.6.title">Organisations</h3>
-            <p data-i18n="home.audience.6.text">
-              Pour bénéficier de services liés aux données, aux études, aux questionnaires
-              et à la formation du personnel.
-            </p>
+            <p data-i18n="home.audience.6.text">For data services, studies, surveys and staff training.</p>
           </div>
         </div>
       </div>
@@ -266,38 +213,30 @@
     <section class="section section--navy" id="pourquoi">
       <div class="container">
         <div class="section__head section__head--center reveal">
-          <span class="eyebrow" data-i18n="home.why.eyebrow">Pourquoi nous rejoindre ?</span>
-          <h2 data-i18n="home.why.title">Ce que Talentuous Minds vous apporte</h2>
+          <span class="eyebrow" data-i18n="home.why.eyebrow">Why join us?</span>
+          <h2 data-i18n="home.why.title">What you gain with Talentuous Minds</h2>
         </div>
 
         <div class="grid grid--3">
           <article class="card card--dark reveal">
-            <h3 data-i18n="home.why.1.title">Développer ses compétences</h3>
-            <p data-i18n="home.why.1.text">
-              Acquérir des compétences directement utiles dans les études et la vie professionnelle.
-            </p>
+            <h3 data-i18n="home.why.1.title">Develop your skills</h3>
+            <p data-i18n="home.why.1.text">Acquire skills directly useful in your studies and professional life.</p>
           </article>
           <article class="card card--dark reveal">
-            <h3 data-i18n="home.why.2.title">Apprendre avec des personnes expérimentées</h3>
-            <p data-i18n="home.why.2.text">
-              Bénéficier de formations et d'accompagnements adaptés aux besoins des participants.
-            </p>
+            <h3 data-i18n="home.why.2.title">Learn from experienced people</h3>
+            <p data-i18n="home.why.2.text">Benefit from training and support adapted to participants' needs.</p>
           </article>
           <article class="card card--dark reveal">
-            <h3 data-i18n="home.why.3.title">Développer son réseau</h3>
-            <p data-i18n="home.why.3.text">
-              Rencontrer d'autres étudiants, chercheurs, professionnels et entrepreneurs.
-            </p>
+            <h3 data-i18n="home.why.3.title">Grow your network</h3>
+            <p data-i18n="home.why.3.text">Meet other students, researchers, professionals and entrepreneurs.</p>
           </article>
           <article class="card card--dark reveal">
-            <h3 data-i18n="home.why.4.title">Transformer ses idées</h3>
-            <p data-i18n="home.why.4.text">Passer d'une idée à un projet concret.</p>
+            <h3 data-i18n="home.why.4.title">Turn your ideas into projects</h3>
+            <p data-i18n="home.why.4.text">Move from an idea to a concrete project.</p>
           </article>
           <article class="card card--dark reveal">
-            <h3 data-i18n="home.why.5.title">Se préparer au monde professionnel</h3>
-            <p data-i18n="home.why.5.text">
-              Développer les compétences techniques et comportementales recherchées par les organisations.
-            </p>
+            <h3 data-i18n="home.why.5.title">Prepare for the professional world</h3>
+            <p data-i18n="home.why.5.text">Develop the technical and behavioural skills organisations look for.</p>
           </article>
         </div>
       </div>
@@ -310,20 +249,13 @@
       <div class="container">
         <div class="grid grid--2" style="align-items: center;">
           <div class="reveal">
-            <span class="eyebrow" data-i18n="home.dd.eyebrow">Formation spécialisée</span>
-            <h2 data-i18n="home.dd.title">Drug Discovery : de la cible au candidat médicament</h2>
-            <p class="lead" data-i18n="home.dd.lead">
-              Un parcours de 7 modules en découverte de médicaments assistée par ordinateur :
-              docking moléculaire, criblage virtuel, dynamique moléculaire, analyse des
-              interactions, prédiction de structure, programmation et rédaction scientifique.
-            </p>
-            <p data-i18n="home.dd.text" style="color: #b9c6da;">
-              Nous proposons également des prestations de simulation pour les équipes
-              qui n'ont pas les ressources de calcul nécessaires.
-            </p>
+            <span class="eyebrow" data-i18n="home.dd.eyebrow">Specialised training</span>
+            <h2 data-i18n="home.dd.title">Drug Discovery: from target to drug candidate</h2>
+            <p class="lead" data-i18n="home.dd.lead">A 7-module pathway in computer-aided drug discovery: molecular docking, virtual screening, molecular dynamics, interaction analysis, structure prediction, programming and scientific writing.</p>
+            <p data-i18n="home.dd.text" style="color: #b9c6da;">We also offer simulation services for teams that lack the necessary computing resources.</p>
             <div class="btn-row" style="margin-top: 1.5rem;">
-              <a class="btn btn--primary" href="/training" data-i18n="home.dd.btn">Découvrir le parcours</a>
-              <a class="btn btn--ghost-light" href="/services#simulations" data-i18n="home.dd.btn2">Prestations de simulation</a>
+              <a class="btn btn--primary" href="/training" data-i18n="home.dd.btn">Discover the pathway</a>
+              <a class="btn btn--ghost-light" href="/services#simulations" data-i18n="home.dd.btn2">Simulation services</a>
             </div>
           </div>
 
@@ -331,19 +263,19 @@
             <div class="grid grid--2" style="gap: 1rem;">
               <div class="card card--dark">
                 <div class="card__icon" aria-hidden="true">🧬</div>
-                <h3 style="font-size: 0.95rem;" data-i18n="training.m1.title">Docking moléculaire</h3>
+                <h3 style="font-size: 0.95rem;" data-i18n="training.m1.title">Molecular docking</h3>
               </div>
               <div class="card card--dark">
                 <div class="card__icon" aria-hidden="true">🔎</div>
-                <h3 style="font-size: 0.95rem;" data-i18n="training.m2.title">Criblage virtuel</h3>
+                <h3 style="font-size: 0.95rem;" data-i18n="training.m2.title">Virtual screening</h3>
               </div>
               <div class="card card--dark">
                 <div class="card__icon" aria-hidden="true">⏱️</div>
-                <h3 style="font-size: 0.95rem;" data-i18n="training.m3.title">Dynamique moléculaire</h3>
+                <h3 style="font-size: 0.95rem;" data-i18n="training.m3.title">Molecular dynamics</h3>
               </div>
               <div class="card card--dark">
                 <div class="card__icon" aria-hidden="true">🧩</div>
-                <h3 style="font-size: 0.95rem;" data-i18n="training.m5.title">Prédiction de structure</h3>
+                <h3 style="font-size: 0.95rem;" data-i18n="training.m5.title">Structure prediction</h3>
               </div>
             </div>
           </div>
@@ -357,14 +289,11 @@
     <section class="section">
       <div class="container">
         <div class="cta reveal">
-          <h2 data-i18n="home.cta.title">Prêt à développer votre talent ?</h2>
-          <p data-i18n="home.cta.text">
-            Rejoignez nos programmes ou contactez-nous pour discuter de vos besoins en formation,
-            accompagnement ou analyse de données.
-          </p>
+          <h2 data-i18n="home.cta.title">Ready to develop your talent?</h2>
+          <p data-i18n="home.cta.text">Join our programs or contact us to discuss your training, support or data analysis needs.</p>
           <div class="btn-row">
-            <a class="btn btn--primary" href="/contact" data-i18n="home.cta.btn.primary">Candidater</a>
-            <a class="btn btn--ghost-light" href="/contact" data-i18n="home.cta.btn.secondary">Nous contacter</a>
+            <a class="btn btn--primary" href="/contact" data-i18n="home.cta.btn.primary">Apply now</a>
+            <a class="btn btn--ghost-light" href="/contact" data-i18n="home.cta.btn.secondary">Contact us</a>
           </div>
         </div>
       </div>
@@ -386,33 +315,30 @@
               <span class="brand__tag" data-i18n="brand.tag">Fellowship</span>
             </span>
           </div>
-          <p data-i18n="footer.about">
-            Talentuous Minds Fellowship est une initiative orientée vers le développement des compétences,
-            l'éducation, l'accompagnement des jeunes et la valorisation des talents.
-          </p>
+          <p data-i18n="footer.about">Talentuous Minds Fellowship is an initiative dedicated to skills development, education, youth support and the recognition of talent.</p>
         </div>
 
         <div>
           <h4 data-i18n="footer.nav.title">Navigation</h4>
           <ul>
-            <li><a href="/" data-i18n="nav.home">Accueil</a></li>
-            <li><a href="/about" data-i18n="nav.about">À propos</a></li>
-            <li><a href="/programs" data-i18n="nav.programs">Programmes</a></li>
-            <li><a href="/events" data-i18n="nav.events">Événements</a></li>
+            <li><a href="/" data-i18n="nav.home">Home</a></li>
+            <li><a href="/about" data-i18n="nav.about">About</a></li>
+            <li><a href="/programs" data-i18n="nav.programs">Programs</a></li>
+            <li><a href="/events" data-i18n="nav.events">Events</a></li>
             <li><a href="/services" data-i18n="nav.services">Services</a></li>
-            <li><a href="/team" data-i18n="nav.team">Équipe</a></li>
-            <li><a href="/apply" data-i18n="nav.apply">Candidater</a></li>
+            <li><a href="/team" data-i18n="nav.team">Team</a></li>
+            <li><a href="/apply" data-i18n="nav.apply">Apply</a></li>
           <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 data-i18n="footer.programs.title">Programmes</h4>
+          <h4 data-i18n="footer.programs.title">Programs</h4>
           <ul>
-            <li><a href="/programs#informatique" data-i18n="footer.programs.1">Informatique &amp; numérique</a></li>
-            <li><a href="/programs#recherche" data-i18n="footer.programs.2">Recherche &amp; sciences</a></li>
-            <li><a href="/programs#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneuriat</a></li>
-            <li><a href="/programs#developpement" data-i18n="footer.programs.4">Développement personnel</a></li>
+            <li><a href="/programs#informatique" data-i18n="footer.programs.1">IT & digital</a></li>
+            <li><a href="/programs#recherche" data-i18n="footer.programs.2">Research & science</a></li>
+            <li><a href="/programs#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneurship</a></li>
+            <li><a href="/programs#developpement" data-i18n="footer.programs.4">Personal development</a></li>
           </ul>
         </div>
 
@@ -421,16 +347,16 @@
           <ul>
             <li><a href="mailto:contact@talentuousminds.org">contact@talentuousminds.org</a></li>
             <li><a href="https://web.facebook.com/talentuousMinds/" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="/legal" data-i18n="footer.legal">Mentions légales</a></li>
-            <li><a href="/apply" data-i18n="nav.apply">Candidater</a></li>
+            <li><a href="/legal" data-i18n="footer.legal">Legal notice</a></li>
+            <li><a href="/apply" data-i18n="nav.apply">Apply</a></li>
           <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
       </div>
 
       <div class="site-footer__bottom">
-        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">Tous droits réservés.</span></span>
-        <a href="#main" data-i18n="footer.back">Retour en haut</a>
+        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <a href="#main" data-i18n="footer.back">Back to top</a>
       </div>
     </div>
   </footer>

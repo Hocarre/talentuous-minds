@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu principal</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
@@ -29,18 +29,18 @@
 
       <nav class="nav" data-nav aria-label="Navigation principale">
         <ul class="nav__list">
-          <li><a class="nav__link" href="/" data-i18n="nav.home">Accueil</a></li>
-          <li><a class="nav__link" href="/about" data-i18n="nav.about">À propos</a></li>
-          <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programmes</a></li>
-          <li><a class="nav__link" href="/events" data-i18n="nav.events">Événements</a></li>
+          <li><a class="nav__link" href="/" data-i18n="nav.home">Home</a></li>
+          <li><a class="nav__link" href="/about" data-i18n="nav.about">About</a></li>
+          <li><a class="nav__link" href="/programs" data-i18n="nav.programs">Programs</a></li>
+          <li><a class="nav__link" href="/events" data-i18n="nav.events">Events</a></li>
           <li><a class="nav__link" href="/services" data-i18n="nav.services">Services</a></li>
-          <li><a class="nav__link" href="/team" data-i18n="nav.team">Équipe</a></li>
-          <li><a class="nav__link" href="/apply" data-i18n="nav.apply">Candidater</a></li>
+          <li><a class="nav__link" href="/team" data-i18n="nav.team">Team</a></li>
+          <li><a class="nav__link" href="/apply" data-i18n="nav.apply">Apply</a></li>
           <li><a class="nav__link" href="/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
         <div class="lang-switch" role="group" aria-label="Langue / Language">
-          <button type="button" data-lang-btn="fr" aria-pressed="true">FR</button>
-          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+          <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-btn="fr" aria-pressed="false">FR</button>
         </div>
       </nav>
 
@@ -53,12 +53,9 @@
 
     <section class="hero" style="padding-block: 4.5rem;">
       <div class="container">
-        <span class="eyebrow" data-i18n="apply.hero.eyebrow">Candidature</span>
-        <h1 data-i18n="apply.hero.title">Candidater à un programme</h1>
-        <p class="hero__lead" data-i18n="apply.hero.lead">
-          Remplissez ce formulaire pour postuler à nos formations, notre accompagnement
-          ou notre programme de mentorat. Nous reviendrons vers vous.
-        </p>
+        <span class="eyebrow" data-i18n="apply.hero.eyebrow">Application</span>
+        <h1 data-i18n="apply.hero.title">Apply to a program</h1>
+        <p class="hero__lead" data-i18n="apply.hero.lead">Fill in this form to apply for our training, our support or our mentoring program. We will get back to you.</p>
       </div>
     </section>
 
@@ -69,24 +66,18 @@
              Candidature via Google Form (recommandé)
              ============================================================ -->
         <div class="cta reveal" id="google-form">
-          <h2 data-i18n="apply.form.title">Formulaire de candidature officiel</h2>
-          <p data-i18n="apply.form.lead">
-            Le formulaire officiel est hébergé sur Google Forms. Vos réponses nous
-            parviennent directement et sont enregistrées de manière sécurisée.
-          </p>
+          <h2 data-i18n="apply.form.title">Official application form</h2>
+          <p data-i18n="apply.form.lead">The official form is hosted on Google Forms. Your answers reach us directly and are stored securely.</p>
           <div class="btn-row">
             <!-- Formulaire officiel Google Forms -->
             <a class="btn btn--primary"
                id="google-form-link"
                href="https://docs.google.com/forms/d/e/1FAIpQLSfIN4BnTI_lUyKMsic9W5NF7ZSWnzUlfYycQI62JYzs1j7LyA/viewform"
                target="_blank" rel="noopener"
-               data-i18n="apply.form.btn">Ouvrir le formulaire officiel</a>
+               data-i18n="apply.form.btn">Open the official form</a>
           </div>
           <p class="form__note" style="margin-top: 1rem; color: #c4d0e2;"
-             data-i18n="apply.form.note">
-            Le formulaire s'ouvre dans un nouvel onglet. Vos données sont traitées
-            conformément à notre politique de confidentialité.
-          </p>
+             data-i18n="apply.form.note">The form opens in a new tab. Your data is processed in accordance with our privacy policy.</p>
         </div>
 
         <div class="notice reveal" style="margin-top: 2rem;">
@@ -108,21 +99,18 @@
     <section class="section section--alt" id="candidature-locale">
       <div class="container" style="max-width: 860px;">
         <div class="section__head reveal">
-          <span class="eyebrow" data-i18n="apply.local.eyebrow">Formulaire local</span>
-          <h2 data-i18n="apply.local.title">Candidature par e-mail</h2>
-          <p class="lead" data-i18n="apply.local.lead">
-            Ce formulaire ouvre votre logiciel de messagerie avec les informations
-            saisies. Aucune donnée n'est stockée sur ce site.
-          </p>
+          <span class="eyebrow" data-i18n="apply.local.eyebrow">Local form</span>
+          <h2 data-i18n="apply.local.title">Application by email</h2>
+          <p class="lead" data-i18n="apply.local.lead">This form opens your email client with the information you entered. No data is stored on this site.</p>
         </div>
 
         <!-- ============================================================
              Indicateur de progression
              ============================================================ -->
         <ol class="apply-progress" id="apply-progress">
-          <li class="is-active" data-i18n="apply.step.1">Profil</li>
-          <li data-i18n="apply.step.2">Parcours</li>
-          <li data-i18n="apply.step.3">Programme</li>
+          <li class="is-active" data-i18n="apply.step.1">Profile</li>
+          <li data-i18n="apply.step.2">Background</li>
+          <li data-i18n="apply.step.3">Program</li>
           <li data-i18n="apply.step.4">Motivation</li>
           <li data-i18n="apply.step.5">Confirmation</li>
         </ol>
@@ -136,18 +124,18 @@
                Étape 1 — Profil
                ---------------------------------------------------------- -->
           <fieldset class="apply-step is-active" data-step="1">
-            <legend data-i18n="apply.s1.title">Votre profil</legend>
+            <legend data-i18n="apply.s1.title">Your profile</legend>
 
             <div class="form__row">
               <div class="field">
                 <label for="a-firstname">
-                  <span data-i18n="apply.firstname">Prénom</span><span class="req" aria-hidden="true">*</span>
+                  <span data-i18n="apply.firstname">First name</span><span class="req" aria-hidden="true">*</span>
                 </label>
                 <input type="text" id="a-firstname" name="firstname" required autocomplete="given-name">
               </div>
               <div class="field">
                 <label for="a-lastname">
-                  <span data-i18n="apply.lastname">Nom</span><span class="req" aria-hidden="true">*</span>
+                  <span data-i18n="apply.lastname">Last name</span><span class="req" aria-hidden="true">*</span>
                 </label>
                 <input type="text" id="a-lastname" name="lastname" required autocomplete="family-name">
               </div>
@@ -156,13 +144,13 @@
             <div class="form__row">
               <div class="field">
                 <label for="a-email">
-                  <span data-i18n="apply.email">Adresse e-mail</span><span class="req" aria-hidden="true">*</span>
+                  <span data-i18n="apply.email">Email address</span><span class="req" aria-hidden="true">*</span>
                 </label>
                 <input type="email" id="a-email" name="email" required autocomplete="email"
                        placeholder="vous@exemple.com">
               </div>
               <div class="field">
-                <label for="a-phone" data-i18n="apply.phone">Téléphone / WhatsApp</label>
+                <label for="a-phone" data-i18n="apply.phone">Phone / WhatsApp</label>
                 <input type="tel" id="a-phone" name="phone" autocomplete="tel"
                        placeholder="+237 6XX XXX XXX">
               </div>
@@ -170,18 +158,18 @@
 
             <div class="form__row">
               <div class="field">
-                <label for="a-country" data-i18n="apply.country">Pays</label>
+                <label for="a-country" data-i18n="apply.country">Country</label>
                 <input type="text" id="a-country" name="country" autocomplete="country-name">
               </div>
               <div class="field">
-                <label for="a-city" data-i18n="apply.city">Ville</label>
+                <label for="a-city" data-i18n="apply.city">City</label>
                 <input type="text" id="a-city" name="city" autocomplete="address-level2">
               </div>
             </div>
 
             <div class="apply-nav">
               <span class="apply-nav__spacer"></span>
-              <button class="btn btn--primary" type="button" data-next="2" data-i18n="apply.next">Suivant</button>
+              <button class="btn btn--primary" type="button" data-next="2" data-i18n="apply.next">Next</button>
             </div>
           </fieldset>
 
@@ -189,49 +177,49 @@
                Étape 2 — Parcours
                ---------------------------------------------------------- -->
           <fieldset class="apply-step" data-step="2">
-            <legend data-i18n="apply.s2.title">Votre parcours</legend>
+            <legend data-i18n="apply.s2.title">Your background</legend>
 
             <div class="field">
-              <label for="a-status" data-i18n="apply.status">Situation actuelle</label>
+              <label for="a-status" data-i18n="apply.status">Current situation</label>
               <select id="a-status" name="status">
-                <option data-i18n="apply.status.1">Étudiant(e)</option>
-                <option data-i18n="apply.status.2">Jeune diplômé(e)</option>
-                <option data-i18n="apply.status.3">Chercheur(se)</option>
-                <option data-i18n="apply.status.4">Entrepreneur(e)</option>
-                <option data-i18n="apply.status.5">Professionnel(le)</option>
-                <option data-i18n="apply.status.6">En recherche d'emploi</option>
-                <option data-i18n="apply.status.7">Autre</option>
+                <option data-i18n="apply.status.1">Student</option>
+                <option data-i18n="apply.status.2">Recent graduate</option>
+                <option data-i18n="apply.status.3">Researcher</option>
+                <option data-i18n="apply.status.4">Entrepreneur</option>
+                <option data-i18n="apply.status.5">Professional</option>
+                <option data-i18n="apply.status.6">Job seeker</option>
+                <option data-i18n="apply.status.7">Other</option>
               </select>
             </div>
 
             <div class="form__row">
               <div class="field">
-                <label for="a-level" data-i18n="apply.level">Niveau d'études</label>
+                <label for="a-level" data-i18n="apply.level">Education level</label>
                 <select id="a-level" name="level">
-                  <option data-i18n="apply.level.1">Secondaire</option>
-                  <option data-i18n="apply.level.2">Baccalauréat</option>
-                  <option data-i18n="apply.level.3">Licence / Bachelor</option>
-                  <option data-i18n="apply.level.4">Master</option>
-                  <option data-i18n="apply.level.5">Doctorat</option>
-                  <option data-i18n="apply.level.6">Autre</option>
+                  <option data-i18n="apply.level.1">Secondary school</option>
+                  <option data-i18n="apply.level.2">High school diploma</option>
+                  <option data-i18n="apply.level.3">Bachelor's degree</option>
+                  <option data-i18n="apply.level.4">Master's degree</option>
+                  <option data-i18n="apply.level.5">Doctorate</option>
+                  <option data-i18n="apply.level.6">Other</option>
                 </select>
               </div>
               <div class="field">
-                <label for="a-field" data-i18n="apply.field">Domaine d'études ou d'activité</label>
+                <label for="a-field" data-i18n="apply.field">Field of study or activity</label>
                 <input type="text" id="a-field" name="field"
                        placeholder="Informatique, biologie, gestion…">
               </div>
             </div>
 
             <div class="field">
-              <label for="a-org" data-i18n="apply.org">Établissement ou organisation</label>
+              <label for="a-org" data-i18n="apply.org">Institution or organisation</label>
               <input type="text" id="a-org" name="organization">
             </div>
 
             <div class="apply-nav">
-              <button class="btn btn--outline" type="button" data-prev="1" data-i18n="apply.prev">Précédent</button>
+              <button class="btn btn--outline" type="button" data-prev="1" data-i18n="apply.prev">Previous</button>
               <span class="apply-nav__spacer"></span>
-              <button class="btn btn--primary" type="button" data-next="3" data-i18n="apply.next">Suivant</button>
+              <button class="btn btn--primary" type="button" data-next="3" data-i18n="apply.next">Next</button>
             </div>
           </fieldset>
 
@@ -239,63 +227,63 @@
                Étape 3 — Programme
                ---------------------------------------------------------- -->
           <fieldset class="apply-step" data-step="3">
-            <legend data-i18n="apply.s3.title">Le programme souhaité</legend>
+            <legend data-i18n="apply.s3.title">The program you want</legend>
 
             <div class="field">
-              <label for="a-program" data-i18n="apply.program">Programme</label>
+              <label for="a-program" data-i18n="apply.program">Program</label>
               <select id="a-program" name="program">
-                <option data-i18n="apply.program.1">Informatique &amp; numérique</option>
-                <option data-i18n="apply.program.2">Recherche &amp; rédaction scientifique</option>
-                <option data-i18n="apply.program.3">Entrepreneuriat &amp; leadership</option>
-                <option data-i18n="apply.program.4">Développement personnel</option>
-                <option data-i18n="apply.program.5">Data &amp; analyse</option>
-                <option data-i18n="apply.program.6">Mentorat / accompagnement</option>
-                <option data-i18n="apply.program.7">Autre</option>
+                <option data-i18n="apply.program.1">IT & digital</option>
+                <option data-i18n="apply.program.2">Research & scientific writing</option>
+                <option data-i18n="apply.program.3">Entrepreneurship & leadership</option>
+                <option data-i18n="apply.program.4">Personal development</option>
+                <option data-i18n="apply.program.5">Data & analysis</option>
+                <option data-i18n="apply.program.6">Mentoring / support</option>
+                <option data-i18n="apply.program.7">Other</option>
               </select>
             </div>
 
             <div class="field">
-              <label for="a-format" data-i18n="apply.format">Format souhaité</label>
+              <label for="a-format" data-i18n="apply.format">Preferred format</label>
               <select id="a-format" name="format">
-                <option data-i18n="apply.format.1">Présentiel</option>
-                <option data-i18n="apply.format.2">En ligne</option>
-                <option data-i18n="apply.format.3">Hybride</option>
-                <option data-i18n="apply.format.4">Peu importe</option>
+                <option data-i18n="apply.format.1">In person</option>
+                <option data-i18n="apply.format.2">Online</option>
+                <option data-i18n="apply.format.3">Hybrid</option>
+                <option data-i18n="apply.format.4">No preference</option>
               </select>
             </div>
 
             <div class="field">
-              <label for="a-availability" data-i18n="apply.availability">Disponibilité</label>
+              <label for="a-availability" data-i18n="apply.availability">Availability</label>
               <select id="a-availability" name="availability">
-                <option data-i18n="apply.avail.1">Journée</option>
-                <option data-i18n="apply.avail.2">Soirée</option>
-                <option data-i18n="apply.avail.3">Week-end</option>
-                <option data-i18n="apply.avail.4">Vacances scolaires</option>
+                <option data-i18n="apply.avail.1">Daytime</option>
+                <option data-i18n="apply.avail.2">Evening</option>
+                <option data-i18n="apply.avail.3">Weekend</option>
+                <option data-i18n="apply.avail.4">School holidays</option>
               </select>
             </div>
 
             <div class="field">
-              <label data-i18n="apply.needs">Besoins particuliers (facultatif)</label>
+              <label data-i18n="apply.needs">Specific needs (optional)</label>
               <div class="check-group">
                 <label class="check-item">
                   <input type="checkbox" name="needs" value="certificate">
-                  <span data-i18n="apply.needs.1">Je souhaite recevoir un certificat</span>
+                  <span data-i18n="apply.needs.1">I would like to receive a certificate</span>
                 </label>
                 <label class="check-item">
                   <input type="checkbox" name="needs" value="scholarship">
-                  <span data-i18n="apply.needs.2">Je souhaite demander une prise en charge des frais</span>
+                  <span data-i18n="apply.needs.2">I would like to request a fee waiver</span>
                 </label>
                 <label class="check-item">
                   <input type="checkbox" name="needs" value="accessibility">
-                  <span data-i18n="apply.needs.3">J'ai besoin d'aménagements particuliers</span>
+                  <span data-i18n="apply.needs.3">I need specific accommodations</span>
                 </label>
               </div>
             </div>
 
             <div class="apply-nav">
-              <button class="btn btn--outline" type="button" data-prev="2" data-i18n="apply.prev">Précédent</button>
+              <button class="btn btn--outline" type="button" data-prev="2" data-i18n="apply.prev">Previous</button>
               <span class="apply-nav__spacer"></span>
-              <button class="btn btn--primary" type="button" data-next="4" data-i18n="apply.next">Suivant</button>
+              <button class="btn btn--primary" type="button" data-next="4" data-i18n="apply.next">Next</button>
             </div>
           </fieldset>
 
@@ -303,11 +291,11 @@
                Étape 4 — Motivation
                ---------------------------------------------------------- -->
           <fieldset class="apply-step" data-step="4">
-            <legend data-i18n="apply.s4.title">Votre motivation</legend>
+            <legend data-i18n="apply.s4.title">Your motivation</legend>
 
             <div class="field">
               <label for="a-motivation">
-                <span data-i18n="apply.motivation">Pourquoi souhaitez-vous rejoindre ce programme ?</span>
+                <span data-i18n="apply.motivation">Why do you want to join this program?</span>
                 <span class="req" aria-hidden="true">*</span>
               </label>
               <textarea id="a-motivation" name="motivation" required
@@ -315,24 +303,21 @@
             </div>
 
             <div class="field">
-              <label for="a-expectations" data-i18n="apply.expectations">Qu'attendez-vous de ce programme ?</label>
+              <label for="a-expectations" data-i18n="apply.expectations">What do you expect from this program?</label>
               <textarea id="a-expectations" name="expectations" style="min-height: 100px;"></textarea>
             </div>
 
             <div class="field">
               <label class="check-item" style="margin-top: 0.5rem;">
                 <input type="checkbox" id="a-consent" name="consent" required>
-                <span data-i18n="apply.consent">
-                  J'accepte que mes données soient utilisées pour traiter ma candidature.
-                  Elles ne seront ni vendues ni transmises à des tiers.
-                </span>
+                <span data-i18n="apply.consent">I agree that my data may be used to process my application. It will not be sold or shared with third parties.</span>
               </label>
             </div>
 
             <div class="apply-nav">
-              <button class="btn btn--outline" type="button" data-prev="3" data-i18n="apply.prev">Précédent</button>
+              <button class="btn btn--outline" type="button" data-prev="3" data-i18n="apply.prev">Previous</button>
               <span class="apply-nav__spacer"></span>
-              <button class="btn btn--primary" type="button" data-next="5" data-i18n="apply.review">Vérifier</button>
+              <button class="btn btn--primary" type="button" data-next="5" data-i18n="apply.review">Review</button>
             </div>
           </fieldset>
 
@@ -340,11 +325,9 @@
                Étape 5 — Récapitulatif et envoi
                ---------------------------------------------------------- -->
           <fieldset class="apply-step" data-step="5">
-            <legend data-i18n="apply.s5.title">Vérification et envoi</legend>
+            <legend data-i18n="apply.s5.title">Review and send</legend>
 
-            <p class="lead" data-i18n="apply.s5.lead">
-              Vérifiez les informations saisies avant d'envoyer votre candidature.
-            </p>
+            <p class="lead" data-i18n="apply.s5.lead">Check the information you entered before sending your application.</p>
 
             <div class="apply-summary" id="apply-summary">
               <!-- Rempli dynamiquement par JavaScript -->
@@ -352,16 +335,13 @@
 
             <div class="notice" style="margin-top: 1.5rem;">
               <span aria-hidden="true">ℹ️</span>
-              <span data-i18n="apply.s5.note">
-                Ce formulaire ouvre votre logiciel de messagerie avec les informations saisies.
-                Aucune donnée n'est stockée sur ce site.
-              </span>
+              <span data-i18n="apply.s5.note">This form opens your email client with the information you entered. No data is stored on this site.</span>
             </div>
 
             <div class="apply-nav">
-              <button class="btn btn--outline" type="button" data-prev="4" data-i18n="apply.prev">Précédent</button>
+              <button class="btn btn--outline" type="button" data-prev="4" data-i18n="apply.prev">Previous</button>
               <span class="apply-nav__spacer"></span>
-              <button class="btn btn--primary" type="submit" data-i18n="apply.submit">Envoyer ma candidature</button>
+              <button class="btn btn--primary" type="submit" data-i18n="apply.submit">Send my application</button>
             </div>
           </fieldset>
 
@@ -371,11 +351,8 @@
              Confirmation
              ============================================================ -->
         <div class="apply-success" id="apply-success" role="status">
-          <h3 data-i18n="apply.success.title">Candidature préparée</h3>
-          <p data-i18n="apply.success.text">
-            Votre logiciel de messagerie devrait s'ouvrir avec votre candidature pré-remplie.
-            Si ce n'est pas le cas, écrivez-nous directement à l'adresse indiquée sur la page Contact.
-          </p>
+          <h3 data-i18n="apply.success.title">Application prepared</h3>
+          <p data-i18n="apply.success.text">Your email client should open with your application pre-filled. If not, write to us directly at the address shown on the Contact page.</p>
           <div class="btn-row" style="justify-content: center; margin-top: 1rem;">
             <a class="btn btn--primary" href="/contact" data-i18n="nav.contact">Contact</a>
           </div>
@@ -397,33 +374,30 @@
               <span class="brand__tag" data-i18n="brand.tag">Fellowship</span>
             </span>
           </div>
-          <p data-i18n="footer.about">
-            Talentuous Minds Fellowship est une initiative orientée vers le développement des compétences,
-            l'éducation, l'accompagnement des jeunes et la valorisation des talents.
-          </p>
+          <p data-i18n="footer.about">Talentuous Minds Fellowship is an initiative dedicated to skills development, education, youth support and the recognition of talent.</p>
         </div>
 
         <div>
           <h4 data-i18n="footer.nav.title">Navigation</h4>
           <ul>
-            <li><a href="/" data-i18n="nav.home">Accueil</a></li>
-            <li><a href="/about" data-i18n="nav.about">À propos</a></li>
-            <li><a href="/programs" data-i18n="nav.programs">Programmes</a></li>
-            <li><a href="/events" data-i18n="nav.events">Événements</a></li>
+            <li><a href="/" data-i18n="nav.home">Home</a></li>
+            <li><a href="/about" data-i18n="nav.about">About</a></li>
+            <li><a href="/programs" data-i18n="nav.programs">Programs</a></li>
+            <li><a href="/events" data-i18n="nav.events">Events</a></li>
             <li><a href="/services" data-i18n="nav.services">Services</a></li>
-            <li><a href="/team" data-i18n="nav.team">Équipe</a></li>
-            <li><a href="/apply" data-i18n="nav.apply">Candidater</a></li>
+            <li><a href="/team" data-i18n="nav.team">Team</a></li>
+            <li><a href="/apply" data-i18n="nav.apply">Apply</a></li>
           <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 data-i18n="footer.programs.title">Programmes</h4>
+          <h4 data-i18n="footer.programs.title">Programs</h4>
           <ul>
-            <li><a href="/programs#informatique" data-i18n="footer.programs.1">Informatique &amp; numérique</a></li>
-            <li><a href="/programs#recherche" data-i18n="footer.programs.2">Recherche &amp; sciences</a></li>
-            <li><a href="/programs#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneuriat</a></li>
-            <li><a href="/programs#developpement" data-i18n="footer.programs.4">Développement personnel</a></li>
+            <li><a href="/programs#informatique" data-i18n="footer.programs.1">IT & digital</a></li>
+            <li><a href="/programs#recherche" data-i18n="footer.programs.2">Research & science</a></li>
+            <li><a href="/programs#entrepreneuriat" data-i18n="footer.programs.3">Entrepreneurship</a></li>
+            <li><a href="/programs#developpement" data-i18n="footer.programs.4">Personal development</a></li>
           </ul>
         </div>
 
@@ -432,14 +406,14 @@
           <ul>
             <li><a href="mailto:contact@talentuousminds.org">contact@talentuousminds.org</a></li>
             <li><a href="https://web.facebook.com/talentuousMinds/" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="/legal" data-i18n="footer.legal">Mentions légales</a></li>
+            <li><a href="/legal" data-i18n="footer.legal">Legal notice</a></li>
           </ul>
         </div>
       </div>
 
       <div class="site-footer__bottom">
-        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">Tous droits réservés.</span></span>
-        <a href="#main" data-i18n="footer.back">Retour en haut</a>
+        <span>© <span data-current-year>2026</span> Talentuous Minds Fellowship. <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <a href="#main" data-i18n="footer.back">Back to top</a>
       </div>
     </div>
   </footer>
