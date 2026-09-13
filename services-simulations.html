@@ -405,6 +405,13 @@
             Votre logiciel de messagerie devrait s'ouvrir avec votre demande pré-remplie.
             Nous vous répondrons avec un devis adapté.
           </p>
+          <p data-reference-wrap style="display: none;">
+            <strong data-i18n="sim.success.ref">Votre référence</strong> :
+            <code data-reference style="font-size: 1.05em;">—</code>
+          </p>
+          <p class="form__note" data-i18n="sim.success.note">
+            Conservez cette référence pour tout échange ultérieur.
+          </p>
           <div class="btn-row" style="justify-content: center; margin-top: 1rem;">
             <a class="btn btn--primary" href="/contact" data-i18n="nav.contact">Contact</a>
           </div>
@@ -567,22 +574,48 @@
 
   <!-- ==========================================================================
        Logique du formulaire de devis
+       ==========================================================================
+       Deux modes d'envoi :
+
+       1. APPS SCRIPT (recommandé) — si APPS_SCRIPT_URL est renseigné, la demande
+          est enregistrée dans une Google Sheet et une notification est envoyée.
+          Voir apps-script/Code.gs et apps-script/README.md.
+
+       2. REPLI MAILTO — si APPS_SCRIPT_URL est vide, le formulaire ouvre le
+          logiciel de messagerie du visiteur (aucun stockage).
        ========================================================================== -->
   <script>
     (function () {
       "use strict";
 
+      /* ----------------------------------------------------------------------
+         CONFIGURATION
+         Coller ici l'URL de l'application Web Apps Script.
+         Laisser vide pour utiliser le repli mailto.
+         ---------------------------------------------------------------------- */
+      var APPS_SCRIPT_URL = "";
+
+      /* Jeton partagé — doit correspondre à SHARED_TOKEN dans Code.gs */
+      var SHARED_TOKEN = "tm-2026-devis";
+
+      var CONTACT_EMAIL = "contact@talentuousminds.org";
+
       var form = document.getElementById("quote-form");
       if (!form) return;
 
       var success = document.getElementById("quote-success");
-      var CONTACT_EMAIL = "contact@talentuousminds.org";
+      var submitBtn = form.querySelector('button[type="submit"]');
 
+      /* ----------------------------------------------------------------------
+         Lecture des champs
+         ---------------------------------------------------------------------- */
       function value(id) {
         var el = document.getElementById(id);
         if (!el) return "";
         if (el.tagName === "SELECT") {
-          return el.options[el.selectedIndex] ? el.options[el.selectedIndex].textContent.trim() : "";
+          return el.options[el.selectedIndex]
+            ? el.options[el.selectedIndex].textContent.trim()
+            : "";
         }
         return el.value.trim();
       }
@@ -596,10 +629,14 @@
           });
       }
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+      function isEnglish() {
+        return document.documentElement.lang === "en";
+      }
 
-        /* Validation */
+      /* ----------------------------------------------------------------------
+         Validation
+         ---------------------------------------------------------------------- */
+      function validate() {
         var required = [
           document.getElementById("q-name"),
           document.getElementById("q-email"),
@@ -620,57 +657,153 @@
 
         if (!valid) {
           window.alert(
-            document.documentElement.lang === "en"
+            isEnglish()
               ? "Please fill in all required fields marked with * and accept the data use terms."
               : "Merci de remplir tous les champs obligatoires marqués d'un * et d'accepter l'utilisation des données."
           );
-          return;
+        }
+        return valid;
+      }
+
+      /* ----------------------------------------------------------------------
+         Collecte des données
+         ---------------------------------------------------------------------- */
+      function collect() {
+        return {
+          token: SHARED_TOKEN,
+          name: value("q-name"),
+          email: value("q-email"),
+          organization: value("q-org"),
+          status: value("q-status"),
+          services: selectedServices().join(" · "),
+          target: value("q-target"),
+          pdb: value("q-pdb"),
+          count: value("q-count"),
+          deadline: value("q-deadline"),
+          description: value("q-desc"),
+          availableData: value("q-data"),
+          lang: document.documentElement.lang || "fr"
+        };
+      }
+
+      /* ----------------------------------------------------------------------
+         Affichage de la confirmation
+         ---------------------------------------------------------------------- */
+      function showSuccess(reference) {
+        form.style.display = "none";
+
+        if (reference && success) {
+          var refNode = success.querySelector("[data-reference]");
+          if (refNode) {
+            refNode.textContent = reference;
+            var wrap = success.querySelector("[data-reference-wrap]");
+            if (wrap) wrap.style.display = "block";
+          }
         }
 
-        var services = selectedServices();
-        var isEn = document.documentElement.lang === "en";
+        if (success) {
+          success.classList.add("is-visible");
+          success.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
 
+      /* ----------------------------------------------------------------------
+         Envoi vers Apps Script
+         ---------------------------------------------------------------------- */
+      function sendToAppsScript(data) {
+        /* Content-Type text/plain évite une requête préalable (preflight CORS)
+           qu'Apps Script ne gère pas. Le corps reste du JSON valide. */
+        return fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(data)
+        });
+      }
+
+      /* ----------------------------------------------------------------------
+         Repli mailto
+         ---------------------------------------------------------------------- */
+      function sendByMailto(data) {
         var body = [
           "DEMANDE DE DEVIS — Talentuous Minds Fellowship",
           "==============================================",
           "",
           "-- Contact --",
-          (isEn ? "Name    : " : "Nom     : ") + value("q-name"),
-          (isEn ? "Email   : " : "E-mail  : ") + value("q-email"),
-          (isEn ? "Org.    : " : "Organisme : ") + (value("q-org") || "—"),
-          (isEn ? "Status  : " : "Statut  : ") + value("q-status"),
+          "Nom        : " + data.name,
+          "E-mail     : " + data.email,
+          "Organisme  : " + (data.organization || "—"),
+          "Statut     : " + (data.status || "—"),
           "",
-          "-- Services requested --",
-          services.length ? services.join("\n") : "(none selected)",
+          "-- Prestations demandées --",
+          data.services || "(aucune sélectionnée)",
           "",
-          "-- Project details --",
-          (isEn ? "Target  : " : "Cible   : ") + (value("q-target") || "—"),
-          (isEn ? "PDB code: " : "Code PDB: ") + (value("q-pdb") || "—"),
-          (isEn ? "Molecules: " : "Molécules: ") + value("q-count"),
-          (isEn ? "Deadline: " : "Délai   : ") + value("q-deadline"),
+          "-- Détails du projet --",
+          "Cible      : " + (data.target || "—"),
+          "Code PDB   : " + (data.pdb || "—"),
+          "Molécules  : " + (data.count || "—"),
+          "Délai      : " + (data.deadline || "—"),
           "",
           "-- Description --",
-          value("q-desc"),
+          data.description,
           "",
-          "-- Available data --",
-          value("q-data") || "—"
+          "-- Données disponibles --",
+          data.availableData || "—"
         ].join("\n");
 
-        var subject = (isEn ? "Quote request — " : "Demande de devis — ")
-                    + value("q-name")
-                    + (value("q-org") ? " (" + value("q-org") + ")" : "");
+        var subject = (isEnglish() ? "Quote request — " : "Demande de devis — ")
+                    + data.name
+                    + (data.organization ? " (" + data.organization + ")" : "");
 
         window.location.href = "mailto:" + CONTACT_EMAIL
           + "?subject=" + encodeURIComponent(subject)
           + "&body=" + encodeURIComponent(body);
+      }
 
-        form.style.display = "none";
-        if (success) {
-          success.classList.add("is-visible");
-          success.scrollIntoView({ behavior: "smooth", block: "center" });
+      /* ----------------------------------------------------------------------
+         Soumission
+         ---------------------------------------------------------------------- */
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!validate()) return;
+
+        var data = collect();
+
+        /* --- Mode 1 : Apps Script configuré --- */
+        if (APPS_SCRIPT_URL) {
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = isEnglish() ? "Sending…" : "Envoi en cours…";
+          }
+
+          /* Référence locale indicative : la référence définitive est générée
+             côté serveur et visible dans la Sheet. */
+          var localRef = "TM-" + new Date().toISOString().slice(0, 10).replace(/-/g, "");
+
+          sendToAppsScript(data)
+            .then(function () {
+              showSuccess(localRef);
+            })
+            .catch(function (error) {
+              console.error("Échec de l'envoi :", error);
+              window.alert(
+                isEnglish()
+                  ? "Sending failed. Your email client will open instead."
+                  : "L'envoi a échoué. Votre logiciel de messagerie va s'ouvrir à la place."
+              );
+              sendByMailto(data);
+            });
+
+          return;
         }
+
+        /* --- Mode 2 : repli mailto --- */
+        sendByMailto(data);
+        showSuccess(null);
       });
 
+      /* Réinitialiser les bordures d'erreur à la saisie */
       form.addEventListener("input", function (event) {
         if (event.target.style) event.target.style.borderColor = "";
       });
